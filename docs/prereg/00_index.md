@@ -20,3 +20,17 @@
 | – | Cross-league design (NBA/WNBA/NCAA) | [10_cross_league.md](10_cross_league.md) | – |
 
 Background: [../research/nba_sequence_modeling.md](../research/nba_sequence_modeling.md) (first research report).
+
+## After the freeze (not part of the frozen pre-registration)
+
+| File | Purpose |
+|---|---|
+| [../onboarding/00_onboarding_protocol.md](../onboarding/00_onboarding_protocol.md) | integrity verification report (2026-09-27: INTACT); exposure classes; data-contract mismatch rules; amendment procedure |
+| `registry/archive/prereg-v1/` | verbatim original of all 25 frozen files (from the freeze commit's git objects) |
+| `registry/FREEZE_SUPPLEMENT.json` | pre-data hashes of every other committed file (tier 2), incl. 15 decision-bearing files |
+| `registry/EXPOSURE_LOG.md` | ledger of every contact with real data |
+| `registry/DATA_CONTRACT_MISMATCHES.md` | contract vs corpus differences and their consequence class |
+| `registry/POSTFREEZE_CHANGELOG.md` | every change to a tier-2 file |
+| `registry/AMENDMENTS.md` | amendments to frozen files (none) |
+
+Run `python -m hoopslab.registry verify` to check all of the above.
