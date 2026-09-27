@@ -1,0 +1,407 @@
+[
+  {
+    "check": "history_ablation",
+    "scenario": "A_no_history",
+    "expected": "NO_HISTORY_SIGNAL",
+    "diagnosis": "NO_HISTORY_SIGNAL",
+    "passed": true,
+    "millibits": {
+      "history_signal": -0.055,
+      "latent_signal": 0.019,
+      "history_residual": -0.331,
+      "gain_B": 0.075
+    },
+    "ci_millibits": {
+      "history_signal": [
+        -0.452,
+        0.381
+      ],
+      "latent_signal": [
+        -0.072,
+        0.102
+      ],
+      "history_residual": [
+        -0.742,
+        0.058
+      ]
+    },
+    "n_test_events": 37249,
+    "seconds": 71.5
+  },
+  {
+    "check": "history_ablation",
+    "scenario": "B_true_history",
+    "expected": "GENUINE_HISTORY",
+    "diagnosis": "GENUINE_HISTORY",
+    "passed": true,
+    "millibits": {
+      "history_signal": 6.468,
+      "latent_signal": 0.102,
+      "history_residual": 5.675,
+      "gain_B": 6.566
+    },
+    "ci_millibits": {
+      "history_signal": [
+        5.147,
+        7.903
+      ],
+      "latent_signal": [
+        -0.069,
+        0.272
+      ],
+      "history_residual": [
+        4.255,
+        6.987
+      ]
+    },
+    "n_test_events": 36962,
+    "seconds": 67.7
+  },
+  {
+    "check": "history_ablation",
+    "scenario": "C_latent_momentum",
+    "expected": "APPARENT_HISTORY_EXPLAINED_BY_LATENT",
+    "diagnosis": "APPARENT_HISTORY_EXPLAINED_BY_LATENT",
+    "passed": true,
+    "millibits": {
+      "history_signal": 6.48,
+      "latent_signal": 21.082,
+      "history_residual": -0.76,
+      "gain_B": 0.384
+    },
+    "ci_millibits": {
+      "history_signal": [
+        4.079,
+        9.111
+      ],
+      "latent_signal": [
+        16.081,
+        25.797
+      ],
+      "history_residual": [
+        -1.097,
+        -0.389
+      ]
+    },
+    "n_test_events": 37451,
+    "seconds": 67.7
+  },
+  {
+    "check": "usable_information_vs_plugin",
+    "scenario": "A_no_history",
+    "expected": "PLUGIN_FAKE_GAIN; HELDOUT_NONE_FOR_NOISE; HELDOUT_POSITIVE_FOR_START_TYPE; PLACEBO_NONE",
+    "diagnosis": "PLUGIN_FAKE_GAIN; HELDOUT_NONE_FOR_NOISE; HELDOUT_POSITIVE_FOR_START_TYPE; PLACEBO_NONE",
+    "passed": true,
+    "plugin_fake_gain_bits": 0.2775,
+    "heldout_noise_millibits": [
+      -0.396,
+      -0.81,
+      0.001
+    ],
+    "heldout_start_millibits": [
+      1.99,
+      1.292,
+      2.663
+    ],
+    "placebo_millibits": [
+      -0.599,
+      -0.838,
+      -0.382
+    ],
+    "seconds": 6.0
+  },
+  {
+    "check": "compression_equals_logloss",
+    "scenario": "A_no_history",
+    "expected": "LOSSLESS; CODE_LENGTH~=LOGLOSS; ORDER_PRESERVED",
+    "diagnosis": "LOSSLESS; CODE_LENGTH~=LOGLOSS; ORDER_PRESERVED",
+    "passed": true,
+    "intercept": {
+      "code_bits": 15423,
+      "ideal_bits": 15422.0,
+      "logloss_bits": 15422.0,
+      "lossless": true
+    },
+    "state": {
+      "code_bits": 15411,
+      "ideal_bits": 15410.2,
+      "logloss_bits": 15410.1,
+      "lossless": true
+    },
+    "seconds": 11.5
+  },
+  {
+    "check": "stratified_role_change",
+    "scenario": "D_role_change",
+    "expected": "ADVANTAGE_LOCALISED_IN_STRATUM; DETECTED",
+    "diagnosis": "ADVANTAGE_LOCALISED_IN_STRATUM; DETECTED",
+    "passed": true,
+    "interaction": {
+      "effect": 0.2631701434504701,
+      "ci_low": 0.19061921885190158,
+      "ci_high": 0.3372701975537661,
+      "p_value": 0.000999000999000999,
+      "n_in": 241,
+      "n_out": 3034,
+      "skill_in": 0.25639999929585633,
+      "skill_out": -0.006770144154613744
+    },
+    "detection_rate": 1.0,
+    "false_alarm_rate": 0.011235955056179775,
+    "seconds": 16.0
+  },
+  {
+    "check": "stratified_teammate_star_out",
+    "scenario": "E_star_absence",
+    "expected": "ADVANTAGE_LOCALISED_IN_STRATUM",
+    "diagnosis": "ADVANTAGE_LOCALISED_IN_STRATUM",
+    "passed": true,
+    "interaction": {
+      "PTS": {
+        "effect": 0.12342864896612682,
+        "ci_low": 0.10266983734241363,
+        "ci_high": 0.14839009757332114,
+        "p_value": 0.000999000999000999,
+        "n_in": 814,
+        "n_out": 1970,
+        "skill_in": 0.18541224980312487,
+        "skill_out": 0.061983600836998165
+      },
+      "MIN": {
+        "effect": 0.235857463815483,
+        "ci_low": 0.141119924868996,
+        "ci_high": 0.3192475383284714,
+        "p_value": 0.000999000999000999,
+        "n_in": 814,
+        "n_out": 1970,
+        "skill_in": 0.7486667536430177,
+        "skill_out": 0.5128092898275349
+      }
+    },
+    "n_in_stratum": 814,
+    "n_worlds": 1,
+    "seconds": 34.5
+  },
+  {
+    "check": "stratified_own_move_21d",
+    "scenario": "F_trade",
+    "expected": "ADVANTAGE_LOCALISED_IN_STRATUM",
+    "diagnosis": "ADVANTAGE_LOCALISED_IN_STRATUM",
+    "passed": true,
+    "interaction": {
+      "PTS": {
+        "effect": 0.09151399864616294,
+        "ci_low": 0.021773200166416123,
+        "ci_high": 0.14933011996984463,
+        "p_value": 0.003996003996003996,
+        "n_in": 336,
+        "n_out": 4848,
+        "skill_in": 0.1787701627683621,
+        "skill_out": 0.0872561641221995
+      },
+      "MIN": {
+        "effect": 0.3630167519563354,
+        "ci_low": 0.26904577262810875,
+        "ci_high": 0.4450916554721992,
+        "p_value": 0.000999000999000999,
+        "n_in": 336,
+        "n_out": 4848,
+        "skill_in": 0.8331340716956595,
+        "skill_out": 0.47011731973932414
+      }
+    },
+    "n_in_stratum": 336,
+    "n_worlds": 2,
+    "seconds": 66.2
+  },
+  {
+    "check": "parameter_uncertainty",
+    "scenario": "G_param_uncertainty",
+    "expected": "PLUGIN_OVERCONFIDENT_IN_LOW_SAMPLE_STRATUM",
+    "diagnosis": "PLUGIN_OVERCONFIDENT_IN_LOW_SAMPLE_STRATUM",
+    "passed": true,
+    "models": {
+      "L4_hier_shrink": {
+        "coverage80_low_sample": 0.7824,
+        "dispersion_low_sample": 1.053,
+        "coverage80_rest": 0.824,
+        "n_low": 1700
+      },
+      "L4_hier_shrink_plugin": {
+        "coverage80_low_sample": 0.7653,
+        "dispersion_low_sample": 1.082,
+        "coverage80_rest": 0.817,
+        "n_low": 1700
+      }
+    },
+    "plugin_cov80_ci_high": 0.7810277130608276,
+    "seconds": 12.8
+  },
+  {
+    "check": "tails_game_latent",
+    "scenario": "H_tail_latent",
+    "expected": "EVENT_OK_AGGREGATE_UNDERDISPERSED_WITHOUT_LATENT",
+    "diagnosis": "EVENT_OK_AGGREGATE_UNDERDISPERSED_WITHOUT_LATENT",
+    "passed": true,
+    "event_latent_millibits": 9.599,
+    "team_pts_realism": {
+      "L10_sim": {
+        "n": 144,
+        "coverage80": 0.5555555555555556,
+        "dispersion": 1.5532755045821967,
+        "mean_pit": 0.457823007710778,
+        "passed": false
+      },
+      "L11_sim_latent": {
+        "n": 144,
+        "coverage80": 0.8125,
+        "dispersion": 0.9697421308195817,
+        "mean_pit": 0.47603772034101843,
+        "passed": true
+      }
+    },
+    "player_pts_coverage90": {
+      "L10_sim": 0.8673,
+      "L11_sim_latent": 0.8944
+    },
+    "seconds": 126.8
+  },
+  {
+    "check": "joint_and_realism",
+    "scenario": "A_no_history",
+    "expected": "JOINT_BEATS_INDEPENDENT_WITH_IDENTICAL_MARGINALS; REALISM_GATES_DISCRIMINATE",
+    "diagnosis": "JOINT_BEATS_INDEPENDENT_WITH_IDENTICAL_MARGINALS; REALISM_GATES_DISCRIMINATE",
+    "passed": true,
+    "max_marginal_crps_diff": 0.0,
+    "team_vector": {
+      "MIN": {
+        "variogram_skill": -0.0215,
+        "ci": [
+          -0.1221,
+          0.0762
+        ],
+        "energy_skill": 0.112,
+        "energy_ci": [
+          0.0865,
+          0.1418
+        ]
+      },
+      "PTS": {
+        "variogram_skill": -0.0007,
+        "ci": [
+          -0.0021,
+          0.0007
+        ],
+        "energy_skill": 0.0002,
+        "energy_ci": [
+          -0.0007,
+          0.0011
+        ]
+      }
+    },
+    "pra_dispersion": {
+      "joint": 1.015,
+      "independent": 1.015
+    },
+    "pair_tau": [
+      {
+        "pair": "teammates:MIN~MIN",
+        "n": 288,
+        "tau_pred": 0.514,
+        "tau_real": 0.479
+      },
+      {
+        "pair": "same_player:MIN~PTS",
+        "n": 3066,
+        "tau_pred": 0.09,
+        "tau_real": 0.114
+      },
+      {
+        "pair": "same_player:PTS~AST",
+        "n": 3061,
+        "tau_pred": -0.023,
+        "tau_real": -0.023
+      },
+      {
+        "pair": "teammates:PTS~PTS",
+        "n": 288,
+        "tau_pred": -0.052,
+        "tau_real": -0.049
+      }
+    ],
+    "pair_tau_independent": [
+      {
+        "pair": "teammates:MIN~MIN",
+        "n": 288,
+        "tau_pred": -0.003,
+        "tau_real": 0.523
+      },
+      {
+        "pair": "same_player:MIN~PTS",
+        "n": 3066,
+        "tau_pred": -0.0,
+        "tau_real": 0.111
+      }
+    ],
+    "blowout_minutes": {
+      "corr_pred_mean": -0.7472749372696734,
+      "corr_real": -0.6995959751388883,
+      "n": 288
+    },
+    "realism": {
+      "L10_sim": [
+        {
+          "summary": "home_pts",
+          "n": 144,
+          "coverage80": 0.75,
+          "dispersion": 1.102,
+          "mean_pit": 0.459,
+          "passed": true
+        },
+        {
+          "summary": "total_points",
+          "n": 144,
+          "coverage80": 0.812,
+          "dispersion": 0.927,
+          "mean_pit": 0.481,
+          "passed": true
+        },
+        {
+          "summary": "margin",
+          "n": 144,
+          "coverage80": 0.736,
+          "dispersion": 1.146,
+          "mean_pit": 0.45,
+          "passed": true
+        }
+      ],
+      "L10_sim_misspecified": [
+        {
+          "summary": "home_pts",
+          "n": 144,
+          "coverage80": 0.528,
+          "dispersion": 0.653,
+          "mean_pit": 0.215,
+          "passed": false
+        },
+        {
+          "summary": "total_points",
+          "n": 144,
+          "coverage80": 0.438,
+          "dispersion": 0.391,
+          "mean_pit": 0.148,
+          "passed": false
+        },
+        {
+          "summary": "margin",
+          "n": 144,
+          "coverage80": 0.757,
+          "dispersion": 1.135,
+          "mean_pit": 0.444,
+          "passed": true
+        }
+      ]
+    },
+    "seconds": 101.1
+  }
+]
