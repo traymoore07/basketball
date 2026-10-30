@@ -34,3 +34,5 @@ Background: [../research/nba_sequence_modeling.md](../research/nba_sequence_mode
 | `registry/AMENDMENTS.md` | amendments to frozen files (none) |
 
 Run `python -m hoopslab.registry verify` to check all of the above.
+
+- Onboarding (post-freeze, not part of the pre-registration): [`docs/onboarding/01_corpus_compatibility_audit.md`](../onboarding/01_corpus_compatibility_audit.md) — corpus v1.0.2 compatibility audit, executability of every frozen experiment, adapter `hoopslab.adapters.corpus_v102`.

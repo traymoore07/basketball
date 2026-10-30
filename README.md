@@ -2,7 +2,7 @@
 
 A pre-registered scientific framework for **probabilistic** forecasting of basketball player statistics and game outcomes across the NBA, WNBA, and NCAA. The aim is calibrated distributions, not point estimates.
 
-**Current status: methodology frozen (freeze commit `843caaa`, manifest `ccb06502…`); integrity re-verified 2026-09-27; no real data seen; no model fitted.** See [`docs/onboarding/00_onboarding_protocol.md`](docs/onboarding/00_onboarding_protocol.md) for how the frozen plan meets the real corpus (exposure ledger, data-contract mismatches, amendment rules).
+**Current status: methodology frozen (freeze commit `843caaa`, manifest `ccb06502…`); integrity re-verified 2026-10-29 on the real corpus; onboarding (P0) complete against BASKETBALL_CORPUS_v1.0.2 with structural/data-quality exposure only (S1/S2); read-only adapter in place; no model fitted.** See [`docs/onboarding/01_corpus_compatibility_audit.md`](docs/onboarding/01_corpus_compatibility_audit.md) for what can run. See [`docs/onboarding/00_onboarding_protocol.md`](docs/onboarding/00_onboarding_protocol.md) for how the frozen plan meets the real corpus (exposure ledger, data-contract mismatches, amendment rules).
 
 | Start here | |
 |---|---|

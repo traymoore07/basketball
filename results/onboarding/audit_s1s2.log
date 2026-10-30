@@ -1,0 +1,16 @@
+  null shares: games             197 partitions       0s
+  null shares: player_game_box   133 partitions       0s
+  null shares: team_game_box     132 partitions       0s
+  null shares: play_by_play      157 partitions       7s
+  null shares: possessions       157 partitions       9s
+  null shares: substitutions     120 partitions       9s
+  null shares: shots             139 partitions      10s
+  null shares: rosters           194 partitions      10s
+  key uniqueness: games            dup=0      10s
+  key uniqueness: player_game_box  dup=180,928      11s
+  key uniqueness: team_game_box    dup=5,651      11s
+  key uniqueness: play_by_play     dup=0      47s
+  key uniqueness: possessions      dup=10,893      61s
+  S2 checks done      63s
+done in 65s -> C:\Users\Tray\Documents\Claude\basketball\experiments\onboarding\..\..\results\onboarding
+EXIT 0

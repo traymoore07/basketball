@@ -1,0 +1,17 @@
+{
+ "attested_at_utc": "2026-10-30T03:05:33+00:00",
+ "corpus_package": "BASKETBALL_CORPUS_v1.0.2/researcher_isolated",
+ "corpus_built_at_utc": "2026-10-10 19:25:57",
+ "corpus_release_manifest": "release/BASKETBALL_CORPUS_v1.0.2/MANIFEST.sha256 (9,317 files; verified OK 2026-10-10)",
+ "exposure_at_attestation": "S1/S2 only (EXPOSURE_LOG rows 1-6); no O-dev",
+ "files": {
+  "src/hoopslab/adapters/corpus_v102.py": "6140402af41f916adc2f05775c9478a6bf774744fc5ce71c890bf0be624983a8",
+  "tests/test_corpus_adapter.py": "252f9698bfa15bf63b03a9ab2dbab4d092cd9db546ef1d7b0b946afaba6dd986",
+  "experiments/onboarding/audit_corpus_s1s2.py": "aa7ad76c6ec4251a2c06b999e15579e5c4782b7366aef6df639233249cae6bb3",
+  "experiments/onboarding/power_inventory.py": "0c6a01e21c50d9bdc216f0fffca399ccd7ef400eacf24f1510d2bc1b5aa18ca9",
+  "experiments/onboarding/smoke_adapter.py": "85c11df23941b09f48f2fcfc44f428b84bdc68a6d5660b6a9fe600f57565d21b",
+  "docs/onboarding/01_corpus_compatibility_audit.md": "038e869ed2219034493a6b2ac7520e9772feb739a418eb0d5f43123cbd59fbb6",
+  "registry/DATA_CONTRACT_MISMATCHES.md": "41e79ed0648dc07e69b18954a60656e616ad0d83d47840c217e3f65562600219"
+ },
+ "note": "The adapter is tier-3 (post-freeze engineering). Any later edit must be logged in POSTFREEZE_CHANGELOG.md and re-attested here; the frozen pre-registration (tiers 1-2) is unaffected."
+}
