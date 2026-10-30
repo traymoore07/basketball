@@ -1,0 +1,127 @@
+{
+ "at_utc": "2026-10-30T05:18:41+00:00",
+ "checks": {
+  "1_registry_verify": {
+   "output": "tier-2 file changed without changelog entry: .gitignore",
+   "passed": false
+  },
+  "1b_registry_tests": {
+   "output": "2 failed, 4 passed in 0.19s",
+   "passed": false
+  },
+  "2_adapter_attestation": {
+   "attested_at": "2026-10-30T05:09:23+00:00",
+   "adapter_sha256": "8fbca2812e789faab7f082f5b653278910de5f7f000a9c6d6d3a57fc5b2c7d64",
+   "mismatches": {
+    "docs/onboarding/01_corpus_compatibility_audit.md": [
+     "038e869ed2219034493a6b2ac7520e9772feb739a418eb0d5f43123cbd59fbb6",
+     "807d557914556284460f9736f9a16ba312f50c426767451da7d2fed37b83934d"
+    ]
+   },
+   "passed": false
+  },
+  "3_corpus_version": {
+   "db_path": "C:\\Users\\Tray\\Documents\\LLM AI Models\\Kimi\\bball_corpus\\release\\BASKETBALL_CORPUS_v1.0.2\\researcher_isolated\\researcher_isolated_v1.0.2.duckdb",
+   "db_bytes": 2456039424,
+   "db_sha256": "ca30422bbbea9f247b4577dc1f8c3ab98e0c3e804db6ff83fad9b74e138ba5be",
+   "meta": {
+    "package": "BASKETBALL_CORPUS_v1.0.2/researcher_isolated",
+    "built_at_utc": "2026-10-10 19:25:57.325866",
+    "layer": "SILVER ONLY: pre-game/identity/metadata tables materialised in this database; the large in-game streams stored as package-local Parquet and exposed as views over them. No external files are referenced.",
+    "holdout_rule": "season >= 2023 (season = END year of the season)",
+    "holdout_handling": "PHYSICAL EXCLUSION: no holdout in-game row exists in this file",
+    "sealed_dir": "NOT PRESENT and NOT REFERENCED",
+    "consequence": "in-holdout rolling form is NOT computable from this package; holdout game results do not exist here"
+   },
+   "passed": true
+  },
+  "4_split_definitions": {
+   "package_rules": [
+    {
+     "split": "RESEARCH",
+     "rule": "season <= 2019",
+     "contents": "complete: every table, every column"
+    },
+    {
+     "split": "VALIDATION",
+     "rule": "2020 <= season <= 2022",
+     "contents": "complete: every table, every column"
+    },
+    {
+     "split": "SEALED_HOLDOUT",
+     "rule": "season >= 2023",
+     "contents": "pre-game artifacts only: schedule rows (score/winner columns not copied), teams, players, season-grained rosters, rule eras, identity and field metadata; NO in-game stream of any kind"
+    }
+   ],
+   "adapter_holdout_from_season": 2023,
+   "hoopslab_windows": {
+    "rule": "docs/prereg/07 section 2: Level-A seasons s1..sN; burn-in s1..s3 never scored; development s4..s(N-2); lockbox s(N-1), sN sealed",
+    "level_a_seasons": "1997-2022 (26, nba_stats; all pass the 95% minutes-coverage rule)",
+    "burn_in": [
+     1997,
+     1998,
+     1999
+    ],
+    "development": [
+     2000,
+     2020
+    ],
+    "lockbox": [
+     2021,
+     2022
+    ],
+    "corpus_external_holdout": ">= 2023 (physically absent from the package)"
+   },
+   "passed": true
+  },
+  "5_holdout_sealed": {
+   "rows_season_ge_2023": {
+    "player_game_box": 0,
+    "team_game_box": 0,
+    "play_by_play": 0,
+    "possessions": 0,
+    "shots": 0,
+    "substitutions": 0,
+    "lineups": 0
+   },
+   "passed": true
+  },
+  "7_experiments_exposed": {
+   "experiments": [
+    "E-LADDER rungs L0, L1, L2 (half-life grid 5/10/20/40), L3, L4, L4-plugin"
+   ],
+   "league": "NBA (nba_stats)",
+   "window": "development 2000-2020 (+ burn-in 1998-1999 forecast for L2 half-life selection only)",
+   "modes": [
+    "U",
+    "A"
+   ],
+   "targets": [
+    "MIN",
+    "PTS",
+    "REB",
+    "AST",
+    "FG3M",
+    "TOV",
+    "PRA"
+   ]
+  },
+  "8_reproducibility": {
+   "git_head": "7068a72ca2f7099153dbae9527226715a64d249e",
+   "git_status_short": "",
+   "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "duckdb": "1.5.5",
+   "pandas": "3.0.6",
+   "numpy": "2.5.3",
+   "scipy": "1.18.1",
+   "config_sha256": "3f5378cc0261dfeb24e32b6ffc1a2358c353896cb7b4607ef3c9324721c6e5aa",
+   "models_py_sha256": "63c3ce1f014a0ac679f3720c8104fc7efaed008950d0c7e53b8c76cef53654b3",
+   "run_season_py_sha256": "33b1b1f5af098cf41a2bf55b03dadafdd9df1369dc21b19f570e5233f9fa6894"
+  },
+  "9_no_unlogged_change": {
+   "passed": false
+  }
+ },
+ "all_passed": false
+}
