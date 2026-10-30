@@ -10,3 +10,5 @@ results/p1_ladder/requests_*.parquet
 results/p1_ladder/strata_*.parquet
 results/p1_ladder/stdout_*.txt
 results/p1_ladder/log_*.txt
+results/p1_ladder_run1_chunkbug/*
+!results/p1_ladder_run1_chunkbug/README.md
