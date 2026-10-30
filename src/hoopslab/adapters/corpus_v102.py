@@ -418,7 +418,7 @@ class CorpusV102Adapter(DataAdapter):
         obs["tip"] = obs["game_id"].map(tip)
         # every game each team played, in order (from the appearances themselves)
         team_games = obs.drop_duplicates(["team_id", "game_id"])[["team_id", "game_id", "tip"]].sort_values(["team_id", "tip"], kind="stable")
-        team_sched = {t: g["tip"].dt.tz_convert("UTC").astype("int64").to_numpy()
+        team_sched = {t: g["tip"].dt.tz_convert("UTC").dt.as_unit("ns").astype("int64").to_numpy()
                       for t, g in team_games.groupby("team_id", sort=False)}
         obs = obs.sort_values(["player_id", "tip"], kind="stable")
         rows = []

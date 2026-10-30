@@ -4,3 +4,9 @@ __pycache__/
 .pytest_cache/
 build/
 dist/
+results/p1_ladder/forecasts_*.npz
+results/p1_ladder/scores_*_part*.parquet
+results/p1_ladder/requests_*.parquet
+results/p1_ladder/strata_*.parquet
+results/p1_ladder/stdout_*.txt
+results/p1_ladder/log_*.txt

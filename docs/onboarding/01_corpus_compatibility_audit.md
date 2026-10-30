@@ -329,3 +329,8 @@ KNOWN V1.0 DEFECT HANDLING:
   reads event_family only as the transcribed shot outcome; the master release was not touched.
 READY TO BEGIN BASELINE RESEARCH: YES   (P1: L0-L4 on NBA nba_stats first; no model fitted yet)
 ```
+
+
+## Erratum (2026-10-30, before P1 outcomes)
+
+The adapter's roster gap-close rule did not fire at the time of this audit (changelog C9: an integer time-unit mismatch). Roster spells therefore stayed open until a transfer, and the T6 share of non-appearing players quoted in §3 and §12 (24-53 %) was inflated by stale spells. After the fix a team's as-of request population is about 16 players (nba_stats, 2019); T6 still passes. No outcome had been computed when the bug was found; the adapter tests pass and the attestation was refreshed.
