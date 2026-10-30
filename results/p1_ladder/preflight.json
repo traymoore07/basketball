@@ -1,19 +1,24 @@
 {
- "at_utc": "2026-10-30T05:19:08+00:00",
+ "at_utc": "2026-10-30T14:00:53+00:00",
  "checks": {
   "1_registry_verify": {
    "output": "PRE-REGISTRATION INTACT (tier 1, tier 2, archive, logs)",
    "passed": true
   },
   "1b_registry_tests": {
-   "output": "6 passed in 0.13s",
+   "output": "6 passed in 0.25s",
    "passed": true
   },
   "2_adapter_attestation": {
    "attested_at": "2026-10-30T05:09:23+00:00",
    "adapter_sha256": "8fbca2812e789faab7f082f5b653278910de5f7f000a9c6d6d3a57fc5b2c7d64",
-   "mismatches": {},
-   "passed": true
+   "mismatches": {
+    "registry/DATA_CONTRACT_MISMATCHES.md": [
+     "41e79ed0648dc07e69b18954a60656e616ad0d83d47840c217e3f65562600219",
+     "a4fb064dd73f5849e34f4a1670973ca02fb6209d88050a028478a7ab2866b268"
+    ]
+   },
+   "passed": false
   },
   "3_corpus_version": {
    "db_path": "C:\\Users\\Tray\\Documents\\LLM AI Models\\Kimi\\bball_corpus\\release\\BASKETBALL_CORPUS_v1.0.2\\researcher_isolated\\researcher_isolated_v1.0.2.duckdb",
@@ -102,7 +107,7 @@
    ]
   },
   "8_reproducibility": {
-   "git_head": "af423123adc9cc1b266bc3249b275ac9be2f02f2",
+   "git_head": "63d813aee27d485f17bfe16062c7c09cd61e942f",
    "git_status_short": "",
    "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
    "platform": "Windows-11-10.0.26200-SP0",
@@ -112,11 +117,11 @@
    "scipy": "1.18.1",
    "config_sha256": "3f5378cc0261dfeb24e32b6ffc1a2358c353896cb7b4607ef3c9324721c6e5aa",
    "models_py_sha256": "63c3ce1f014a0ac679f3720c8104fc7efaed008950d0c7e53b8c76cef53654b3",
-   "run_season_py_sha256": "33b1b1f5af098cf41a2bf55b03dadafdd9df1369dc21b19f570e5233f9fa6894"
+   "run_season_py_sha256": "39800ecfa073de8c0008c46796b91a64d4503cd34ace89ed571b86a1735a720a"
   },
   "9_no_unlogged_change": {
    "passed": true
   }
  },
- "all_passed": true
+ "all_passed": false
 }
