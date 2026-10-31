@@ -1,0 +1,20 @@
+{
+ "month": "2003-11",
+ "family": "gbm",
+ "n_train": 528665,
+ "n_test": 42944,
+ "train_from": "2001-11-01",
+ "train_to": "2003-10-31",
+ "n_players_vocab": 547,
+ "n_teams": 30,
+ "converged": {
+  "A": true,
+  "B": true,
+  "C": true,
+  "D": true,
+  "E": true,
+  "F": true,
+  "G": true
+ },
+ "seconds": 630.4
+}

@@ -1,0 +1,7407 @@
+{
+ "key_uniqueness": [
+  {
+   "table": "games",
+   "key": [
+    "league",
+    "source",
+    "source_game_id"
+   ],
+   "rows": 559993,
+   "distinct": 559993,
+   "duplicates": 0
+  },
+  {
+   "table": "player_game_box",
+   "key": [
+    "league",
+    "source",
+    "source_game_id",
+    "player_id"
+   ],
+   "rows": 8469907,
+   "distinct": 8288979,
+   "duplicates": 180928
+  },
+  {
+   "table": "team_game_box",
+   "key": [
+    "league",
+    "source",
+    "source_game_id",
+    "team_id"
+   ],
+   "rows": 708276,
+   "distinct": 702625,
+   "duplicates": 5651
+  },
+  {
+   "table": "play_by_play",
+   "key": [
+    "league",
+    "source",
+    "canonical_game_id",
+    "sequence"
+   ],
+   "rows": 132560874,
+   "distinct": 132560874,
+   "duplicates": 0
+  },
+  {
+   "table": "possessions",
+   "key": [
+    "league",
+    "source",
+    "canonical_game_id",
+    "possession_number"
+   ],
+   "rows": 45927573,
+   "distinct": 45916680,
+   "duplicates": 10893
+  }
+ ],
+ "dnp_share": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2002,
+   "n": 30279,
+   "dnp_flagged": 4861,
+   "zero_minutes": 0,
+   "minutes_null": 5001
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2003,
+   "n": 30870,
+   "dnp_flagged": 4972,
+   "zero_minutes": 0,
+   "minutes_null": 5166
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2004,
+   "n": 30606,
+   "dnp_flagged": 4841,
+   "zero_minutes": 0,
+   "minutes_null": 5059
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2005,
+   "n": 31552,
+   "dnp_flagged": 4771,
+   "zero_minutes": 0,
+   "minutes_null": 4990
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2006,
+   "n": 37691,
+   "dnp_flagged": 4886,
+   "zero_minutes": 0,
+   "minutes_null": 11516
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2007,
+   "n": 38234,
+   "dnp_flagged": 4702,
+   "zero_minutes": 0,
+   "minutes_null": 11842
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2008,
+   "n": 37973,
+   "dnp_flagged": 4861,
+   "zero_minutes": 0,
+   "minutes_null": 11471
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2009,
+   "n": 37453,
+   "dnp_flagged": 299,
+   "zero_minutes": 0,
+   "minutes_null": 11218
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2010,
+   "n": 37079,
+   "dnp_flagged": 299,
+   "zero_minutes": 0,
+   "minutes_null": 10767
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2011,
+   "n": 37717,
+   "dnp_flagged": 328,
+   "zero_minutes": 0,
+   "minutes_null": 11110
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2012,
+   "n": 31014,
+   "dnp_flagged": 439,
+   "zero_minutes": 0,
+   "minutes_null": 8635
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2013,
+   "n": 33448,
+   "dnp_flagged": 5976,
+   "zero_minutes": 0,
+   "minutes_null": 5992
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2014,
+   "n": 33730,
+   "dnp_flagged": 6198,
+   "zero_minutes": 0,
+   "minutes_null": 6212
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2015,
+   "n": 33578,
+   "dnp_flagged": 5899,
+   "zero_minutes": 0,
+   "minutes_null": 5922
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2016,
+   "n": 33715,
+   "dnp_flagged": 5698,
+   "zero_minutes": 0,
+   "minutes_null": 5721
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2017,
+   "n": 33631,
+   "dnp_flagged": 5731,
+   "zero_minutes": 0,
+   "minutes_null": 5754
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2018,
+   "n": 33119,
+   "dnp_flagged": 5256,
+   "zero_minutes": 0,
+   "minutes_null": 5270
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2019,
+   "n": 32985,
+   "dnp_flagged": 5060,
+   "zero_minutes": 0,
+   "minutes_null": 5078
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2020,
+   "n": 28764,
+   "dnp_flagged": 4609,
+   "zero_minutes": 0,
+   "minutes_null": 4609
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2021,
+   "n": 31593,
+   "dnp_flagged": 6517,
+   "zero_minutes": 0,
+   "minutes_null": 6654
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": 2022,
+   "n": 33880,
+   "dnp_flagged": 5806,
+   "zero_minutes": 0,
+   "minutes_null": 5806
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 1997,
+   "n": 43157,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 17985
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 1998,
+   "n": 40457,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 15032
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 1999,
+   "n": 28556,
+   "dnp_flagged": 0,
+   "zero_minutes": 3,
+   "minutes_null": 12294
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2000,
+   "n": 45451,
+   "dnp_flagged": 0,
+   "zero_minutes": 5,
+   "minutes_null": 19679
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2001,
+   "n": 45913,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 20546
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2002,
+   "n": 45723,
+   "dnp_flagged": 0,
+   "zero_minutes": 3,
+   "minutes_null": 20445
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2003,
+   "n": 46346,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 20640
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2004,
+   "n": 31257,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 5709
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2005,
+   "n": 31468,
+   "dnp_flagged": 0,
+   "zero_minutes": 1,
+   "minutes_null": 4865
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2006,
+   "n": 31640,
+   "dnp_flagged": 0,
+   "zero_minutes": 9,
+   "minutes_null": 5003
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2007,
+   "n": 31382,
+   "dnp_flagged": 0,
+   "zero_minutes": 3,
+   "minutes_null": 4734
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2008,
+   "n": 31563,
+   "dnp_flagged": 0,
+   "zero_minutes": 2,
+   "minutes_null": 4912
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2009,
+   "n": 31483,
+   "dnp_flagged": 0,
+   "zero_minutes": 2,
+   "minutes_null": 5113
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2010,
+   "n": 31482,
+   "dnp_flagged": 0,
+   "zero_minutes": 5,
+   "minutes_null": 4995
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2011,
+   "n": 31419,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 4650
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2012,
+   "n": 27638,
+   "dnp_flagged": 0,
+   "zero_minutes": 3,
+   "minutes_null": 5136
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2013,
+   "n": 33551,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 6013
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2014,
+   "n": 33683,
+   "dnp_flagged": 0,
+   "zero_minutes": 8,
+   "minutes_null": 6159
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2015,
+   "n": 33523,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 5889
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2016,
+   "n": 33659,
+   "dnp_flagged": 0,
+   "zero_minutes": 8,
+   "minutes_null": 5681
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2017,
+   "n": 33610,
+   "dnp_flagged": 0,
+   "zero_minutes": 4,
+   "minutes_null": 5734
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2018,
+   "n": 33090,
+   "dnp_flagged": 0,
+   "zero_minutes": 8,
+   "minutes_null": 5254
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2019,
+   "n": 32928,
+   "dnp_flagged": 0,
+   "zero_minutes": 7,
+   "minutes_null": 5066
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2020,
+   "n": 28682,
+   "dnp_flagged": 0,
+   "zero_minutes": 8,
+   "minutes_null": 4595
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2021,
+   "n": 31377,
+   "dnp_flagged": 0,
+   "zero_minutes": 1,
+   "minutes_null": 6459
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": 2022,
+   "n": 33693,
+   "dnp_flagged": 0,
+   "zero_minutes": 5,
+   "minutes_null": 5762
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2003,
+   "n": 26,
+   "dnp_flagged": 3,
+   "zero_minutes": 0,
+   "minutes_null": 3
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2004,
+   "n": 289,
+   "dnp_flagged": 58,
+   "zero_minutes": 0,
+   "minutes_null": 58
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2005,
+   "n": 112140,
+   "dnp_flagged": 27863,
+   "zero_minutes": 0,
+   "minutes_null": 27863
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2006,
+   "n": 126329,
+   "dnp_flagged": 31561,
+   "zero_minutes": 0,
+   "minutes_null": 31561
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2007,
+   "n": 140099,
+   "dnp_flagged": 34894,
+   "zero_minutes": 0,
+   "minutes_null": 34894
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2008,
+   "n": 145160,
+   "dnp_flagged": 35424,
+   "zero_minutes": 0,
+   "minutes_null": 35424
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2009,
+   "n": 145485,
+   "dnp_flagged": 35773,
+   "zero_minutes": 0,
+   "minutes_null": 35773
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2010,
+   "n": 149692,
+   "dnp_flagged": 37223,
+   "zero_minutes": 0,
+   "minutes_null": 37223
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2011,
+   "n": 146552,
+   "dnp_flagged": 35461,
+   "zero_minutes": 0,
+   "minutes_null": 35461
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2012,
+   "n": 148383,
+   "dnp_flagged": 36678,
+   "zero_minutes": 0,
+   "minutes_null": 36678
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2013,
+   "n": 152419,
+   "dnp_flagged": 38671,
+   "zero_minutes": 0,
+   "minutes_null": 38671
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2014,
+   "n": 182736,
+   "dnp_flagged": 61305,
+   "zero_minutes": 0,
+   "minutes_null": 61379
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2015,
+   "n": 182630,
+   "dnp_flagged": 61601,
+   "zero_minutes": 0,
+   "minutes_null": 61730
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2016,
+   "n": 182524,
+   "dnp_flagged": 62061,
+   "zero_minutes": 0,
+   "minutes_null": 62117
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2017,
+   "n": 182413,
+   "dnp_flagged": 60968,
+   "zero_minutes": 0,
+   "minutes_null": 61088
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2018,
+   "n": 186065,
+   "dnp_flagged": 64994,
+   "zero_minutes": 0,
+   "minutes_null": 65030
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2019,
+   "n": 185819,
+   "dnp_flagged": 64388,
+   "zero_minutes": 0,
+   "minutes_null": 64451
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2020,
+   "n": 181646,
+   "dnp_flagged": 66632,
+   "zero_minutes": 0,
+   "minutes_null": 66632
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2021,
+   "n": 134912,
+   "dnp_flagged": 47908,
+   "zero_minutes": 0,
+   "minutes_null": 47908
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": 2022,
+   "n": 191548,
+   "dnp_flagged": 71315,
+   "zero_minutes": 0,
+   "minutes_null": 71315
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2010,
+   "n": 28116,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2011,
+   "n": 117226,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2012,
+   "n": 117542,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2013,
+   "n": 117739,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2014,
+   "n": 122298,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2015,
+   "n": 121605,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2016,
+   "n": 122382,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2017,
+   "n": 122967,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2018,
+   "n": 121636,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2019,
+   "n": 121053,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2020,
+   "n": 115581,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2021,
+   "n": 86718,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": 2022,
+   "n": 120383,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2004,
+   "n": 610,
+   "dnp_flagged": 6,
+   "zero_minutes": 0,
+   "minutes_null": 610
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2005,
+   "n": 1161,
+   "dnp_flagged": 11,
+   "zero_minutes": 0,
+   "minutes_null": 1161
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2006,
+   "n": 2301,
+   "dnp_flagged": 11,
+   "zero_minutes": 0,
+   "minutes_null": 2003
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2007,
+   "n": 4452,
+   "dnp_flagged": 16,
+   "zero_minutes": 0,
+   "minutes_null": 3862
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2008,
+   "n": 17461,
+   "dnp_flagged": 227,
+   "zero_minutes": 0,
+   "minutes_null": 11679
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2009,
+   "n": 12648,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 11258
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2010,
+   "n": 12791,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 12641
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2011,
+   "n": 12235,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 11975
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2012,
+   "n": 14452,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 14332
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2013,
+   "n": 18239,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 18189
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2014,
+   "n": 46653,
+   "dnp_flagged": 12453,
+   "zero_minutes": 0,
+   "minutes_null": 12495
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2015,
+   "n": 44019,
+   "dnp_flagged": 12032,
+   "zero_minutes": 0,
+   "minutes_null": 12394
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2016,
+   "n": 50550,
+   "dnp_flagged": 14420,
+   "zero_minutes": 0,
+   "minutes_null": 15014
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2017,
+   "n": 146471,
+   "dnp_flagged": 40761,
+   "zero_minutes": 0,
+   "minutes_null": 40781
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2018,
+   "n": 147076,
+   "dnp_flagged": 42343,
+   "zero_minutes": 0,
+   "minutes_null": 42365
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2019,
+   "n": 150361,
+   "dnp_flagged": 43467,
+   "zero_minutes": 0,
+   "minutes_null": 43467
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2020,
+   "n": 155640,
+   "dnp_flagged": 46543,
+   "zero_minutes": 0,
+   "minutes_null": 46543
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2021,
+   "n": 108785,
+   "dnp_flagged": 32305,
+   "zero_minutes": 0,
+   "minutes_null": 32326
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": 2022,
+   "n": 163485,
+   "dnp_flagged": 51369,
+   "zero_minutes": 0,
+   "minutes_null": 51369
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2010,
+   "n": 23224,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2011,
+   "n": 110512,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2012,
+   "n": 110210,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2013,
+   "n": 109726,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2014,
+   "n": 112755,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2015,
+   "n": 114221,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2016,
+   "n": 113714,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2017,
+   "n": 114814,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2018,
+   "n": 113554,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2019,
+   "n": 113994,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2020,
+   "n": 109136,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2021,
+   "n": 76320,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": 2022,
+   "n": 112123,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2002,
+   "n": 344,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 344
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2003,
+   "n": 4279,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 594
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2004,
+   "n": 4694,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 702
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2005,
+   "n": 5079,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 821
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2006,
+   "n": 6076,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 1141
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2007,
+   "n": 5919,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 1311
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2008,
+   "n": 6245,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 1251
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2009,
+   "n": 5348,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 626
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2010,
+   "n": 4831,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 632
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2011,
+   "n": 4953,
+   "dnp_flagged": 0,
+   "zero_minutes": 0,
+   "minutes_null": 617
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2012,
+   "n": 4889,
+   "dnp_flagged": 180,
+   "zero_minutes": 0,
+   "minutes_null": 661
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2013,
+   "n": 4961,
+   "dnp_flagged": 733,
+   "zero_minutes": 0,
+   "minutes_null": 747
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2014,
+   "n": 5228,
+   "dnp_flagged": 800,
+   "zero_minutes": 0,
+   "minutes_null": 806
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2015,
+   "n": 5379,
+   "dnp_flagged": 895,
+   "zero_minutes": 0,
+   "minutes_null": 899
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2016,
+   "n": 5176,
+   "dnp_flagged": 793,
+   "zero_minutes": 0,
+   "minutes_null": 813
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2017,
+   "n": 5183,
+   "dnp_flagged": 750,
+   "zero_minutes": 0,
+   "minutes_null": 764
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2018,
+   "n": 5187,
+   "dnp_flagged": 742,
+   "zero_minutes": 0,
+   "minutes_null": 746
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2019,
+   "n": 5211,
+   "dnp_flagged": 899,
+   "zero_minutes": 0,
+   "minutes_null": 901
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2020,
+   "n": 3544,
+   "dnp_flagged": 744,
+   "zero_minutes": 0,
+   "minutes_null": 748
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2021,
+   "n": 4626,
+   "dnp_flagged": 693,
+   "zero_minutes": 0,
+   "minutes_null": 697
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": 2022,
+   "n": 5307,
+   "dnp_flagged": 748,
+   "zero_minutes": 0,
+   "minutes_null": 749
+  }
+ ],
+ "quality_flag_checks": [
+  {
+   "check_name": "B-01_pbp_score_absent",
+   "severity": "info",
+   "league": "nba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 59620.0
+  },
+  {
+   "check_name": "B-01_pbp_score_absent",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 31,
+   "n_affected": 0.0,
+   "n_total": 146291.0
+  },
+  {
+   "check_name": "B-01_pbp_score_absent",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 32,
+   "n_affected": 0.0,
+   "n_total": 102320.0
+  },
+  {
+   "check_name": "B-01_pbp_score_absent",
+   "severity": "info",
+   "league": "wnba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 10628.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "error",
+   "league": "nba",
+   "n": 45,
+   "n_affected": 2259.0,
+   "n_total": 57079.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "error",
+   "league": "ncaa_men",
+   "n": 31,
+   "n_affected": 4222.0,
+   "n_total": 146291.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "error",
+   "league": "ncaa_women",
+   "n": 32,
+   "n_affected": 1999.0,
+   "n_total": 102320.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "error",
+   "league": "wnba",
+   "n": 36,
+   "n_affected": 530.0,
+   "n_total": 8248.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "info",
+   "league": "nba",
+   "n": 2,
+   "n_affected": 0.0,
+   "n_total": 2539.0
+  },
+  {
+   "check_name": "B-02_score_reconciliation",
+   "severity": "info",
+   "league": "wnba",
+   "n": 11,
+   "n_affected": 0.0,
+   "n_total": 2380.0
+  },
+  {
+   "check_name": "E-01_duplicate_events",
+   "severity": "info",
+   "league": "nba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 59620.0
+  },
+  {
+   "check_name": "E-01_duplicate_events",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 31,
+   "n_affected": 0.0,
+   "n_total": 146291.0
+  },
+  {
+   "check_name": "E-01_duplicate_events",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 32,
+   "n_affected": 0.0,
+   "n_total": 102320.0
+  },
+  {
+   "check_name": "E-01_duplicate_events",
+   "severity": "info",
+   "league": "wnba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 10628.0
+  },
+  {
+   "check_name": "E-05_legacy_pbp_duplication",
+   "severity": "info",
+   "league": "nba",
+   "n": 4,
+   "n_affected": 4.0,
+   "n_total": 4.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "info",
+   "league": "nba",
+   "n": 46,
+   "n_affected": 0.0,
+   "n_total": 27233179.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 23,
+   "n_affected": 0.0,
+   "n_total": 49726744.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 27,
+   "n_affected": 0.0,
+   "n_total": 41881467.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "info",
+   "league": "wnba",
+   "n": 46,
+   "n_affected": 0.0,
+   "n_total": 4083569.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "warn",
+   "league": "nba",
+   "n": 1,
+   "n_affected": 1.0,
+   "n_total": 679767.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 8,
+   "n_affected": 51.0,
+   "n_total": 7490838.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 5,
+   "n_affected": 13.0,
+   "n_total": 1365961.0
+  },
+  {
+   "check_name": "F-01_period_invalid",
+   "severity": "warn",
+   "league": "wnba",
+   "n": 1,
+   "n_affected": 1.0,
+   "n_total": 99349.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "info",
+   "league": "nba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 27912946.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 27,
+   "n_affected": 0.0,
+   "n_total": 46629260.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 30,
+   "n_affected": 0.0,
+   "n_total": 38179835.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "info",
+   "league": "wnba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 4182918.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 4,
+   "n_affected": 149.0,
+   "n_total": 10588322.0
+  },
+  {
+   "check_name": "F-02_clock_unparseable",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 2,
+   "n_affected": 256.0,
+   "n_total": 5067593.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "info",
+   "league": "nba",
+   "n": 26,
+   "n_affected": 0.0,
+   "n_total": 16210329.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 13,
+   "n_affected": 0.0,
+   "n_total": 34173048.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 13,
+   "n_affected": 0.0,
+   "n_total": 32599025.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "info",
+   "league": "wnba",
+   "n": 26,
+   "n_affected": 0.0,
+   "n_total": 2354490.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "warn",
+   "league": "nba",
+   "n": 21,
+   "n_affected": 101421.0,
+   "n_total": 11702617.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 18,
+   "n_affected": 142877.0,
+   "n_total": 23044534.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 19,
+   "n_affected": 13466.0,
+   "n_total": 10648403.0
+  },
+  {
+   "check_name": "F-03_clock_backwards_in_period",
+   "severity": "warn",
+   "league": "wnba",
+   "n": 21,
+   "n_affected": 1397.0,
+   "n_total": 1828428.0
+  },
+  {
+   "check_name": "F-04_period_regression",
+   "severity": "info",
+   "league": "nba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 27912946.0
+  },
+  {
+   "check_name": "F-04_period_regression",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 31,
+   "n_affected": 0.0,
+   "n_total": 57217582.0
+  },
+  {
+   "check_name": "F-04_period_regression",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 32,
+   "n_affected": 0.0,
+   "n_total": 43247428.0
+  },
+  {
+   "check_name": "F-04_period_regression",
+   "severity": "info",
+   "league": "wnba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 4182918.0
+  },
+  {
+   "check_name": "F-05_sequence_non_monotonic",
+   "severity": "info",
+   "league": "nba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 27912946.0
+  },
+  {
+   "check_name": "F-05_sequence_non_monotonic",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 31,
+   "n_affected": 0.0,
+   "n_total": 57217582.0
+  },
+  {
+   "check_name": "F-05_sequence_non_monotonic",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 32,
+   "n_affected": 0.0,
+   "n_total": 43247428.0
+  },
+  {
+   "check_name": "F-05_sequence_non_monotonic",
+   "severity": "info",
+   "league": "wnba",
+   "n": 47,
+   "n_affected": 0.0,
+   "n_total": 4182918.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "info",
+   "league": "nba",
+   "n": 43,
+   "n_affected": 0.0,
+   "n_total": 55350.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 21,
+   "n_affected": 0.0,
+   "n_total": 110606.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 22,
+   "n_affected": 0.0,
+   "n_total": 77084.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "info",
+   "league": "wnba",
+   "n": 46,
+   "n_affected": 0.0,
+   "n_total": 10371.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "warn",
+   "league": "nba",
+   "n": 4,
+   "n_affected": 42.0,
+   "n_total": 4270.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 10,
+   "n_affected": 102.0,
+   "n_total": 35685.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 10,
+   "n_affected": 49.0,
+   "n_total": 25236.0
+  },
+  {
+   "check_name": "F-06_period_structure",
+   "severity": "warn",
+   "league": "wnba",
+   "n": 1,
+   "n_affected": 2.0,
+   "n_total": 257.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "info",
+   "league": "nba",
+   "n": 26,
+   "n_affected": 0.0,
+   "n_total": 16210329.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "info",
+   "league": "ncaa_men",
+   "n": 13,
+   "n_affected": 0.0,
+   "n_total": 34173048.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 13,
+   "n_affected": 0.0,
+   "n_total": 32599025.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "info",
+   "league": "wnba",
+   "n": 26,
+   "n_affected": 0.0,
+   "n_total": 2354490.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "warn",
+   "league": "nba",
+   "n": 21,
+   "n_affected": 7063175.0,
+   "n_total": 11702617.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 18,
+   "n_affected": 12949744.0,
+   "n_total": 23044534.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 19,
+   "n_affected": 6406898.0,
+   "n_total": 10648403.0
+  },
+  {
+   "check_name": "F-07_clock_vs_seconds_remaining",
+   "severity": "warn",
+   "league": "wnba",
+   "n": 21,
+   "n_affected": 1086799.0,
+   "n_total": 1828428.0
+  },
+  {
+   "check_name": "G-01_lineup_not_five",
+   "severity": "info",
+   "league": "ncaa_women",
+   "n": 1,
+   "n_affected": 0.0,
+   "n_total": 5172540.0
+  },
+  {
+   "check_name": "G-01_lineup_not_five",
+   "severity": "warn",
+   "league": "nba",
+   "n": 26,
+   "n_affected": 12958.0,
+   "n_total": 31871344.0
+  },
+  {
+   "check_name": "G-01_lineup_not_five",
+   "severity": "warn",
+   "league": "ncaa_men",
+   "n": 13,
+   "n_affected": 6602309.0,
+   "n_total": 68346022.0
+  },
+  {
+   "check_name": "G-01_lineup_not_five",
+   "severity": "warn",
+   "league": "ncaa_women",
+   "n": 12,
+   "n_affected": 6902567.0,
+   "n_total": 60022710.0
+  }
+ ],
+ "pbp_vs_official_score": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2002",
+   "games": 528,
+   "n_matched": 382,
+   "pct": 72.35
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2003",
+   "games": 1052,
+   "n_matched": 672,
+   "pct": 63.88
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2004",
+   "games": 1257,
+   "n_matched": 945,
+   "pct": 75.18
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2005",
+   "games": 1294,
+   "n_matched": 1019,
+   "pct": 78.75
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2006",
+   "games": 1303,
+   "n_matched": 992,
+   "pct": 76.13
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2007",
+   "games": 1294,
+   "n_matched": 1267,
+   "pct": 97.91
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2008",
+   "games": 1302,
+   "n_matched": 1273,
+   "pct": 97.77
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2009",
+   "games": 1313,
+   "n_matched": 1304,
+   "pct": 99.31
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2010",
+   "games": 1308,
+   "n_matched": 1298,
+   "pct": 99.24
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2011",
+   "games": 1307,
+   "n_matched": 1290,
+   "pct": 98.7
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2012",
+   "games": 1075,
+   "n_matched": 1060,
+   "pct": 98.6
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2013",
+   "games": 1312,
+   "n_matched": 1301,
+   "pct": 99.16
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2014",
+   "games": 1315,
+   "n_matched": 1313,
+   "pct": 99.85
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2015",
+   "games": 1308,
+   "n_matched": 1301,
+   "pct": 99.46
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2016",
+   "games": 1314,
+   "n_matched": 1309,
+   "pct": 99.62
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2017",
+   "games": 1310,
+   "n_matched": 1307,
+   "pct": 99.77
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2018",
+   "games": 1310,
+   "n_matched": 1307,
+   "pct": 99.77
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2019",
+   "games": 1314,
+   "n_matched": 1312,
+   "pct": 99.85
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2020",
+   "games": 1139,
+   "n_matched": 1138,
+   "pct": 99.91
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2021",
+   "games": 1172,
+   "n_matched": 1171,
+   "pct": 99.91
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2022",
+   "games": 1324,
+   "n_matched": 1322,
+   "pct": 99.85
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1997",
+   "games": 1261,
+   "n_matched": 1227,
+   "pct": 97.3
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1998",
+   "games": 1261,
+   "n_matched": 1233,
+   "pct": 97.78
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1999",
+   "games": 791,
+   "n_matched": 772,
+   "pct": 97.6
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2000",
+   "games": 1264,
+   "n_matched": 1238,
+   "pct": 97.94
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2001",
+   "games": 1260,
+   "n_matched": 1238,
+   "pct": 98.25
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2002",
+   "games": 1260,
+   "n_matched": 1233,
+   "pct": 97.86
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2003",
+   "games": 1277,
+   "n_matched": 1248,
+   "pct": 97.73
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2004",
+   "games": 1272,
+   "n_matched": 1243,
+   "pct": 97.72
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2005",
+   "games": 1315,
+   "n_matched": 1282,
+   "pct": 97.49
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2006",
+   "games": 1322,
+   "n_matched": 1295,
+   "pct": 97.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2007",
+   "games": 1310,
+   "n_matched": 1285,
+   "pct": 98.09
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2008",
+   "games": 1317,
+   "n_matched": 1291,
+   "pct": 98.03
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2009",
+   "games": 1317,
+   "n_matched": 1285,
+   "pct": 97.57
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2010",
+   "games": 1315,
+   "n_matched": 1287,
+   "pct": 97.87
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2011",
+   "games": 1433,
+   "n_matched": 1389,
+   "pct": 96.93
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2012",
+   "games": 1107,
+   "n_matched": 1078,
+   "pct": 97.38
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2013",
+   "games": 1433,
+   "n_matched": 1392,
+   "pct": 97.14
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2014",
+   "games": 1437,
+   "n_matched": 1386,
+   "pct": 96.45
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2015",
+   "games": 1431,
+   "n_matched": 1399,
+   "pct": 97.76
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2016",
+   "games": 1427,
+   "n_matched": 1382,
+   "pct": 96.85
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2017",
+   "games": 1412,
+   "n_matched": 1356,
+   "pct": 96.03
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2018",
+   "games": 1392,
+   "n_matched": 1389,
+   "pct": 99.78
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2019",
+   "games": 1394,
+   "n_matched": 1394,
+   "pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2020",
+   "games": 1145,
+   "n_matched": 1145,
+   "pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2021",
+   "games": 1221,
+   "n_matched": 1220,
+   "pct": 99.92
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2022",
+   "games": 1393,
+   "n_matched": 1389,
+   "pct": 99.71
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2003",
+   "games": 18,
+   "n_matched": 11,
+   "pct": 61.11
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2006",
+   "games": 1104,
+   "n_matched": 954,
+   "pct": 86.41
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2007",
+   "games": 1623,
+   "n_matched": 1489,
+   "pct": 91.74
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2008",
+   "games": 2790,
+   "n_matched": 2619,
+   "pct": 93.87
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2009",
+   "games": 3650,
+   "n_matched": 3085,
+   "pct": 84.52
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2010",
+   "games": 3836,
+   "n_matched": 3461,
+   "pct": 90.22
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2011",
+   "games": 3469,
+   "n_matched": 3246,
+   "pct": 93.57
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2012",
+   "games": 3448,
+   "n_matched": 3126,
+   "pct": 90.66
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2013",
+   "games": 3895,
+   "n_matched": 3638,
+   "pct": 93.4
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2014",
+   "games": 5084,
+   "n_matched": 4869,
+   "pct": 95.77
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2015",
+   "games": 5280,
+   "n_matched": 5062,
+   "pct": 95.87
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2016",
+   "games": 5390,
+   "n_matched": 5135,
+   "pct": 95.27
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2017",
+   "games": 5479,
+   "n_matched": 5247,
+   "pct": 95.77
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2018",
+   "games": 5645,
+   "n_matched": 5417,
+   "pct": 95.96
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2019",
+   "games": 5474,
+   "n_matched": 5292,
+   "pct": 96.68
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2020",
+   "games": 5394,
+   "n_matched": 5232,
+   "pct": 97.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2021",
+   "games": 4015,
+   "n_matched": 3926,
+   "pct": 97.78
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2022",
+   "games": 5830,
+   "n_matched": 5741,
+   "pct": 98.47
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2010",
+   "games": 5709,
+   "n_matched": 5676,
+   "pct": 99.42
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2011",
+   "games": 5735,
+   "n_matched": 5703,
+   "pct": 99.44
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2012",
+   "games": 5763,
+   "n_matched": 5738,
+   "pct": 99.57
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2013",
+   "games": 5809,
+   "n_matched": 5787,
+   "pct": 99.62
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2014",
+   "games": 5946,
+   "n_matched": 5921,
+   "pct": 99.58
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2015",
+   "games": 5885,
+   "n_matched": 5857,
+   "pct": 99.52
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2016",
+   "games": 5948,
+   "n_matched": 5926,
+   "pct": 99.63
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2017",
+   "games": 5970,
+   "n_matched": 5944,
+   "pct": 99.56
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2018",
+   "games": 6041,
+   "n_matched": 5937,
+   "pct": 98.28
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2019",
+   "games": 6040,
+   "n_matched": 6020,
+   "pct": 99.67
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2020",
+   "games": 5782,
+   "n_matched": 5778,
+   "pct": 99.93
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2021",
+   "games": 4269,
+   "n_matched": 4266,
+   "pct": 99.93
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2022",
+   "games": 5970,
+   "n_matched": 5966,
+   "pct": 99.93
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2004",
+   "games": 64,
+   "n_matched": 36,
+   "pct": 56.25
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2005",
+   "games": 116,
+   "n_matched": 98,
+   "pct": 84.48
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2006",
+   "games": 250,
+   "n_matched": 219,
+   "pct": 87.6
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2007",
+   "games": 469,
+   "n_matched": 421,
+   "pct": 89.77
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2008",
+   "games": 1813,
+   "n_matched": 1698,
+   "pct": 93.66
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2009",
+   "games": 1286,
+   "n_matched": 979,
+   "pct": 76.13
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2010",
+   "games": 927,
+   "n_matched": 806,
+   "pct": 86.95
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2011",
+   "games": 710,
+   "n_matched": 656,
+   "pct": 92.39
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2012",
+   "games": 1464,
+   "n_matched": 1385,
+   "pct": 94.6
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2013",
+   "games": 1857,
+   "n_matched": 1769,
+   "pct": 95.26
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2014",
+   "games": 1505,
+   "n_matched": 1459,
+   "pct": 96.94
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2015",
+   "games": 1456,
+   "n_matched": 1401,
+   "pct": 96.22
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2016",
+   "games": 1669,
+   "n_matched": 1612,
+   "pct": 96.58
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2017",
+   "games": 1578,
+   "n_matched": 1513,
+   "pct": 95.88
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2018",
+   "games": 1560,
+   "n_matched": 1513,
+   "pct": 96.99
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2019",
+   "games": 1542,
+   "n_matched": 1493,
+   "pct": 96.82
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2020",
+   "games": 4947,
+   "n_matched": 4804,
+   "pct": 97.11
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2021",
+   "games": 3579,
+   "n_matched": 3505,
+   "pct": 97.93
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2022",
+   "games": 5348,
+   "n_matched": 5264,
+   "pct": 98.43
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2010",
+   "games": 5398,
+   "n_matched": 5358,
+   "pct": 99.26
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2011",
+   "games": 5440,
+   "n_matched": 5395,
+   "pct": 99.17
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2012",
+   "games": 5434,
+   "n_matched": 5395,
+   "pct": 99.28
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2013",
+   "games": 5473,
+   "n_matched": 5449,
+   "pct": 99.56
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2014",
+   "games": 5548,
+   "n_matched": 5527,
+   "pct": 99.62
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2015",
+   "games": 5592,
+   "n_matched": 5563,
+   "pct": 99.48
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2016",
+   "games": 5610,
+   "n_matched": 5561,
+   "pct": 99.13
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2017",
+   "games": 5620,
+   "n_matched": 5565,
+   "pct": 99.02
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2018",
+   "games": 5665,
+   "n_matched": 5531,
+   "pct": 97.63
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2019",
+   "games": 5647,
+   "n_matched": 5613,
+   "pct": 99.4
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2020",
+   "games": 5430,
+   "n_matched": 5418,
+   "pct": 99.78
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2021",
+   "games": 3815,
+   "n_matched": 3811,
+   "pct": 99.9
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2022",
+   "games": 5508,
+   "n_matched": 5504,
+   "pct": 99.93
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2002",
+   "games": 265,
+   "n_matched": 234,
+   "pct": 88.3
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2003",
+   "games": 256,
+   "n_matched": 147,
+   "pct": 57.42
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2004",
+   "games": 237,
+   "n_matched": 151,
+   "pct": 63.71
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2005",
+   "games": 239,
+   "n_matched": 176,
+   "pct": 73.64
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2006",
+   "games": 256,
+   "n_matched": 210,
+   "pct": 82.03
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2007",
+   "games": 240,
+   "n_matched": 224,
+   "pct": 93.33
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2008",
+   "games": 256,
+   "n_matched": 248,
+   "pct": 96.88
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2009",
+   "games": 240,
+   "n_matched": 234,
+   "pct": 97.5
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2010",
+   "games": 221,
+   "n_matched": 220,
+   "pct": 99.55
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2011",
+   "games": 223,
+   "n_matched": 217,
+   "pct": 97.31
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2012",
+   "games": 220,
+   "n_matched": 215,
+   "pct": 97.73
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2013",
+   "games": 221,
+   "n_matched": 221,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2014",
+   "games": 222,
+   "n_matched": 222,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2015",
+   "games": 226,
+   "n_matched": 226,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2016",
+   "games": 216,
+   "n_matched": 216,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2017",
+   "games": 220,
+   "n_matched": 218,
+   "pct": 99.09
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2018",
+   "games": 219,
+   "n_matched": 219,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2019",
+   "games": 219,
+   "n_matched": 219,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2020",
+   "games": 146,
+   "n_matched": 145,
+   "pct": 99.32
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2021",
+   "games": 211,
+   "n_matched": 211,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2022",
+   "games": 241,
+   "n_matched": 241,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1997",
+   "games": 115,
+   "n_matched": 104,
+   "pct": 90.43
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1998",
+   "games": 157,
+   "n_matched": 151,
+   "pct": 96.18
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1999",
+   "games": 203,
+   "n_matched": 193,
+   "pct": 95.07
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2000",
+   "games": 272,
+   "n_matched": 270,
+   "pct": 99.26
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2001",
+   "games": 274,
+   "n_matched": 268,
+   "pct": 97.81
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2002",
+   "games": 273,
+   "n_matched": 261,
+   "pct": 95.6
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2003",
+   "games": 257,
+   "n_matched": 247,
+   "pct": 96.11
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2004",
+   "games": 240,
+   "n_matched": 236,
+   "pct": 98.33
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2005",
+   "games": 238,
+   "n_matched": 232,
+   "pct": 97.48
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2006",
+   "games": 256,
+   "n_matched": 247,
+   "pct": 96.48
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2007",
+   "games": 241,
+   "n_matched": 226,
+   "pct": 93.78
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2008",
+   "games": 259,
+   "n_matched": 249,
+   "pct": 96.14
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2009",
+   "games": 241,
+   "n_matched": 238,
+   "pct": 98.76
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2010",
+   "games": 220,
+   "n_matched": 216,
+   "pct": 98.18
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2011",
+   "games": 223,
+   "n_matched": 213,
+   "pct": 95.52
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2012",
+   "games": 223,
+   "n_matched": 216,
+   "pct": 96.86
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2013",
+   "games": 221,
+   "n_matched": 217,
+   "pct": 98.19
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2014",
+   "games": 222,
+   "n_matched": 216,
+   "pct": 97.3
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2015",
+   "games": 225,
+   "n_matched": 219,
+   "pct": 97.33
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2016",
+   "games": 220,
+   "n_matched": 216,
+   "pct": 98.18
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2017",
+   "games": 219,
+   "n_matched": 219,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2018",
+   "games": 220,
+   "n_matched": 217,
+   "pct": 98.64
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2019",
+   "games": 220,
+   "n_matched": 219,
+   "pct": 99.55
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2020",
+   "games": 147,
+   "n_matched": 147,
+   "pct": 100.0
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2021",
+   "games": 209,
+   "n_matched": 208,
+   "pct": 99.52
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2022",
+   "games": 239,
+   "n_matched": 239,
+   "pct": 100.0
+  }
+ ],
+ "player_points_vs_team": [],
+ "player_minutes_vs_expected": [],
+ "possessions_vs_box_estimate": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "team_games": 51653,
+   "pct_within_3": 73.14,
+   "pct_within_6": 94.91,
+   "median_diff": -0.76
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "team_games": 65461,
+   "pct_within_3": 66.91,
+   "pct_within_6": 94.74,
+   "median_diff": -1.76
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "team_games": 142606,
+   "pct_within_3": 82.91,
+   "pct_within_6": 90.01,
+   "median_diff": 0.64
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "team_games": 131052,
+   "pct_within_3": 0.0,
+   "pct_within_6": 0.0,
+   "median_diff": -67.52
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "team_games": 63966,
+   "pct_within_3": 73.67,
+   "pct_within_6": 84.74,
+   "median_diff": 1.28
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "team_games": 123292,
+   "pct_within_3": 0.0,
+   "pct_within_6": 0.0,
+   "median_diff": -69.72
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "team_games": 8872,
+   "pct_within_3": 71.8,
+   "pct_within_6": 95.27,
+   "median_diff": -0.76
+  }
+ ],
+ "lineup_qc_by_league_season": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2002",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 528,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2003",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1052,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2004",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1257,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2005",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1294,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2006",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1303,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2007",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1294,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2008",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1302,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2009",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1313,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1308,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1307,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1075,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1312,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1315,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1308,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1314,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1310,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1310,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1314,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1139,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1172,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1324,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1997",
+   "lineup_class": "PARTIAL",
+   "games": 7,
+   "mean_five_on_court": 0.9544,
+   "mean_coverage_pct": 92.36
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1997",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1252,
+   "mean_five_on_court": 0.9997,
+   "mean_coverage_pct": 99.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1997",
+   "lineup_class": "VALIDATED",
+   "games": 2,
+   "mean_five_on_court": 0.9979,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1998",
+   "lineup_class": "PARTIAL",
+   "games": 4,
+   "mean_five_on_court": 0.9054,
+   "mean_coverage_pct": 83.84
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1998",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1257,
+   "mean_five_on_court": 0.9996,
+   "mean_coverage_pct": 99.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1999",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9574,
+   "mean_coverage_pct": 90.94
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1999",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 788,
+   "mean_five_on_court": 0.9997,
+   "mean_coverage_pct": 99.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "1999",
+   "lineup_class": "VALIDATED",
+   "games": 1,
+   "mean_five_on_court": 0.9978,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2000",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9752,
+   "mean_coverage_pct": 94.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2000",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1260,
+   "mean_five_on_court": 0.9998,
+   "mean_coverage_pct": 99.99
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2000",
+   "lineup_class": "VALIDATED",
+   "games": 2,
+   "mean_five_on_court": 0.9947,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2001",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9466,
+   "mean_coverage_pct": 81.35
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2001",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1259,
+   "mean_five_on_court": 0.9998,
+   "mean_coverage_pct": 99.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2002",
+   "lineup_class": "PARTIAL",
+   "games": 1,
+   "mean_five_on_court": 0.8887,
+   "mean_coverage_pct": 77.81
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2002",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1259,
+   "mean_five_on_court": 0.9997,
+   "mean_coverage_pct": 99.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2003",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9409,
+   "mean_coverage_pct": 87.12
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2003",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1275,
+   "mean_five_on_court": 0.9998,
+   "mean_coverage_pct": 99.98
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2004",
+   "lineup_class": "PARTIAL",
+   "games": 5,
+   "mean_five_on_court": 0.9411,
+   "mean_coverage_pct": 88.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2004",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1048,
+   "mean_five_on_court": 0.9993,
+   "mean_coverage_pct": 99.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2004",
+   "lineup_class": "VALIDATED",
+   "games": 219,
+   "mean_five_on_court": 0.9976,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2005",
+   "lineup_class": "PARTIAL",
+   "games": 5,
+   "mean_five_on_court": 0.957,
+   "mean_coverage_pct": 90.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2005",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1066,
+   "mean_five_on_court": 0.9994,
+   "mean_coverage_pct": 99.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2005",
+   "lineup_class": "VALIDATED",
+   "games": 244,
+   "mean_five_on_court": 0.9976,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2006",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9728,
+   "mean_coverage_pct": 89.47
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2006",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1090,
+   "mean_five_on_court": 0.9994,
+   "mean_coverage_pct": 99.97
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2006",
+   "lineup_class": "VALIDATED",
+   "games": 229,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2007",
+   "lineup_class": "PARTIAL",
+   "games": 7,
+   "mean_five_on_court": 0.9416,
+   "mean_coverage_pct": 88.21
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2007",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1061,
+   "mean_five_on_court": 0.9992,
+   "mean_coverage_pct": 99.95
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2007",
+   "lineup_class": "VALIDATED",
+   "games": 242,
+   "mean_five_on_court": 0.9977,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2008",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9015,
+   "mean_coverage_pct": 81.18
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2008",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1073,
+   "mean_five_on_court": 0.9992,
+   "mean_coverage_pct": 99.92
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2008",
+   "lineup_class": "VALIDATED",
+   "games": 241,
+   "mean_five_on_court": 0.9976,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2009",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9385,
+   "mean_coverage_pct": 78.92
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2009",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1075,
+   "mean_five_on_court": 0.9993,
+   "mean_coverage_pct": 99.97
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2009",
+   "lineup_class": "VALIDATED",
+   "games": 240,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2010",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9503,
+   "mean_coverage_pct": 83.04
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2010",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1050,
+   "mean_five_on_court": 0.9992,
+   "mean_coverage_pct": 99.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2010",
+   "lineup_class": "VALIDATED",
+   "games": 262,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2011",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9541,
+   "mean_coverage_pct": 86.27
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2011",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1180,
+   "mean_five_on_court": 0.9991,
+   "mean_coverage_pct": 99.95
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2011",
+   "lineup_class": "VALIDATED",
+   "games": 250,
+   "mean_five_on_court": 0.9974,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2012",
+   "lineup_class": "PARTIAL",
+   "games": 5,
+   "mean_five_on_court": 0.9241,
+   "mean_coverage_pct": 82.67
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2012",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 912,
+   "mean_five_on_court": 0.9989,
+   "mean_coverage_pct": 99.96
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2012",
+   "lineup_class": "VALIDATED",
+   "games": 190,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2013",
+   "lineup_class": "PARTIAL",
+   "games": 8,
+   "mean_five_on_court": 0.9383,
+   "mean_coverage_pct": 86.85
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2013",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1177,
+   "mean_five_on_court": 0.9986,
+   "mean_coverage_pct": 99.9
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2013",
+   "lineup_class": "VALIDATED",
+   "games": 248,
+   "mean_five_on_court": 0.9974,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2014",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9729,
+   "mean_coverage_pct": 85.57
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2014",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1159,
+   "mean_five_on_court": 0.9991,
+   "mean_coverage_pct": 99.95
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2014",
+   "lineup_class": "VALIDATED",
+   "games": 276,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2015",
+   "lineup_class": "PARTIAL",
+   "games": 11,
+   "mean_five_on_court": 0.9102,
+   "mean_coverage_pct": 82.46
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2015",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1181,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.86
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2015",
+   "lineup_class": "VALIDATED",
+   "games": 239,
+   "mean_five_on_court": 0.9974,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2016",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9657,
+   "mean_coverage_pct": 79.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2016",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1172,
+   "mean_five_on_court": 0.999,
+   "mean_coverage_pct": 99.94
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2016",
+   "lineup_class": "VALIDATED",
+   "games": 252,
+   "mean_five_on_court": 0.9974,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2017",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9532,
+   "mean_coverage_pct": 86.55
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2017",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1165,
+   "mean_five_on_court": 0.9989,
+   "mean_coverage_pct": 99.94
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2017",
+   "lineup_class": "VALIDATED",
+   "games": 244,
+   "mean_five_on_court": 0.9974,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2018",
+   "lineup_class": "PARTIAL",
+   "games": 6,
+   "mean_five_on_court": 0.925,
+   "mean_coverage_pct": 84.82
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2018",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1140,
+   "mean_five_on_court": 0.999,
+   "mean_coverage_pct": 99.94
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2018",
+   "lineup_class": "VALIDATED",
+   "games": 246,
+   "mean_five_on_court": 0.9975,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2019",
+   "lineup_class": "PARTIAL",
+   "games": 4,
+   "mean_five_on_court": 0.9348,
+   "mean_coverage_pct": 86.51
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2019",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1161,
+   "mean_five_on_court": 0.9987,
+   "mean_coverage_pct": 99.91
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2019",
+   "lineup_class": "VALIDATED",
+   "games": 229,
+   "mean_five_on_court": 0.9976,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2020",
+   "lineup_class": "PARTIAL",
+   "games": 2,
+   "mean_five_on_court": 0.9429,
+   "mean_coverage_pct": 87.57
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2020",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 941,
+   "mean_five_on_court": 0.9987,
+   "mean_coverage_pct": 99.89
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2020",
+   "lineup_class": "VALIDATED",
+   "games": 203,
+   "mean_five_on_court": 0.9977,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2021",
+   "lineup_class": "PARTIAL",
+   "games": 3,
+   "mean_five_on_court": 0.9402,
+   "mean_coverage_pct": 88.52
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2021",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1028,
+   "mean_five_on_court": 0.9988,
+   "mean_coverage_pct": 99.9
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2021",
+   "lineup_class": "VALIDATED",
+   "games": 190,
+   "mean_five_on_court": 0.9976,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2022",
+   "lineup_class": "PARTIAL",
+   "games": 7,
+   "mean_five_on_court": 0.9681,
+   "mean_coverage_pct": 57.69
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2022",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 1199,
+   "mean_five_on_court": 0.9986,
+   "mean_coverage_pct": 99.84
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "season": "2022",
+   "lineup_class": "VALIDATED",
+   "games": 187,
+   "mean_five_on_court": 0.9977,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2003",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 18,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2006",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1104,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2007",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1623,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2008",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 2790,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2009",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3650,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3836,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3469,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3448,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3895,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5084,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5280,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5390,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5479,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5645,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5474,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5394,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 4015,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5830,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2010",
+   "lineup_class": "PARTIAL",
+   "games": 1,
+   "mean_five_on_court": 0.5842,
+   "mean_coverage_pct": 17.42
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5700,
+   "mean_five_on_court": 0.013,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2010",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 8,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 100.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "PARTIAL",
+   "games": 2111,
+   "mean_five_on_court": 0.759,
+   "mean_coverage_pct": 54.37
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 611,
+   "mean_five_on_court": 0.3634,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3013,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.75
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "PARTIAL",
+   "games": 1990,
+   "mean_five_on_court": 0.7721,
+   "mean_coverage_pct": 56.32
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 608,
+   "mean_five_on_court": 0.3755,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3165,
+   "mean_five_on_court": 0.9987,
+   "mean_coverage_pct": 99.8
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "PARTIAL",
+   "games": 2353,
+   "mean_five_on_court": 0.749,
+   "mean_coverage_pct": 52.1
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 607,
+   "mean_five_on_court": 0.3973,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2849,
+   "mean_five_on_court": 0.9978,
+   "mean_coverage_pct": 99.63
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "PARTIAL",
+   "games": 2200,
+   "mean_five_on_court": 0.7641,
+   "mean_coverage_pct": 55.44
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 699,
+   "mean_five_on_court": 0.3939,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3047,
+   "mean_five_on_court": 0.9981,
+   "mean_coverage_pct": 99.67
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "PARTIAL",
+   "games": 2167,
+   "mean_five_on_court": 0.7684,
+   "mean_coverage_pct": 55.75
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 709,
+   "mean_five_on_court": 0.4065,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3051,
+   "mean_five_on_court": 0.9982,
+   "mean_coverage_pct": 99.7
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "PARTIAL",
+   "games": 2338,
+   "mean_five_on_court": 0.7291,
+   "mean_coverage_pct": 49.54
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 740,
+   "mean_five_on_court": 0.3911,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2870,
+   "mean_five_on_court": 0.998,
+   "mean_coverage_pct": 99.64
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "PARTIAL",
+   "games": 2538,
+   "mean_five_on_court": 0.7185,
+   "mean_coverage_pct": 47.66
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 698,
+   "mean_five_on_court": 0.3902,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2734,
+   "mean_five_on_court": 0.9983,
+   "mean_coverage_pct": 99.72
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "PARTIAL",
+   "games": 2421,
+   "mean_five_on_court": 0.7068,
+   "mean_coverage_pct": 44.64
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 774,
+   "mean_five_on_court": 0.3918,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2804,
+   "mean_five_on_court": 0.9987,
+   "mean_coverage_pct": 99.84
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "PARTIAL",
+   "games": 2124,
+   "mean_five_on_court": 0.7441,
+   "mean_coverage_pct": 51.47
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 787,
+   "mean_five_on_court": 0.3773,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3129,
+   "mean_five_on_court": 0.9983,
+   "mean_coverage_pct": 99.71
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "PARTIAL",
+   "games": 1566,
+   "mean_five_on_court": 0.7654,
+   "mean_coverage_pct": 55.1
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 722,
+   "mean_five_on_court": 0.4142,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3494,
+   "mean_five_on_court": 0.999,
+   "mean_coverage_pct": 99.84
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "PARTIAL",
+   "games": 1193,
+   "mean_five_on_court": 0.7504,
+   "mean_coverage_pct": 52.9
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 447,
+   "mean_five_on_court": 0.4339,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2629,
+   "mean_five_on_court": 0.9989,
+   "mean_coverage_pct": 99.81
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "PARTIAL",
+   "games": 1308,
+   "mean_five_on_court": 0.7715,
+   "mean_coverage_pct": 56.28
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 634,
+   "mean_five_on_court": 0.4426,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 4028,
+   "mean_five_on_court": 0.9992,
+   "mean_coverage_pct": 99.86
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2004",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 64,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2005",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 116,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2006",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 250,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2007",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 469,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2008",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1813,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2009",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1286,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 927,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 710,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1464,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1857,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1505,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1456,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1669,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1578,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1560,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 1542,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 4947,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 3579,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5348,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 5398,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "PARTIAL",
+   "games": 1872,
+   "mean_five_on_court": 0.7462,
+   "mean_coverage_pct": 51.98
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 505,
+   "mean_five_on_court": 0.336,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2011",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3063,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.74
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "PARTIAL",
+   "games": 2126,
+   "mean_five_on_court": 0.7341,
+   "mean_coverage_pct": 50.22
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 486,
+   "mean_five_on_court": 0.3597,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2012",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2822,
+   "mean_five_on_court": 0.9983,
+   "mean_coverage_pct": 99.7
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "PARTIAL",
+   "games": 2101,
+   "mean_five_on_court": 0.7233,
+   "mean_coverage_pct": 48.25
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 565,
+   "mean_five_on_court": 0.3594,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2013",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2807,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.75
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "PARTIAL",
+   "games": 2191,
+   "mean_five_on_court": 0.7201,
+   "mean_coverage_pct": 47.38
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 597,
+   "mean_five_on_court": 0.3637,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2014",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2798,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.74
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "PARTIAL",
+   "games": 2269,
+   "mean_five_on_court": 0.7126,
+   "mean_coverage_pct": 46.22
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 701,
+   "mean_five_on_court": 0.3696,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2015",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2622,
+   "mean_five_on_court": 0.9985,
+   "mean_coverage_pct": 99.74
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "PARTIAL",
+   "games": 2267,
+   "mean_five_on_court": 0.7238,
+   "mean_coverage_pct": 48.06
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 653,
+   "mean_five_on_court": 0.3575,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2016",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2690,
+   "mean_five_on_court": 0.9981,
+   "mean_coverage_pct": 99.68
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "PARTIAL",
+   "games": 2359,
+   "mean_five_on_court": 0.7309,
+   "mean_coverage_pct": 49.68
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 651,
+   "mean_five_on_court": 0.3739,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2017",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2610,
+   "mean_five_on_court": 0.9973,
+   "mean_coverage_pct": 99.56
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "PARTIAL",
+   "games": 2419,
+   "mean_five_on_court": 0.7285,
+   "mean_coverage_pct": 48.99
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 656,
+   "mean_five_on_court": 0.3596,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2018",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2552,
+   "mean_five_on_court": 0.998,
+   "mean_coverage_pct": 99.64
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "PARTIAL",
+   "games": 2063,
+   "mean_five_on_court": 0.7441,
+   "mean_coverage_pct": 51.47
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 603,
+   "mean_five_on_court": 0.4011,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2019",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2981,
+   "mean_five_on_court": 0.9988,
+   "mean_coverage_pct": 99.8
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "PARTIAL",
+   "games": 1517,
+   "mean_five_on_court": 0.7694,
+   "mean_coverage_pct": 55.69
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 513,
+   "mean_five_on_court": 0.4467,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2020",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3400,
+   "mean_five_on_court": 0.9991,
+   "mean_coverage_pct": 99.85
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "PARTIAL",
+   "games": 1138,
+   "mean_five_on_court": 0.7308,
+   "mean_coverage_pct": 48.35
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 335,
+   "mean_five_on_court": 0.4506,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2021",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2342,
+   "mean_five_on_court": 0.999,
+   "mean_coverage_pct": 99.83
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "PARTIAL",
+   "games": 1457,
+   "mean_five_on_court": 0.7677,
+   "mean_coverage_pct": 55.44
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 545,
+   "mean_five_on_court": 0.444,
+   "mean_coverage_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "season": "2022",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 3506,
+   "mean_five_on_court": 0.9991,
+   "mean_coverage_pct": 99.84
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2002",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 265,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2003",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 256,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2004",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 237,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2005",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 239,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2006",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 256,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2007",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 240,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2008",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 256,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2009",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 240,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 221,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 223,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 220,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 221,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 222,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 226,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 216,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 220,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 219,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 219,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 146,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 211,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 241,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1997",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 115,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1998",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 157,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "1999",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 203,
+   "mean_five_on_court": 0.0037,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2000",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 272,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2001",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 274,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2002",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 273,
+   "mean_five_on_court": 0.0001,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2003",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 257,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2004",
+   "lineup_class": "PARTIAL",
+   "games": 31,
+   "mean_five_on_court": 0.7728,
+   "mean_coverage_pct": 67.51
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2004",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 209,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2005",
+   "lineup_class": "PARTIAL",
+   "games": 33,
+   "mean_five_on_court": 0.7925,
+   "mean_coverage_pct": 73.78
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2005",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 205,
+   "mean_five_on_court": 0.0927,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2006",
+   "lineup_class": "PARTIAL",
+   "games": 6,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 87.46
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2006",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 219,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2006",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 31,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 93.5
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2007",
+   "lineup_class": "PARTIAL",
+   "games": 6,
+   "mean_five_on_court": 0.9339,
+   "mean_coverage_pct": 76.33
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2007",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 213,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2007",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 22,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 93.24
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2008",
+   "lineup_class": "PARTIAL",
+   "games": 10,
+   "mean_five_on_court": 0.9648,
+   "mean_coverage_pct": 86.49
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2008",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 222,
+   "mean_five_on_court": 0.1471,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2008",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 27,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 93.69
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2009",
+   "lineup_class": "PARTIAL",
+   "games": 32,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 85.27
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2009",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 207,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2009",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 90.82
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2010",
+   "lineup_class": "PARTIAL",
+   "games": 21,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 84.98
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2010",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 193,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2010",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 6,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 91.06
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2011",
+   "lineup_class": "PARTIAL",
+   "games": 19,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 84.06
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2011",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 202,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2011",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 2,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 91.12
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2012",
+   "lineup_class": "PARTIAL",
+   "games": 11,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 85.24
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2012",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 212,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2013",
+   "lineup_class": "PARTIAL",
+   "games": 21,
+   "mean_five_on_court": 0.9924,
+   "mean_coverage_pct": 83.83
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2013",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 195,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2013",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 5,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 91.54
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2014",
+   "lineup_class": "PARTIAL",
+   "games": 19,
+   "mean_five_on_court": 0.9872,
+   "mean_coverage_pct": 83.49
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2014",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 199,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2014",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 4,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 91.05
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2015",
+   "lineup_class": "PARTIAL",
+   "games": 29,
+   "mean_five_on_court": 0.9776,
+   "mean_coverage_pct": 81.32
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2015",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 196,
+   "mean_five_on_court": 0.0145,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2016",
+   "lineup_class": "PARTIAL",
+   "games": 137,
+   "mean_five_on_court": 0.9955,
+   "mean_coverage_pct": 83.31
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2016",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 77,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2016",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 6,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 90.91
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2017",
+   "lineup_class": "PARTIAL",
+   "games": 138,
+   "mean_five_on_court": 0.9938,
+   "mean_coverage_pct": 82.82
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2017",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 70,
+   "mean_five_on_court": 0.0938,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2017",
+   "lineup_class": "USABLE_WITH_FLAGS",
+   "games": 11,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 91.63
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2018",
+   "lineup_class": "PARTIAL",
+   "games": 164,
+   "mean_five_on_court": 0.9944,
+   "mean_coverage_pct": 68.52
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2018",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 56,
+   "mean_five_on_court": 0.0468,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2019",
+   "lineup_class": "PARTIAL",
+   "games": 196,
+   "mean_five_on_court": 0.9986,
+   "mean_coverage_pct": 68.07
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2019",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 24,
+   "mean_five_on_court": 0.0557,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2020",
+   "lineup_class": "PARTIAL",
+   "games": 128,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 67.48
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2020",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 19,
+   "mean_five_on_court": 0.0107,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2021",
+   "lineup_class": "PARTIAL",
+   "games": 187,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 67.93
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2021",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 22,
+   "mean_five_on_court": 0.0,
+   "mean_coverage_pct": NaN
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2022",
+   "lineup_class": "PARTIAL",
+   "games": 205,
+   "mean_five_on_court": 1.0,
+   "mean_coverage_pct": 67.21
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "season": "2022",
+   "lineup_class": "UNRECONSTRUCTABLE",
+   "games": 34,
+   "mean_five_on_court": NaN,
+   "mean_coverage_pct": NaN
+  }
+ ],
+ "coverage_tiers": [
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 1997,
+   "n_games": 1374,
+   "box_pct": 91.7758,
+   "pbp_basic_pct": 91.7758,
+   "pbp_coord_pct": 91.7758,
+   "lineup_full_pct": 0.1456,
+   "lineup_quality_full_games": 940.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 1998,
+   "n_games": 1375,
+   "box_pct": 91.6364,
+   "pbp_basic_pct": 91.7091,
+   "pbp_coord_pct": 91.7091,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1013.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 1999,
+   "n_games": 821,
+   "box_pct": 96.3459,
+   "pbp_basic_pct": 96.3459,
+   "pbp_coord_pct": 96.3459,
+   "lineup_full_pct": 0.1218,
+   "lineup_quality_full_games": 597.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2000,
+   "n_games": 1385,
+   "box_pct": 91.2635,
+   "pbp_basic_pct": 91.2635,
+   "pbp_coord_pct": 91.2635,
+   "lineup_full_pct": 0.1444,
+   "lineup_quality_full_games": 1087.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2001,
+   "n_games": 1373,
+   "box_pct": 91.7698,
+   "pbp_basic_pct": 91.8427,
+   "pbp_coord_pct": 91.8427,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1056.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2002,
+   "n_games": 2640,
+   "box_pct": 95.4545,
+   "pbp_basic_pct": 67.7273,
+   "pbp_coord_pct": 67.4242,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1038.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2003,
+   "n_games": 2670,
+   "box_pct": 95.6554,
+   "pbp_basic_pct": 87.2285,
+   "pbp_coord_pct": 87.2285,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 821.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2004,
+   "n_games": 2662,
+   "box_pct": 95.4921,
+   "pbp_basic_pct": 95.0038,
+   "pbp_coord_pct": 95.0038,
+   "lineup_full_pct": 8.2269,
+   "lineup_quality_full_games": 937.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2005,
+   "n_games": 2784,
+   "box_pct": 94.3966,
+   "pbp_basic_pct": 93.7141,
+   "pbp_coord_pct": 93.7141,
+   "lineup_full_pct": 8.7644,
+   "lineup_quality_full_games": 753.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2006,
+   "n_games": 2762,
+   "box_pct": 95.5105,
+   "pbp_basic_pct": 95.0398,
+   "pbp_coord_pct": 95.0398,
+   "lineup_full_pct": 8.2911,
+   "lineup_quality_full_games": 849.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2007,
+   "n_games": 2744,
+   "box_pct": 95.4082,
+   "pbp_basic_pct": 94.898,
+   "pbp_coord_pct": 94.8615,
+   "lineup_full_pct": 8.8192,
+   "lineup_quality_full_games": 798.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2008,
+   "n_games": 2755,
+   "box_pct": 95.5354,
+   "pbp_basic_pct": 95.0635,
+   "pbp_coord_pct": 95.0635,
+   "lineup_full_pct": 8.7477,
+   "lineup_quality_full_games": 738.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2009,
+   "n_games": 2748,
+   "box_pct": 95.706,
+   "pbp_basic_pct": 95.706,
+   "pbp_coord_pct": 95.706,
+   "lineup_full_pct": 8.7336,
+   "lineup_quality_full_games": 849.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2010,
+   "n_games": 2747,
+   "box_pct": 95.5224,
+   "pbp_basic_pct": 95.486,
+   "pbp_coord_pct": 95.486,
+   "lineup_full_pct": 9.5377,
+   "lineup_quality_full_games": 641.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2011,
+   "n_games": 2745,
+   "box_pct": 95.5191,
+   "pbp_basic_pct": 99.8179,
+   "pbp_coord_pct": 99.8179,
+   "lineup_full_pct": 9.1075,
+   "lineup_quality_full_games": 676.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2012,
+   "n_games": 2182,
+   "box_pct": 98.4418,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 8.7076,
+   "lineup_quality_full_games": 506.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2013,
+   "n_games": 2749,
+   "box_pct": 95.4893,
+   "pbp_basic_pct": 99.8545,
+   "pbp_coord_pct": 99.8545,
+   "lineup_full_pct": 9.0215,
+   "lineup_quality_full_games": 667.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2014,
+   "n_games": 2758,
+   "box_pct": 95.649,
+   "pbp_basic_pct": 99.7825,
+   "pbp_coord_pct": 99.7825,
+   "lineup_full_pct": 10.0073,
+   "lineup_quality_full_games": 657.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2015,
+   "n_games": 2744,
+   "box_pct": 95.5904,
+   "pbp_basic_pct": 99.8178,
+   "pbp_coord_pct": 99.8178,
+   "lineup_full_pct": 8.7099,
+   "lineup_quality_full_games": 455.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2016,
+   "n_games": 2745,
+   "box_pct": 95.9199,
+   "pbp_basic_pct": 99.8543,
+   "pbp_coord_pct": 99.8543,
+   "lineup_full_pct": 9.1803,
+   "lineup_quality_full_games": 624.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2017,
+   "n_games": 2724,
+   "box_pct": 96.1087,
+   "pbp_basic_pct": 99.9266,
+   "pbp_coord_pct": 99.9266,
+   "lineup_full_pct": 8.9574,
+   "lineup_quality_full_games": 541.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2018,
+   "n_games": 2707,
+   "box_pct": 96.9708,
+   "pbp_basic_pct": 99.8153,
+   "pbp_coord_pct": 99.8153,
+   "lineup_full_pct": 9.0876,
+   "lineup_quality_full_games": 723.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2019,
+   "n_games": 2708,
+   "box_pct": 96.9719,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 8.4564,
+   "lineup_quality_full_games": 852.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2020,
+   "n_games": 2303,
+   "box_pct": 99.3053,
+   "pbp_basic_pct": 99.2184,
+   "pbp_coord_pct": 99.2184,
+   "lineup_full_pct": 8.8146,
+   "lineup_quality_full_games": 739.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2021,
+   "n_games": 2425,
+   "box_pct": 96.3711,
+   "pbp_basic_pct": 98.6804,
+   "pbp_coord_pct": 98.6804,
+   "lineup_full_pct": 7.8351,
+   "lineup_quality_full_games": 606.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "nba",
+   "grain": "league_season",
+   "season": 2022,
+   "n_games": 2728,
+   "box_pct": 96.8109,
+   "pbp_basic_pct": 99.5968,
+   "pbp_coord_pct": 99.5968,
+   "lineup_full_pct": 6.8548,
+   "lineup_quality_full_games": 785.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2002,
+   "n_games": 4819,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 0.0,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2003,
+   "n_games": 4990,
+   "box_pct": 0.02,
+   "pbp_basic_pct": 0.3607,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2004,
+   "n_games": 4983,
+   "box_pct": 0.2408,
+   "pbp_basic_pct": 0.0,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2005,
+   "n_games": 5048,
+   "box_pct": 86.5095,
+   "pbp_basic_pct": 0.0,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2006,
+   "n_games": 5172,
+   "box_pct": 95.1856,
+   "pbp_basic_pct": 21.3457,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2007,
+   "n_games": 5480,
+   "box_pct": 95.6934,
+   "pbp_basic_pct": 29.6168,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2008,
+   "n_games": 5448,
+   "box_pct": 99.2291,
+   "pbp_basic_pct": 51.2115,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2009,
+   "n_games": 5726,
+   "box_pct": 98.4806,
+   "pbp_basic_pct": 63.7443,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2010,
+   "n_games": 11470,
+   "box_pct": 99.9215,
+   "pbp_basic_pct": 83.2171,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2011,
+   "n_games": 11506,
+   "box_pct": 99.8523,
+   "pbp_basic_pct": 79.993,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2012,
+   "n_games": 11539,
+   "box_pct": 99.8873,
+   "pbp_basic_pct": 79.8249,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2013,
+   "n_games": 11626,
+   "box_pct": 99.8882,
+   "pbp_basic_pct": 83.4681,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2014,
+   "n_games": 11894,
+   "box_pct": 99.8655,
+   "pbp_basic_pct": 92.7358,
+   "pbp_coord_pct": 9.6771,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2015,
+   "n_games": 11859,
+   "box_pct": 99.9831,
+   "pbp_basic_pct": 94.5021,
+   "pbp_coord_pct": 10.1189,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2016,
+   "n_games": 11841,
+   "box_pct": 99.924,
+   "pbp_basic_pct": 95.752,
+   "pbp_coord_pct": 10.1681,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2017,
+   "n_games": 11930,
+   "box_pct": 99.6815,
+   "pbp_basic_pct": 95.9681,
+   "pbp_coord_pct": 8.4577,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2018,
+   "n_games": 11923,
+   "box_pct": 99.9916,
+   "pbp_basic_pct": 96.9974,
+   "pbp_coord_pct": 7.8839,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2019,
+   "n_games": 12089,
+   "box_pct": 99.9835,
+   "pbp_basic_pct": 95.2436,
+   "pbp_coord_pct": 25.2875,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2020,
+   "n_games": 11549,
+   "box_pct": 99.9913,
+   "pbp_basic_pct": 96.7703,
+   "pbp_coord_pct": 47.7098,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2021,
+   "n_games": 8554,
+   "box_pct": 100.0,
+   "pbp_basic_pct": 96.8436,
+   "pbp_coord_pct": 53.5422,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "grain": "league_season",
+   "season": 2022,
+   "n_games": 11946,
+   "box_pct": 99.9079,
+   "pbp_basic_pct": 98.7778,
+   "pbp_coord_pct": 54.4617,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2002,
+   "n_games": 4074,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 0.0,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2003,
+   "n_games": 4779,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 0.0,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2004,
+   "n_games": 4780,
+   "box_pct": 1.318,
+   "pbp_basic_pct": 1.3389,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2005,
+   "n_games": 4856,
+   "box_pct": 2.4506,
+   "pbp_basic_pct": 2.3888,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2006,
+   "n_games": 4873,
+   "box_pct": 5.0893,
+   "pbp_basic_pct": 5.1303,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2007,
+   "n_games": 5239,
+   "box_pct": 8.933,
+   "pbp_basic_pct": 8.9521,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2008,
+   "n_games": 5341,
+   "box_pct": 33.0275,
+   "pbp_basic_pct": 33.945,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2009,
+   "n_games": 5430,
+   "box_pct": 23.849,
+   "pbp_basic_pct": 23.6832,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2010,
+   "n_games": 10848,
+   "box_pct": 61.6427,
+   "pbp_basic_pct": 58.3057,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2011,
+   "n_games": 10901,
+   "box_pct": 61.1687,
+   "pbp_basic_pct": 56.4168,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 2.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2012,
+   "n_games": 10897,
+   "box_pct": 63.2192,
+   "pbp_basic_pct": 63.3018,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 3.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2013,
+   "n_games": 10957,
+   "box_pct": 66.6606,
+   "pbp_basic_pct": 66.8979,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 3.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2014,
+   "n_games": 11174,
+   "box_pct": 65.4108,
+   "pbp_basic_pct": 63.4598,
+   "pbp_coord_pct": 1.3871,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 6.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2015,
+   "n_games": 11195,
+   "box_pct": 64.2251,
+   "pbp_basic_pct": 62.9567,
+   "pbp_coord_pct": 1.3131,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 2.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2016,
+   "n_games": 11229,
+   "box_pct": 66.2481,
+   "pbp_basic_pct": 64.8232,
+   "pbp_coord_pct": 1.2735,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2017,
+   "n_games": 11242,
+   "box_pct": 96.7266,
+   "pbp_basic_pct": 64.0278,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2018,
+   "n_games": 11184,
+   "box_pct": 96.9242,
+   "pbp_basic_pct": 63.6087,
+   "pbp_coord_pct": 0.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 2.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2019,
+   "n_games": 11305,
+   "box_pct": 97.5232,
+   "pbp_basic_pct": 63.5913,
+   "pbp_coord_pct": 17.6382,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2020,
+   "n_games": 10864,
+   "box_pct": 99.9816,
+   "pbp_basic_pct": 95.5173,
+   "pbp_coord_pct": 41.6237,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2021,
+   "n_games": 7638,
+   "box_pct": 100.0,
+   "pbp_basic_pct": 96.8054,
+   "pbp_coord_pct": 48.9788,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 2.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "grain": "league_season",
+   "season": 2022,
+   "n_games": 11042,
+   "box_pct": 99.8008,
+   "pbp_basic_pct": 98.3155,
+   "pbp_coord_pct": 50.4075,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 1.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 1997,
+   "n_games": 115,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 1998,
+   "n_games": 158,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 99.3671,
+   "pbp_coord_pct": 99.3671,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 1999,
+   "n_games": 203,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2000,
+   "n_games": 272,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2001,
+   "n_games": 274,
+   "box_pct": 0.0,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2002,
+   "n_games": 545,
+   "box_pct": 2.9358,
+   "pbp_basic_pct": 98.7156,
+   "pbp_coord_pct": 98.7156,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2003,
+   "n_games": 513,
+   "box_pct": 38.4016,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2004,
+   "n_games": 478,
+   "box_pct": 44.7699,
+   "pbp_basic_pct": 99.7908,
+   "pbp_coord_pct": 99.7908,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2005,
+   "n_games": 477,
+   "box_pct": 48.218,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2006,
+   "n_games": 515,
+   "box_pct": 49.7087,
+   "pbp_basic_pct": 99.4175,
+   "pbp_coord_pct": 99.4175,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2007,
+   "n_games": 484,
+   "box_pct": 50.2066,
+   "pbp_basic_pct": 99.3802,
+   "pbp_coord_pct": 99.3802,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2008,
+   "n_games": 518,
+   "box_pct": 49.6139,
+   "pbp_basic_pct": 99.4208,
+   "pbp_coord_pct": 99.4208,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2009,
+   "n_games": 484,
+   "box_pct": 50.2066,
+   "pbp_basic_pct": 99.3802,
+   "pbp_coord_pct": 99.3802,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2010,
+   "n_games": 441,
+   "box_pct": 50.1134,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2011,
+   "n_games": 448,
+   "box_pct": 50.2232,
+   "pbp_basic_pct": 99.5536,
+   "pbp_coord_pct": 99.5536,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2012,
+   "n_games": 446,
+   "box_pct": 49.7758,
+   "pbp_basic_pct": 99.3274,
+   "pbp_coord_pct": 99.3274,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2013,
+   "n_games": 443,
+   "box_pct": 50.1129,
+   "pbp_basic_pct": 99.7743,
+   "pbp_coord_pct": 99.7743,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2014,
+   "n_games": 445,
+   "box_pct": 50.1124,
+   "pbp_basic_pct": 99.7753,
+   "pbp_coord_pct": 99.7753,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2015,
+   "n_games": 451,
+   "box_pct": 50.1109,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2016,
+   "n_games": 440,
+   "box_pct": 49.7727,
+   "pbp_basic_pct": 99.0909,
+   "pbp_coord_pct": 99.0909,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2017,
+   "n_games": 439,
+   "box_pct": 50.1139,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2018,
+   "n_games": 443,
+   "box_pct": 49.8871,
+   "pbp_basic_pct": 99.0971,
+   "pbp_coord_pct": 99.0971,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2019,
+   "n_games": 441,
+   "box_pct": 50.1134,
+   "pbp_basic_pct": 99.5465,
+   "pbp_coord_pct": 99.5465,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2020,
+   "n_games": 294,
+   "box_pct": 50.0,
+   "pbp_basic_pct": 99.6599,
+   "pbp_coord_pct": 99.6599,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2021,
+   "n_games": 420,
+   "box_pct": 50.2381,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  },
+  {
+   "league": "wnba",
+   "grain": "league_season",
+   "season": 2022,
+   "n_games": 480,
+   "box_pct": 50.2083,
+   "pbp_basic_pct": 100.0,
+   "pbp_coord_pct": 100.0,
+   "lineup_full_pct": 0.0,
+   "lineup_quality_full_games": 0.0,
+   "tracking_pct": 0.0
+  }
+ ],
+ "substitution_parse_confidence": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "source_fields",
+   "n": 1119398
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "source_partial|in:game_scope",
+   "n": 1385
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 1233
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 404
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "unparsed",
+   "parse_method": "source_partial|in:missing_name",
+   "n": 159
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:team_season_scope",
+   "n": 89
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 54
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "source_partial|in:unresolved",
+   "n": 31
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 26
+  },
+  {
+   "league": "nba",
+   "source": "espn",
+   "parse_confidence": "unparsed",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 2
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 1312727
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "in_player_unresolved",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 42696
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope_folded",
+   "n": 12466
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:team_season_scope",
+   "n": 9118
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:team_season_scope_folded",
+   "n": 34
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "in_player_unresolved",
+   "parse_method": "flag_only",
+   "n": 19
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "parse_confidence": "in_player_unresolved",
+   "parse_method": "description_regex|in:missing_name",
+   "n": 11
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:game_scope|out:missing_name",
+   "n": 1939655
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:game_scope|out:game_scope",
+   "n": 1912862
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "unpaired|in:unresolved|out:missing_name",
+   "n": 155654
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_cluster|in:unresolved|out:unresolved",
+   "n": 94010
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_cluster|in:unresolved|out:game_scope",
+   "n": 46496
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_cluster|in:game_scope|out:unresolved",
+   "n": 45271
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:missing_name",
+   "n": 35352
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:game_scope",
+   "n": 26070
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:missing_name",
+   "n": 3361
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:unresolved",
+   "n": 1699
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:unresolved",
+   "n": 588
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:game_scope",
+   "n": 576
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:team_season_scope|out:game_scope",
+   "n": 275
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:game_scope|out:team_season_scope",
+   "n": 243
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:team_season_scope|out:missing_name",
+   "n": 237
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_cluster|in:unresolved|out:team_season_scope",
+   "n": 18
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_cluster|in:team_season_scope|out:unresolved",
+   "n": 18
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:unresolved|out:missing_name",
+   "n": 12
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_cluster|in:unresolved|out:unresolved",
+   "n": 11
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:team_season_scope|out:missing_name",
+   "n": 9
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:team_season_scope|out:game_scope",
+   "n": 9
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:team_season_scope",
+   "n": 5
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:game_scope|out:game_scope",
+   "n": 1765328
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:game_scope|out:missing_name",
+   "n": 1753398
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "unpaired|in:unresolved|out:missing_name",
+   "n": 148751
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_cluster|in:unresolved|out:unresolved",
+   "n": 77775
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_cluster|in:unresolved|out:game_scope",
+   "n": 49515
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_cluster|in:game_scope|out:unresolved",
+   "n": 47776
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:missing_name",
+   "n": 37791
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:game_scope",
+   "n": 26723
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:missing_name",
+   "n": 4340
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:unresolved",
+   "n": 2162
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:game_scope",
+   "n": 793
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:unresolved",
+   "n": 750
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:team_season_scope|out:game_scope",
+   "n": 90
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:team_season_scope|out:missing_name",
+   "n": 84
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_cluster|in:game_scope|out:team_season_scope",
+   "n": 84
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_cluster|in:unresolved|out:unresolved",
+   "n": 4
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "unpaired|in:unresolved|out:missing_name",
+   "n": 3
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:game_scope|out:team_season_scope",
+   "n": 3
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "unparsed",
+   "parse_method": "paired_by_lineup_delta|in:unresolved|out:team_season_scope",
+   "n": 2
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "out_player_unpaired",
+   "parse_method": "paired_by_lineup_delta|in:team_season_scope|out:missing_name",
+   "n": 2
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "paired_by_lineup_delta|in:team_season_scope|out:game_scope",
+   "n": 1
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "source_fields",
+   "n": 203730
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "source_partial|in:game_scope",
+   "n": 307
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 190
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "source_partial|in:unresolved",
+   "n": 75
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "unparsed",
+   "parse_method": "source_partial|in:missing_name",
+   "n": 40
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "one_player_missing",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 32
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "unparsed",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 27
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 15
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 5
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope",
+   "n": 228943
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "in_player_unresolved",
+   "parse_method": "description_regex|in:unresolved",
+   "n": 8519
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:team_season_scope",
+   "n": 1241
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:game_scope_folded",
+   "n": 187
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "in_player_unresolved",
+   "parse_method": "flag_only",
+   "n": 5
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "parse_confidence": "both_players_identified",
+   "parse_method": "description_regex|in:team_season_scope_folded",
+   "n": 1
+  }
+ ],
+ "possession_versions": [
+  {
+   "league": "nba",
+   "source": "espn",
+   "possession_origin": "derived_parser",
+   "parser_version": "possessions-derive-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 4960037,
+   "pct_ambiguous": 12.96,
+   "pct_points_reconciled": 100.0,
+   "pct_with_lineup": 0.0
+  },
+  {
+   "league": "nba",
+   "source": "nba_stats",
+   "possession_origin": "source_provided",
+   "parser_version": "possessions-source-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 6372118,
+   "pct_ambiguous": 0.01,
+   "pct_points_reconciled": 86.75,
+   "pct_with_lineup": 100.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "espn",
+   "possession_origin": "derived_parser",
+   "parser_version": "possessions-derive-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 9641342,
+   "pct_ambiguous": 11.34,
+   "pct_points_reconciled": 100.0,
+   "pct_with_lineup": 0.0
+  },
+  {
+   "league": "ncaa_men",
+   "source": "ncaa",
+   "possession_origin": "source_provided",
+   "parser_version": "possessions-source-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 9575947,
+   "pct_ambiguous": 0.0,
+   "pct_points_reconciled": 99.28,
+   "pct_with_lineup": 94.95
+  },
+  {
+   "league": "ncaa_women",
+   "source": "espn",
+   "possession_origin": "derived_parser",
+   "parser_version": "possessions-derive-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 4502222,
+   "pct_ambiguous": 12.83,
+   "pct_points_reconciled": 100.0,
+   "pct_with_lineup": 0.0
+  },
+  {
+   "league": "ncaa_women",
+   "source": "ncaa",
+   "possession_origin": "source_provided",
+   "parser_version": "possessions-source-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 9255907,
+   "pct_ambiguous": 0.0,
+   "pct_points_reconciled": 99.31,
+   "pct_with_lineup": 95.66
+  },
+  {
+   "league": "wnba",
+   "source": "espn",
+   "possession_origin": "derived_parser",
+   "parser_version": "possessions-derive-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 737113,
+   "pct_ambiguous": 15.52,
+   "pct_points_reconciled": 100.0,
+   "pct_with_lineup": 0.0
+  },
+  {
+   "league": "wnba",
+   "source": "wnba_stats",
+   "possession_origin": "source_provided",
+   "parser_version": "possessions-source-1.1.0",
+   "possession_rule": "corpus-possession-rule-1.1.0",
+   "n": 882887,
+   "pct_ambiguous": 100.0,
+   "pct_points_reconciled": 86.81,
+   "pct_with_lineup": 30.51
+  }
+ ]
+}

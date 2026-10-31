@@ -1,0 +1,20 @@
+{
+ "month": "2002-06",
+ "family": "mnl",
+ "n_train": 522768,
+ "n_test": 1076,
+ "train_from": "2000-06-02",
+ "train_to": "2002-05-31",
+ "n_players_vocab": 524,
+ "n_teams": 29,
+ "converged": {
+  "A": true,
+  "B": true,
+  "C": true,
+  "D": true,
+  "E": true,
+  "F": true,
+  "G": true
+ },
+ "seconds": 2933.8
+}

@@ -1,0 +1,505 @@
+# hoopslab data contract (v1)
+#
+# The information interface the experiments consume. It does NOT prescribe how the
+# external collection project stores raw data. An adapter (src/hoopslab/adapters/)
+# maps whatever that project produces onto these canonical tables.
+#
+# Human-readable companion: docs/prereg/05_data_contract.md
+
+contract_version: 1
+
+conventions:
+  identifiers: >
+    Opaque, stable strings. IDs must not encode ordering, outcome, or future state
+    (e.g. sequential player IDs assigned by first NBA appearance, or game IDs whose
+    suffix encodes the playoff round). Cross-league identity is resolved in
+    PERSON_LINK, never by reusing IDs.
+  timestamps: >
+    UTC, ISO-8601, second precision or better. Local times are derived using
+    VENUE.tz, never stored as the canonical value.
+  event_time: >
+    When the thing described happened, or the moment it applies to. For a box
+    score: the game's tip. For an injury report entry: the game it refers to. For
+    a play-by-play event: its wall-clock time if known, else tip + elapsed game
+    time (flagged approximate).
+  knowledge_time: >
+    The earliest UTC instant at which THIS VERSION of the record was publicly
+    available to an outside forecaster. This is the only field the as-of engine
+    uses to decide visibility. It is NOT the time the collector ingested the
+    record (ingested_time); historical backfills are ingested years later.
+  knowledge_time_quality: >
+    One of exact | bounded | imputed_conservative | unknown.
+    exact: from a source timestamp.
+    bounded: known to lie in an interval; knowledge_time holds the interval's
+    UPPER bound.
+    imputed_conservative: imputed by a documented rule that errs late.
+    unknown: the as-of engine treats the record as visible only after the
+    pre-registered fallback (see fallback_rules).
+  versioning: >
+    Records that change (stat corrections, injury status updates, schedule changes,
+    bio corrections) are append-only versions sharing a record_key. Each version
+    has its own knowledge_time. Never overwrite in place.
+  fallback_rules:
+    box_score_or_event_unknown: knowledge_time := scheduled_tip + 4h
+    injury_report_unknown_time_known_date: knowledge_time := scheduled_tip (usable only by forecasts at or after tip, i.e. not pre-game)
+    transaction_unknown_time_known_date: knowledge_time := 23:59:59 local on that date
+    roster_membership_season_only: >
+      A roster spell known only at season granularity is not usable for pre-game
+      forecasts before the player's first appearance for that team.
+    market_snapshot_unknown_time: exclude
+    sensitivity: >
+      Every primary result is re-run with an 'optimistic' imputation
+      (knowledge_time := earliest plausible). A result that changes decision under
+      optimistic imputation is flagged LEAKAGE-SENSITIVE.
+
+levels:
+  A: Basic player-stat forecasting. Schedules, final box scores, rosters, rules, and availability reports with knowledge times.
+  B: Possession modelling. Adds play-by-play events with clock, score, and actors; shot locations.
+  C: Lineup and rotation modelling. Exact substitution timing, lineup stints, starting-lineup announcements, coaches, officials, and injury-report snapshots with exact times.
+  D: Tracking-enhanced. Optical tracking frames or derived tracking features, shot clock, matchups, defender distances.
+  E: Proprietary / ideal. Medical and load data, practice participation, intended minutes and rotation plans, wearables.
+
+# Column 'time_role' values:
+#   key          identifier / part of primary key
+#   event_time   the canonical event time of the record
+#   knowledge    the knowledge_time of the record
+#   pre          information that exists before the event (usable pre-game once knowledge_time <= t)
+#   outcome      result of the event (usable only after knowledge_time; never a pre-game feature of its own game)
+#   meta         provenance / quality
+
+common_fields: &common
+  - {name: knowledge_time, type: timestamp, level: A, required: true, time_role: knowledge, desc: earliest public availability of this version}
+  - {name: knowledge_time_quality, type: enum, level: A, required: true, time_role: meta, values: [exact, bounded, imputed_conservative, unknown]}
+  - {name: source, type: string, level: A, required: true, time_role: meta, desc: provenance tag}
+  - {name: record_version, type: int, level: A, required: false, time_role: meta, desc: "1..n for versioned records"}
+  - {name: ingested_time, type: timestamp, level: A, required: false, time_role: meta, desc: "collector ingestion time; MUST NOT be used for visibility"}
+
+tables:
+
+  RULESET:
+    description: Rule parameters by league and period of validity. Data, not code.
+    grain: one row per (league, competition, gender, effective period)
+    primary_key: [ruleset_id]
+    level: A
+    fields:
+      - {name: ruleset_id, type: string, level: A, required: true, time_role: key}
+      - {name: league, type: enum, level: A, required: true, time_role: pre, values: [NBA, WNBA, NCAAM, NCAAW, OTHER]}
+      - {name: effective_from, type: date, level: A, required: true, time_role: pre}
+      - {name: effective_to, type: date, level: A, required: false, time_role: pre}
+      - {name: periods, type: int, level: A, required: true, time_role: pre, desc: "4 quarters or 2 halves"}
+      - {name: period_length_s, type: int, level: A, required: true, time_role: pre}
+      - {name: overtime_length_s, type: int, level: A, required: true, time_role: pre}
+      - {name: shot_clock_s, type: int, level: A, required: true, time_role: pre}
+      - {name: shot_clock_offensive_rebound_reset_s, type: int, level: A, required: false, time_role: pre}
+      - {name: three_point_distance_m, type: float, level: A, required: true, time_role: pre, desc: top-of-arc distance}
+      - {name: three_point_corner_distance_m, type: float, level: A, required: false, time_role: pre}
+      - {name: personal_foul_limit, type: int, level: A, required: true, time_role: pre}
+      - {name: team_foul_bonus_rule, type: string, level: A, required: true, time_role: pre, desc: "structured string, e.g. 'per_quarter:5:2FT' or 'per_half:7:1and1;10:2FT'"}
+      - {name: timeouts_per_game, type: int, level: B, required: false, time_role: pre}
+      - {name: notes, type: string, level: A, required: false, time_role: meta}
+      - *common
+
+  SEASON:
+    description: Season and phase calendar.
+    grain: one row per (league, season, phase)
+    primary_key: [league, season_id, phase]
+    level: A
+    fields:
+      - {name: league, type: enum, level: A, required: true, time_role: key}
+      - {name: season_id, type: string, level: A, required: true, time_role: key, desc: "e.g. NBA-2023-24, WNBA-2024, NCAAM-2023-24"}
+      - {name: phase, type: enum, level: A, required: true, time_role: key, values: [preseason, regular, in_season_tournament, conference_tournament, play_in, postseason, national_tournament]}
+      - {name: start_date, type: date, level: A, required: true, time_role: pre}
+      - {name: end_date, type: date, level: A, required: true, time_role: pre}
+      - *common
+
+  VENUE:
+    grain: one row per venue (versioned if moved or renamed)
+    primary_key: [venue_id, record_version]
+    level: A
+    fields:
+      - {name: venue_id, type: string, level: A, required: true, time_role: key}
+      - {name: latitude, type: float, level: A, required: false, time_role: pre}
+      - {name: longitude, type: float, level: A, required: false, time_role: pre}
+      - {name: altitude_m, type: float, level: A, required: false, time_role: pre}
+      - {name: tz, type: string, level: A, required: true, time_role: pre, desc: IANA timezone}
+      - *common
+
+  TEAM:
+    grain: one row per team identity spell (relocations and renames create new spells of the same franchise)
+    primary_key: [team_id, valid_from]
+    level: A
+    fields:
+      - {name: team_id, type: string, level: A, required: true, time_role: key}
+      - {name: franchise_id, type: string, level: A, required: true, time_role: pre}
+      - {name: league, type: enum, level: A, required: true, time_role: pre}
+      - {name: conference, type: string, level: A, required: false, time_role: pre}
+      - {name: division_or_level, type: string, level: A, required: false, time_role: pre, desc: "NCAA division, etc."}
+      - {name: home_venue_id, type: string, level: A, required: false, time_role: pre}
+      - {name: valid_from, type: date, level: A, required: true, time_role: event_time}
+      - {name: valid_to, type: date, level: A, required: false, time_role: pre}
+      - *common
+
+  PLAYER:
+    description: Person attributes. Bio corrections are new versions.
+    grain: one row per person per version
+    primary_key: [player_id, record_version]
+    level: A
+    fields:
+      - {name: player_id, type: string, level: A, required: true, time_role: key}
+      - {name: birth_date, type: date, level: A, required: false, time_role: pre}
+      - {name: height_cm, type: float, level: A, required: false, time_role: pre}
+      - {name: weight_kg, type: float, level: A, required: false, time_role: pre}
+      - {name: listed_position, type: string, level: A, required: false, time_role: pre, desc: "as listed at knowledge_time; retroactive relabels are leakage"}
+      - {name: handedness, type: enum, level: B, required: false, time_role: pre, values: [L, R, unknown]}
+      - {name: draft_league, type: string, level: A, required: false, time_role: pre}
+      - {name: draft_year, type: int, level: A, required: false, time_role: pre}
+      - {name: draft_pick_overall, type: int, level: A, required: false, time_role: pre}
+      - *common
+
+  PERSON_LINK:
+    description: >
+      Cross-league identity (NCAA -> NBA/WNBA, international -> NBA). A link must
+      carry the knowledge_time at which it could have been made. A link created only
+      because the player later reached the NBA reveals the future when used for
+      NCAA-era forecasts.
+    grain: one row per (player_id_a, player_id_b)
+    primary_key: [player_id_a, player_id_b]
+    level: A
+    fields:
+      - {name: player_id_a, type: string, level: A, required: true, time_role: key}
+      - {name: player_id_b, type: string, level: A, required: true, time_role: key}
+      - {name: link_type, type: enum, level: A, required: true, time_role: pre, values: [same_person]}
+      - *common
+
+  COACH_TENURE:
+    grain: one row per (team, coach, role) spell
+    primary_key: [team_id, coach_id, role, valid_from]
+    level: C
+    fields:
+      - {name: team_id, type: string, level: C, required: true, time_role: key}
+      - {name: coach_id, type: string, level: C, required: true, time_role: key}
+      - {name: role, type: enum, level: C, required: true, time_role: key, values: [head, interim_head, acting_head]}
+      - {name: valid_from, type: timestamp, level: C, required: true, time_role: event_time}
+      - {name: valid_to, type: timestamp, level: C, required: false, time_role: pre}
+      - *common
+
+  ROSTER:
+    description: >
+      Roster membership spells created by transactions. knowledge_time is the
+      public announcement time, not the effective date.
+    grain: one row per membership spell per version (closing a spell appends a version with valid_to set)
+    primary_key: [player_id, team_id, valid_from, record_version]
+    level: A
+    fields:
+      - {name: player_id, type: string, level: A, required: true, time_role: key}
+      - {name: team_id, type: string, level: A, required: true, time_role: key}
+      - {name: valid_from, type: timestamp, level: A, required: true, time_role: event_time, desc: effective start}
+      - {name: valid_to, type: timestamp, level: A, required: false, time_role: pre, desc: "effective end; a later version sets it when known"}
+      - {name: transaction_type, type: enum, level: A, required: false, time_role: pre, values: [draft, signing, trade, waiver_claim, two_way, ten_day, hardship, g_league_assignment, recall, release, transfer, other]}
+      - {name: contract_type, type: string, level: A, required: false, time_role: pre}
+      - {name: jersey, type: string, level: A, required: false, time_role: pre}
+      - {name: depth_chart_slot, type: int, level: E, required: false, time_role: pre, desc: "team-internal rotation slot; synthetic worlds provide it, real data rarely"}
+      - *common
+
+  OFFICIAL_ASSIGNMENT:
+    grain: one row per (game, official)
+    primary_key: [game_id, official_id]
+    level: C
+    fields:
+      - {name: game_id, type: string, level: C, required: true, time_role: key}
+      - {name: official_id, type: string, level: C, required: true, time_role: key}
+      - {name: role, type: string, level: C, required: false, time_role: pre}
+      - *common
+
+  GAME:
+    description: >
+      Scheduled and played games. Schedule fields and outcome fields have different
+      knowledge times, so outcomes live in TEAM_GAME / PLAYER_GAME, or as a separate
+      GAME version with the later knowledge_time.
+    grain: one row per game per version (reschedules create versions)
+    primary_key: [game_id, record_version]
+    level: A
+    fields:
+      - {name: game_id, type: string, level: A, required: true, time_role: key}
+      - {name: league, type: enum, level: A, required: true, time_role: pre}
+      - {name: season_id, type: string, level: A, required: true, time_role: pre}
+      - {name: phase, type: enum, level: A, required: true, time_role: pre}
+      - {name: ruleset_id, type: string, level: A, required: true, time_role: pre}
+      - {name: scheduled_tip, type: timestamp, level: A, required: true, time_role: event_time}
+      - {name: actual_tip, type: timestamp, level: B, required: false, time_role: outcome}
+      - {name: home_team_id, type: string, level: A, required: true, time_role: pre}
+      - {name: away_team_id, type: string, level: A, required: true, time_role: pre}
+      - {name: neutral_site, type: bool, level: A, required: true, time_role: pre}
+      - {name: venue_id, type: string, level: A, required: false, time_role: pre}
+      - {name: status, type: enum, level: A, required: true, time_role: pre, values: [scheduled, final, postponed, cancelled, forfeit, suspended]}
+      - {name: periods_played, type: int, level: A, required: false, time_role: outcome, desc: "incl. overtimes; outcome"}
+      - *common
+
+  TEAM_GAME:
+    description: Team box score. Outcome table; knowledge_time is at or after final.
+    grain: one row per (game, team) per version
+    primary_key: [game_id, team_id, record_version]
+    level: A
+    fields:
+      - {name: game_id, type: string, level: A, required: true, time_role: key}
+      - {name: team_id, type: string, level: A, required: true, time_role: key}
+      - {name: is_home, type: bool, level: A, required: true, time_role: pre}
+      - {name: pts, type: int, level: A, required: true, time_role: outcome}
+      - {name: fgm, type: int, level: A, required: true, time_role: outcome}
+      - {name: fga, type: int, level: A, required: true, time_role: outcome}
+      - {name: fg3m, type: int, level: A, required: true, time_role: outcome}
+      - {name: fg3a, type: int, level: A, required: true, time_role: outcome}
+      - {name: ftm, type: int, level: A, required: true, time_role: outcome}
+      - {name: fta, type: int, level: A, required: true, time_role: outcome}
+      - {name: oreb, type: int, level: A, required: true, time_role: outcome, desc: player + team rebounds split below}
+      - {name: dreb, type: int, level: A, required: true, time_role: outcome}
+      - {name: team_reb, type: int, level: A, required: false, time_role: outcome}
+      - {name: ast, type: int, level: A, required: true, time_role: outcome}
+      - {name: stl, type: int, level: A, required: true, time_role: outcome}
+      - {name: blk, type: int, level: A, required: true, time_role: outcome}
+      - {name: tov, type: int, level: A, required: true, time_role: outcome, desc: incl. team turnovers}
+      - {name: pf, type: int, level: A, required: true, time_role: outcome}
+      - {name: possessions, type: int, level: B, required: false, time_role: outcome, desc: "counted from events, not estimated"}
+      - *common
+
+  PLAYER_GAME:
+    description: >
+      Player box score for EVERY rostered player (incl. DNP, inactive), so that
+      the evaluation population is not selected on the outcome.
+    grain: one row per (game, player) per version
+    primary_key: [game_id, player_id, record_version]
+    level: A
+    fields:
+      - {name: game_id, type: string, level: A, required: true, time_role: key}
+      - {name: player_id, type: string, level: A, required: true, time_role: key}
+      - {name: team_id, type: string, level: A, required: true, time_role: pre}
+      - {name: status, type: enum, level: A, required: true, time_role: outcome, values: [played, dnp_coach, inactive, not_with_team, suspended]}
+      - {name: started, type: bool, level: A, required: true, time_role: outcome, desc: "outcome for pre-game forecasts; see STARTING_LINEUP for the announcement"}
+      - {name: seconds, type: int, level: A, required: true, time_role: outcome}
+      - {name: pts, type: int, level: A, required: true, time_role: outcome}
+      - {name: fgm, type: int, level: A, required: true, time_role: outcome}
+      - {name: fga, type: int, level: A, required: true, time_role: outcome}
+      - {name: fg3m, type: int, level: A, required: true, time_role: outcome}
+      - {name: fg3a, type: int, level: A, required: true, time_role: outcome}
+      - {name: ftm, type: int, level: A, required: true, time_role: outcome}
+      - {name: fta, type: int, level: A, required: true, time_role: outcome}
+      - {name: oreb, type: int, level: A, required: true, time_role: outcome}
+      - {name: dreb, type: int, level: A, required: true, time_role: outcome}
+      - {name: ast, type: int, level: A, required: true, time_role: outcome}
+      - {name: stl, type: int, level: A, required: true, time_role: outcome}
+      - {name: blk, type: int, level: A, required: true, time_role: outcome}
+      - {name: tov, type: int, level: A, required: true, time_role: outcome}
+      - {name: pf, type: int, level: A, required: true, time_role: outcome}
+      - {name: plus_minus, type: int, level: A, required: false, time_role: outcome}
+      - *common
+
+  INJURY_REPORT:
+    description: >
+      Every published snapshot of availability status (not only the final one).
+      knowledge_time = the report's publication time. This is the single most
+      leakage-prone table.
+    grain: one row per (report snapshot, game, player)
+    primary_key: [report_id, game_id, player_id]
+    level: A
+    fields:
+      - {name: report_id, type: string, level: A, required: true, time_role: key}
+      - {name: game_id, type: string, level: A, required: true, time_role: key}
+      - {name: player_id, type: string, level: A, required: true, time_role: key}
+      - {name: team_id, type: string, level: A, required: true, time_role: pre}
+      - {name: status, type: enum, level: A, required: true, time_role: pre, values: [out, doubtful, questionable, probable, available, suspended, not_with_team, g_league, rest]}
+      - {name: reason_category, type: enum, level: A, required: false, time_role: pre, values: [injury, illness, rest, personal, suspension, conditioning, g_league, other]}
+      - {name: body_part, type: string, level: A, required: false, time_role: pre}
+      - {name: reason_text, type: string, level: A, required: false, time_role: pre}
+      - {name: minutes_restriction, type: string, level: E, required: false, time_role: pre}
+      - *common
+
+  STARTING_LINEUP:
+    description: Announced starters (pre-tip). Distinct from PLAYER_GAME.started (outcome).
+    grain: one row per (game, team, player)
+    primary_key: [game_id, team_id, player_id]
+    level: C
+    fields:
+      - {name: game_id, type: string, level: C, required: true, time_role: key}
+      - {name: team_id, type: string, level: C, required: true, time_role: key}
+      - {name: player_id, type: string, level: C, required: true, time_role: key}
+      - *common
+
+  EVENT:
+    description: >
+      Canonical play-by-play. For pre-game forecasting, all events of a game become
+      visible at knowledge_time (game final). For live forecasting, event-level
+      knowledge_time = wall-clock time of the event.
+    grain: one row per event per version
+    primary_key: [game_id, event_seq]
+    level: B
+    fields:
+      - {name: game_id, type: string, level: B, required: true, time_role: key}
+      - {name: event_seq, type: int, level: B, required: true, time_role: key, desc: monotone within game}
+      - {name: period, type: int, level: B, required: true, time_role: outcome}
+      - {name: clock_remaining_s, type: float, level: B, required: true, time_role: outcome}
+      - {name: elapsed_s, type: float, level: B, required: true, time_role: event_time, desc: game seconds elapsed}
+      - {name: wall_time, type: timestamp, level: C, required: false, time_role: outcome}
+      - {name: event_type, type: enum, level: B, required: true, time_role: outcome, values: [shot, free_throw, rebound, turnover, foul, violation, substitution, timeout, jump_ball, period_start, period_end, ejection, replay, other]}
+      - {name: event_subtype, type: string, level: B, required: false, time_role: outcome}
+      - {name: team_id, type: string, level: B, required: false, time_role: outcome}
+      - {name: player1_id, type: string, level: B, required: false, time_role: outcome, desc: primary actor}
+      - {name: player2_id, type: string, level: B, required: false, time_role: outcome, desc: "assister / fouled player / stealer / player in"}
+      - {name: player3_id, type: string, level: B, required: false, time_role: outcome, desc: blocker}
+      - {name: shot_made, type: bool, level: B, required: false, time_role: outcome}
+      - {name: shot_value, type: int, level: B, required: false, time_role: outcome}
+      - {name: shot_x, type: float, level: B, required: false, time_role: outcome}
+      - {name: shot_y, type: float, level: B, required: false, time_role: outcome}
+      - {name: ft_number, type: int, level: B, required: false, time_role: outcome}
+      - {name: ft_total, type: int, level: B, required: false, time_role: outcome}
+      - {name: rebound_offensive, type: bool, level: B, required: false, time_role: outcome}
+      - {name: is_team_event, type: bool, level: B, required: false, time_role: outcome, desc: team rebound / team turnover}
+      - {name: score_home, type: int, level: B, required: true, time_role: outcome}
+      - {name: score_away, type: int, level: B, required: true, time_role: outcome}
+      - {name: shot_clock_remaining_s, type: float, level: D, required: false, time_role: outcome}
+      - *common
+
+  POSSESSION:
+    description: >
+      Derived from EVENT by hoopslab's parser (preferred), or supplied. Lineups must
+      be reconstructed using only information up to the possession when used in live
+      mode (see leakage checklist L-D3).
+    grain: one row per possession (offensive-rebound continuations are 'segments' within it)
+    primary_key: [game_id, possession_seq, segment]
+    level: B
+    fields:
+      - {name: game_id, type: string, level: B, required: true, time_role: key}
+      - {name: possession_seq, type: int, level: B, required: true, time_role: key}
+      - {name: segment, type: int, level: B, required: true, time_role: key}
+      - {name: off_team_id, type: string, level: B, required: true, time_role: outcome}
+      - {name: def_team_id, type: string, level: B, required: true, time_role: outcome}
+      - {name: start_elapsed_s, type: float, level: B, required: true, time_role: event_time}
+      - {name: duration_s, type: float, level: B, required: true, time_role: outcome}
+      - {name: start_type, type: enum, level: B, required: true, time_role: outcome, values: [after_make, after_dreb, after_live_turnover, after_oreb, after_dead_ball, period_start, after_ft]}
+      - {name: end_type, type: enum, level: B, required: true, time_role: outcome, values: [made_fg, missed_fg_dreb, missed_fg_oreb, turnover_live, turnover_dead, ft_trip, period_end, other]}
+      - {name: user_player_id, type: string, level: B, required: false, time_role: outcome, desc: shooter / turnover committer / fouled shooter}
+      - {name: points, type: int, level: B, required: true, time_role: outcome}
+      - {name: off_margin_start, type: int, level: B, required: true, time_role: outcome}
+      - {name: off_lineup, type: "list[string]", level: C, required: false, time_role: outcome, desc: 5 ids}
+      - {name: def_lineup, type: "list[string]", level: C, required: false, time_role: outcome, desc: 5 ids}
+      - {name: off_team_fouls_period, type: int, level: B, required: false, time_role: outcome}
+      - {name: def_in_bonus, type: bool, level: B, required: false, time_role: outcome}
+      - *common
+
+  LINEUP_STINT:
+    grain: one row per (game, team, stint)
+    primary_key: [game_id, team_id, stint_seq]
+    level: C
+    fields:
+      - {name: game_id, type: string, level: C, required: true, time_role: key}
+      - {name: team_id, type: string, level: C, required: true, time_role: key}
+      - {name: stint_seq, type: int, level: C, required: true, time_role: key}
+      - {name: start_elapsed_s, type: float, level: C, required: true, time_role: event_time}
+      - {name: end_elapsed_s, type: float, level: C, required: true, time_role: outcome}
+      - {name: player_ids, type: "list[string]", level: C, required: true, time_role: outcome}
+      - {name: opp_player_ids, type: "list[string]", level: C, required: false, time_role: outcome}
+      - {name: off_possessions, type: int, level: C, required: false, time_role: outcome}
+      - {name: def_possessions, type: int, level: C, required: false, time_role: outcome}
+      - {name: pts_for, type: int, level: C, required: false, time_role: outcome}
+      - {name: pts_against, type: int, level: C, required: false, time_role: outcome}
+      - *common
+
+  SUBSTITUTION:
+    grain: one row per substitution
+    primary_key: [game_id, event_seq]
+    level: C
+    fields:
+      - {name: game_id, type: string, level: C, required: true, time_role: key}
+      - {name: event_seq, type: int, level: C, required: true, time_role: key}
+      - {name: elapsed_s, type: float, level: C, required: true, time_role: event_time}
+      - {name: team_id, type: string, level: C, required: true, time_role: outcome}
+      - {name: player_in_id, type: string, level: C, required: true, time_role: outcome}
+      - {name: player_out_id, type: string, level: C, required: true, time_role: outcome}
+      - {name: timing_quality, type: enum, level: C, required: false, time_role: meta, values: [exact, dead_ball_batch, inferred]}
+      - *common
+
+  SHOT:
+    description: Shot-level detail (a view over EVENT plus tracking context).
+    grain: one row per field-goal attempt
+    primary_key: [game_id, event_seq]
+    level: B
+    fields:
+      - {name: game_id, type: string, level: B, required: true, time_role: key}
+      - {name: event_seq, type: int, level: B, required: true, time_role: key}
+      - {name: shooter_id, type: string, level: B, required: true, time_role: outcome}
+      - {name: x, type: float, level: B, required: true, time_role: outcome, desc: court coordinates; convention documented by adapter}
+      - {name: y, type: float, level: B, required: true, time_role: outcome}
+      - {name: distance_m, type: float, level: B, required: true, time_role: outcome}
+      - {name: shot_value, type: int, level: B, required: true, time_role: outcome}
+      - {name: action_type, type: string, level: B, required: false, time_role: outcome, desc: "jumper, layup, dunk, hook, tip, ..."}
+      - {name: made, type: bool, level: B, required: true, time_role: outcome}
+      - {name: assisted_by_id, type: string, level: B, required: false, time_role: outcome}
+      - {name: blocked_by_id, type: string, level: B, required: false, time_role: outcome}
+      - {name: closest_defender_id, type: string, level: D, required: false, time_role: outcome}
+      - {name: closest_defender_distance_m, type: float, level: D, required: false, time_role: outcome}
+      - {name: touch_time_s, type: float, level: D, required: false, time_role: outcome}
+      - {name: dribbles, type: int, level: D, required: false, time_role: outcome}
+      - {name: shot_clock_remaining_s, type: float, level: D, required: false, time_role: outcome}
+      - *common
+
+  MATCHUP:
+    description: Offensive-defensive player pair exposure per game (tracking-derived).
+    grain: one row per (game, off_player, def_player)
+    primary_key: [game_id, off_player_id, def_player_id]
+    level: D
+    fields:
+      - {name: game_id, type: string, level: D, required: true, time_role: key}
+      - {name: off_player_id, type: string, level: D, required: true, time_role: key}
+      - {name: def_player_id, type: string, level: D, required: true, time_role: key}
+      - {name: partial_possessions, type: float, level: D, required: true, time_role: outcome}
+      - {name: seconds, type: float, level: D, required: false, time_role: outcome}
+      - {name: pts, type: int, level: D, required: false, time_role: outcome}
+      - {name: fga, type: int, level: D, required: false, time_role: outcome}
+      - *common
+
+  TRACKING_FRAME:
+    grain: one row per (game, frame, entity)
+    primary_key: [game_id, frame_id, entity_id]
+    level: D
+    fields:
+      - {name: game_id, type: string, level: D, required: true, time_role: key}
+      - {name: frame_id, type: int, level: D, required: true, time_role: key}
+      - {name: entity_id, type: string, level: D, required: true, time_role: key, desc: player id or 'ball'}
+      - {name: elapsed_s, type: float, level: D, required: true, time_role: event_time}
+      - {name: x, type: float, level: D, required: true, time_role: outcome}
+      - {name: y, type: float, level: D, required: true, time_role: outcome}
+      - {name: z, type: float, level: D, required: false, time_role: outcome}
+      - {name: shot_clock_remaining_s, type: float, level: D, required: false, time_role: outcome}
+      - {name: pose, type: blob, level: E, required: false, time_role: outcome}
+      - *common
+
+  MARKET_SNAPSHOT:
+    description: >
+      Optional. Used only as a benchmark and for encompassing tests (H14), never
+      inside the independent scientific model. 'Closing' is a label that is known
+      only at tip, so do not store an is_closing flag; derive it as-of.
+    grain: one row per (book, market, snapshot)
+    primary_key: [book_id, market_id, knowledge_time]
+    level: A
+    fields:
+      - {name: book_id, type: string, level: A, required: true, time_role: key}
+      - {name: market_id, type: string, level: A, required: true, time_role: key}
+      - {name: game_id, type: string, level: A, required: true, time_role: pre}
+      - {name: player_id, type: string, level: A, required: false, time_role: pre}
+      - {name: market_type, type: enum, level: A, required: true, time_role: pre, values: [moneyline, spread, total, team_total, player_prop]}
+      - {name: stat, type: string, level: A, required: false, time_role: pre}
+      - {name: line, type: float, level: A, required: false, time_role: pre}
+      - {name: price_a, type: float, level: A, required: true, time_role: pre, desc: decimal odds}
+      - {name: price_b, type: float, level: A, required: true, time_role: pre}
+      - *common
+
+  PROPRIETARY_LOAD:
+    description: Level-E placeholder (medical, load, wearables, practice, rotation plans).
+    grain: free-form per (player, date)
+    primary_key: [player_id, event_time]
+    level: E
+    fields:
+      - {name: player_id, type: string, level: E, required: true, time_role: key}
+      - {name: event_time, type: timestamp, level: E, required: true, time_role: event_time}
+      - {name: metric, type: string, level: E, required: true, time_role: pre}
+      - {name: value, type: float, level: E, required: true, time_role: pre}
+      - *common

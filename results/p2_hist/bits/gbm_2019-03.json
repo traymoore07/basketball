@@ -1,0 +1,20 @@
+{
+ "month": "2019-03",
+ "family": "gbm",
+ "n_train": 580756,
+ "n_test": 50209,
+ "train_from": "2017-03-01",
+ "train_to": "2019-02-28",
+ "n_players_vocab": 709,
+ "n_teams": 30,
+ "converged": {
+  "A": true,
+  "B": true,
+  "C": true,
+  "D": true,
+  "E": true,
+  "F": true,
+  "G": true
+ },
+ "seconds": 576.3
+}

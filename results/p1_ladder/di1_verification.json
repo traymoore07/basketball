@@ -1,0 +1,540 @@
+{
+ "rule": "drop a GAME row iff home_team_id == 'nba:nba_stats:0' or away_team_id == 'nba:nba_stats:0'",
+ "basis": "structural invalidity (placeholder team identity, no roster spell can exist); never forecast performance",
+ "source_rows_team_0": [
+  {
+   "season": "1997",
+   "season_type": "preseason",
+   "source_game_id": "0019600055",
+   "game_date": "1996-10-19 00:00:00",
+   "home_team_id": "1610612755",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1997",
+   "season_type": "preseason",
+   "source_game_id": "0019600056",
+   "game_date": "1996-10-19 00:00:00",
+   "home_team_id": "1610612747",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1997",
+   "season_type": "preseason",
+   "source_game_id": "0019600106",
+   "game_date": "1996-10-27 00:00:00",
+   "home_team_id": "1610612762",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1997",
+   "season_type": "preseason",
+   "source_game_id": "0019600110",
+   "game_date": "1996-10-27 00:00:00",
+   "home_team_id": "1610612739",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1998",
+   "season_type": "preseason",
+   "source_game_id": "0019700111",
+   "game_date": "1997-10-17 00:00:00",
+   "home_team_id": "1610612741",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1998",
+   "season_type": "preseason",
+   "source_game_id": "0019700112",
+   "game_date": "1997-10-18 00:00:00",
+   "home_team_id": "1610612741",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1998",
+   "season_type": "preseason",
+   "source_game_id": "0019700097",
+   "game_date": "1997-10-25 00:00:00",
+   "home_team_id": "1610612737",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1998",
+   "season_type": "preseason",
+   "source_game_id": "0019700106",
+   "game_date": "1997-10-25 00:00:00",
+   "home_team_id": "1610612747",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "1998",
+   "season_type": "all-star",
+   "source_game_id": "0039701189",
+   "game_date": "1998-04-19 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2000",
+   "season_type": "preseason",
+   "source_game_id": "0019900002",
+   "game_date": "1999-10-12 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "1610612748",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2000",
+   "season_type": "preseason",
+   "source_game_id": "0019900027",
+   "game_date": "1999-10-15 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "1610612759",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2000",
+   "season_type": "preseason",
+   "source_game_id": "0019900031",
+   "game_date": "1999-10-16 00:00:00",
+   "home_team_id": "1610612759",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2000",
+   "season_type": "all-star",
+   "source_game_id": "0039900002",
+   "game_date": "2000-02-12 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2002",
+   "season_type": "preseason",
+   "source_game_id": "0010100020",
+   "game_date": "2001-10-11 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "1610612750",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2002",
+   "season_type": "preseason",
+   "source_game_id": "0010100022",
+   "game_date": "2001-10-11 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "1610612761",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2005",
+   "season_type": "playoffs",
+   "source_game_id": "0040401000",
+   "game_date": "2005-06-27 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  },
+  {
+   "season": "2005",
+   "season_type": "playoffs",
+   "source_game_id": "0040401001",
+   "game_date": "2005-06-28 00:00:00",
+   "home_team_id": "0",
+   "away_team_id": "0",
+   "player_box_rows": "0"
+  }
+ ],
+ "source_rows_team_0_count": 17,
+ "store_rows_meeting_rule": [
+  {
+   "game_id": "nba:nba_stats:0019600055",
+   "season": 1997,
+   "phase": "preseason",
+   "tip": "1996-10-19 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019600056",
+   "season": 1997,
+   "phase": "preseason",
+   "tip": "1996-10-19 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019600106",
+   "season": 1997,
+   "phase": "preseason",
+   "tip": "1996-10-27 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019600110",
+   "season": 1997,
+   "phase": "preseason",
+   "tip": "1996-10-27 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019700111",
+   "season": 1998,
+   "phase": "preseason",
+   "tip": "1997-10-17 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019700112",
+   "season": 1998,
+   "phase": "preseason",
+   "tip": "1997-10-18 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019700097",
+   "season": 1998,
+   "phase": "preseason",
+   "tip": "1997-10-25 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019700106",
+   "season": 1998,
+   "phase": "preseason",
+   "tip": "1997-10-25 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019900002",
+   "season": 2000,
+   "phase": "preseason",
+   "tip": "1999-10-12 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019900027",
+   "season": 2000,
+   "phase": "preseason",
+   "tip": "1999-10-15 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0019900031",
+   "season": 2000,
+   "phase": "preseason",
+   "tip": "1999-10-16 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0010100020",
+   "season": 2002,
+   "phase": "preseason",
+   "tip": "2001-10-11 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0010100022",
+   "season": 2002,
+   "phase": "preseason",
+   "tip": "2001-10-11 12:00:00+00:00",
+   "p1_phase": false,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": false
+  },
+  {
+   "game_id": "nba:nba_stats:0040401000",
+   "season": 2005,
+   "phase": "postseason",
+   "tip": "2005-06-27 12:00:00+00:00",
+   "p1_phase": true,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": true
+  },
+  {
+   "game_id": "nba:nba_stats:0040401001",
+   "season": 2005,
+   "phase": "postseason",
+   "tip": "2005-06-28 12:00:00+00:00",
+   "p1_phase": true,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": true
+  }
+ ],
+ "store_rows_meeting_rule_count": 15,
+ "rows_that_would_enter_p1_forecast_population": [
+  {
+   "game_id": "nba:nba_stats:0040401000",
+   "season": 2005,
+   "phase": "postseason",
+   "tip": "2005-06-27 12:00:00+00:00",
+   "p1_phase": true,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": true
+  },
+  {
+   "game_id": "nba:nba_stats:0040401001",
+   "season": 2005,
+   "phase": "postseason",
+   "tip": "2005-06-28 12:00:00+00:00",
+   "p1_phase": true,
+   "forecast_time_in_season_window": true,
+   "would_be_forecast": true
+  }
+ ],
+ "per_season": {
+  "1998": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 49298,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "1999": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 33288,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2000": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 52219,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2001": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 52873,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2002": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 53199,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2003": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 52318,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2004": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 40147,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2005": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T09:42",
+   "requests": 39345,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 2,
+   "excluded_games_logged": [
+    {
+     "forecast_time": "2005-06-27 11:00:00+00:00",
+     "game_id": "nba:nba_stats:0040401000",
+     "reason": "DI-1 unknown team placeholder"
+    },
+    {
+     "forecast_time": "2005-06-28 11:00:00+00:00",
+     "game_id": "nba:nba_stats:0040401001",
+     "reason": "DI-1 unknown team placeholder"
+    }
+   ],
+   "identical_under_both_drivers": false
+  },
+  "2006": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T10:21",
+   "requests": 38172,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2007": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T10:34",
+   "requests": 38109,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2008": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T10:56",
+   "requests": 37937,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2009": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T11:09",
+   "requests": 37624,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2010": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T11:20",
+   "requests": 37227,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2011": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T11:33",
+   "requests": 37584,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2012": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T11:40",
+   "requests": 32418,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2013": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T11:56",
+   "requests": 39295,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2014": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T12:39",
+   "requests": 39532,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2015": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T13:00",
+   "requests": 39871,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2016": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T13:35",
+   "requests": 39799,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2017": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T13:56",
+   "requests": 40195,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2018": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T14:18",
+   "requests": 42385,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2019": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T14:25",
+   "requests": 42626,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  },
+  "2020": {
+   "driver": "post-patch (exclusion rule executed)",
+   "process_start_local": "2026-10-30T14:42",
+   "requests": 38020,
+   "requests_involving_unknown_team": 0,
+   "qualifying_rows_in_forecast_population": 0,
+   "excluded_games_logged": [],
+   "identical_under_both_drivers": true
+  }
+ },
+ "all_finished_seasons_consistent": true,
+ "generated_at": "2026-10-30T18:35:43"
+}

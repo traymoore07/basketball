@@ -1,0 +1,37 @@
+========================================================================
+A. How many bits are in a possession, and how many does 'team' carry?
+  league pmf [0.5  0.03 0.31 0.15 0.01], mean 1.140 ppp, H = 1.653 bits/possession
+  I(outcome; offense only (sd 0.035 ppp)     ) = 0.58 millibits/possession
+  I(outcome; off+def matchup (sd 0.05 ppp)   ) = 1.10 millibits/possession
+  I(outcome; possession start type)   = 3.07 millibits/possession
+  -> nearly all of the ~1.6 bits are irreducible pre-possession noise;
+     model comparisons live in the 3rd-4th decimal place of bits/possession.
+========================================================================
+B. Calibrated events, mis-calibrated totals (omitted game-level latent)
+  per-attempt log loss: model A 0.9408 bits, oracle 0.9344 bits, gap 6.39 millibits  (upper bound on what B can gain)
+  truth: mean 23.24, sd 8.83
+  model A: mean 23.05, sd 7.79
+  model A nominal 80% interval [13, 33] covers 77.6% of true games
+  P(pts>=30): truth 0.223 vs model A 0.197;  P(pts>=35): truth 0.110 vs model A 0.079
+========================================================================
+C. Monte Carlo error vs parameter uncertainty
+  N=  1000 sims: SE of a probability near 0.3 = 0.0145
+  N= 10000 sims: SE of a probability near 0.3 = 0.0046
+  N=100000 sims: SE of a probability near 0.3 = 0.0014
+  if true mean = 23.5: P(pts>=29.5) = 0.212
+  if true mean = 25.0: P(pts>=29.5) = 0.274
+  if true mean = 26.5: P(pts>=29.5) = 0.345
+  -> a 1-sd parameter error moves the tail probability ~7 points;
+     10k sims already has MC error ~0.005. Sample parameters, not just games.
+========================================================================
+D. Spurious entropy reduction from sparse conditioning
+     1 context cells: true H=2.00, plug-in H(A|C)=2.00 (fake gain 0.00 bits), held-out CE=2.00
+    10 context cells: true H=2.00, plug-in H(A|C)=1.99 (fake gain 0.01 bits), held-out CE=2.03
+   100 context cells: true H=2.00, plug-in H(A|C)=1.88 (fake gain 0.12 bits), held-out CE=2.24
+   500 context cells: true H=2.00, plug-in H(A|C)=1.35 (fake gain 0.65 bits), held-out CE=2.19
+========================================================================
+E. Apparent hot hand from a game-level latent; Miller-Sanjurjo bias
+  iid shots, p=0.5                : pooled P(make|make)-P(make|miss) = +0.0010; per-game average = -0.0516
+  game-level latent sd=0.3 logit  : pooled P(make|make)-P(make|miss) = +0.0188; per-game average = -0.0560
+  -> pooled estimates confound between-game heterogeneity with momentum;
+     per-game averages are biased negative even for iid shots.

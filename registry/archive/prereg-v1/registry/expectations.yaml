@@ -1,0 +1,125 @@
+# Pre-registered expectations. FROZEN by registry/FREEZE.json.
+#
+# Written BEFORE any real dataset has been seen. Their purpose is to make hindsight
+# bias visible, not to be right.
+#
+# strength:
+#   strong      I would be surprised (< ~15% chance) to be outside the range
+#   weak        central guess; being outside the range would be unremarkable
+#   speculation little basis; recorded so the surprise can be measured
+# p_* fields: my subjective probability of each pre-registered decision outcome.
+# Unless stated, skills are relative CRPS skill, core aggregate, mode U, NBA regular season.
+
+version: 1
+author_note: >
+  Priors come from general forecasting experience and from the first research report
+  (docs/research/nba_sequence_modeling.md), not from any analysis of the incoming dataset.
+
+ladder_gaps:
+  - {id: X-L1-L0, quantity: "core skill of L1 vs L0", range: [0.35, 0.55], strength: strong,
+     note: "player identity explains most cross-sectional variance; MIN in mode U gains most"}
+  - {id: X-L2-L1, quantity: "core skill of L2 vs L1", range: [0.00, 0.03], strength: weak,
+     note: "larger (0.05-0.15) in role-change strata"}
+  - {id: X-L3-L2, quantity: "core skill of L3 vs L2", range: [0.02, 0.08], strength: weak,
+     note: "availability knowledge; MIN (mode U) alone 0.05-0.15"}
+  - {id: X-L4-L3, quantity: "core skill of L4 vs L3", range: [0.005, 0.02], strength: weak,
+     note: "0.03-0.10 for players with < 10 appearances"}
+  - {id: X-L5-L4, quantity: "core skill of L5 vs L4", range: [0.01, 0.03], strength: weak}
+  - {id: X-L6-L5, quantity: "core skill of L6 vs L5", range: [0.005, 0.03], strength: weak}
+  - {id: X-L8-L5, quantity: "skill of Kalman skill states over EW/shrinkage inside L5/L6", range: [0.0, 0.015],
+     strength: weak}
+  - {id: X-L9-L6, quantity: "core skill of L9 vs L6", range: [-0.06, -0.01], strength: weak,
+     note: "a team-level Markov sim is worse than a strong direct model for player stats"}
+  - {id: X-L10-L6, quantity: "core skill of L10 vs L6", range: [-0.03, 0.01], strength: speculation,
+     note: "minutes/rotation modelling is the likely weak point of real-data simulators"}
+  - {id: X-L11-L10-core, quantity: "core skill of L11 vs L10", range: [0.0, 0.005], strength: weak}
+  - {id: X-L11-L10-tail, quantity: "upper-tail twCRPS skill of L11 vs L10", range: [0.02, 0.06], strength: weak}
+  - {id: X-L12-L11, quantity: "core skill of L12 vs L11", range: [-0.003, 0.003], strength: weak,
+     note: "gains concentrated in low-sample strata"}
+  - {id: X-L13-L12, quantity: "core skill of L13 vs L12", range: [-0.005, 0.005], strength: weak}
+  - {id: X-L14-best, quantity: "core skill of L14 vs best single", range: [0.005, 0.02], strength: weak}
+  - {id: X-O1, quantity: "PTS CRPS reduction from oracle minutes (all rostered, mode U)", range: [0.25, 0.45],
+     strength: weak, note: "starters only: 0.15-0.30"}
+  - {id: X-O2, quantity: "core CRPS reduction from oracle availability (mode U)", range: [0.05, 0.15], strength: weak}
+
+hypotheses:
+  - {id: H1a, expectation: "L12 vs L6 core skill in [-0.01, +0.015]", strength: weak,
+     p_supported: 0.25, p_promising: 0.15, p_inconclusive: 0.25, p_falsified: 0.30, p_harmful: 0.05}
+  - {id: H1b, expectation: "blend gains 0.5-2%", strength: weak, p_supported: 0.55, p_falsified: 0.25}
+  - {id: H2, expectation: "compact state loses < 1 millibit per event vs rich context", strength: weak,
+     p_supported: 0.60, p_falsified: 0.20,
+     note: "the most likely missing block is fatigue/stint length (Tier 2); with tracking, shot-clock context"}
+  - {id: H3a, expectation: "history signal 0-1 millibit per event", strength: weak, p_supported: 0.40,
+     note: "if present, mostly from game-level heterogeneity"}
+  - {id: H3b, expectation: "diagnosis NO_HISTORY_SIGNAL or APPARENT_HISTORY_EXPLAINED_BY_LATENT", strength: strong,
+     p_supported: 0.75, p_falsified: 0.15,
+     note: "a GENUINE_HISTORY finding, if it occurs, most plausibly comes from clutch/end-game strategy not in the state"}
+  - {id: H3c, expectation: "no between-game form beyond filtered skill (< 0.5%)", strength: weak, p_supported: 0.65}
+  - {id: H4, expectation: "team totals: 90% coverage error of L10 3-8 pp, reduced to < 2 pp by L11; player level smaller",
+     strength: weak, p_supported: 0.60}
+  - {id: H5, expectation: "Spearman rho in [0.2, 0.7]", strength: weak, p_supported: 0.35, p_falsified: 0.30,
+     note: "expected discordant variants: rebound/assist actor ablations (bits change, core CRPS barely) and game latent (reverse)"}
+  - {id: H6a, expectation: "teammate_star_out interaction 2-8%", strength: weak, p_supported: 0.50}
+  - {id: H6b, expectation: "return_from_absence interaction 1-5%", strength: speculation, p_supported: 0.30}
+  - {id: H6c, expectation: "own_move_21d interaction 1-5% (rare events; INCONCLUSIVE plausible)", strength: speculation, p_supported: 0.40}
+  - {id: H6d, expectation: "coaching_change interaction ~0 (the simulator also has to relearn rotations)",
+     strength: speculation, p_supported: 0.15}
+  - {id: H6e, expectation: "role_change_alarm interaction 0-3%", strength: speculation, p_supported: 0.30}
+  - {id: H7a, expectation: "placebo false-discovery fraction <= 5%", strength: strong, p_supported: 0.85}
+  - {id: H7b, expectation: "replication yes (~60%), downstream effect rarely (~25%)", strength: weak,
+     p_supported: 0.25}
+  - {id: H8, expectation: "vs independence energy-score skill 5-15%; vs Gaussian copula 0-5%", strength: weak,
+     p_supported_vs_copula: 0.45, p_supported_vs_independence: 0.80,
+     note: "largest joint gains: teammates' minutes, blowout-driven starter minutes, PRA of high-usage players"}
+  - {id: H9, expectation: "low-sample 80% coverage: plug-in 70-76%, posterior-predictive 77-82%", strength: weak,
+     p_supported: 0.60}
+  - {id: H10, expectation: "event level < 0.5 millibit; player-game within +/-0.5%", strength: weak,
+     p_falsified: 0.60, p_promising: 0.25, note: "tracking data (level D) could change this; speculation"}
+  - {id: H11a-NBA, expectation: "hierarchical pooling 0-0.5% for NBA; naive pooling harmful", strength: weak,
+     p_supported: 0.25, p_naive_pooling_harmful: 0.70}
+  - {id: H11a-WNBA, expectation: "0.5-2% from NBA/NCAA pooling (smaller league, fewer games)", strength: speculation,
+     p_supported: 0.45}
+  - {id: H11a-NCAA, expectation: "within-NCAA hierarchy (conference/level) matters more than cross-league data",
+     strength: weak, p_supported: 0.35}
+  - {id: H11b, expectation: "translation priors improve rookies' first-20-game core CRPS by 3-8%", strength: weak,
+     p_supported: 0.55}
+  - {id: H13, expectation: "recalibration helps the simulator more than L6", strength: weak,
+     p_supported_sim: 0.60, p_supported_direct: 0.40}
+
+where_simulation_should_win:
+  - joint quantities (teammates' minutes, PRA, player-vs-team totals, blowout effects) [weak]
+  - compositional change (star absent, trades) [weak]
+  - live in-game forecasting (state carried forward) [strong]
+  - tail calibration IF game latents are modelled [weak]
+where_direct_should_win:
+  - marginals of stable-role, high-minute starters [weak]
+  - minutes in stable rotations (direct minutes models are easier than learning rotation policies) [weak]
+  - scorer-judgement stats (AST, STL, BLK) where arena/scorekeeper effects are absorbed by direct features [speculation]
+  - leagues with poor lineup data (NCAA), where the simulator's inputs are noisy [strong]
+
+sequence_memory:
+  expectation: >
+    Usable within-game memory beyond a compact state plus a game latent is < 0.5 millibit
+    per event (strong prior). The apparent 'momentum' signal is mostly between-game
+    heterogeneity.
+    Between-game form beyond a filtered skill state: < 0.5% CRPS (weak prior).
+
+leagues:
+  similar:
+    - "hot-hand / momentum: similarly small everywhere [weak]"
+    - "compact-state sufficiency (H2) holds similarly [weak]"
+  different:
+    - "home advantage: NCAA > NBA ~ WNBA [strong]"
+    - "game-outcome predictability (lower log loss for winners): NCAA > NBA; WNBA uncertain [weak/speculation]"
+    - "roster stability: NCAA lowest (transfers, graduation) -> H9/H11b effects largest in NCAA [strong]"
+    - "structural-model advantage smallest in NCAA because of lineup/substitution data quality [weak]"
+    - "per-possession efficiency variance across teams: NCAA >> NBA [strong]"
+    - "minutes concentration: NCAA/WNBA starters play a larger share of a 40-minute game [weak]"
+    - "NCAAW quarters and per-quarter bonus vs NCAAM halves -> different foul/FT dynamics [strong, rules]"
+  transfer_by_component:
+    likely_transfers: [free-throw shooting, shot-make vs distance shape (with line-distance adjustment), shot-clock hazard shape (after rescaling), rebound-share mechanics]
+    unlikely_transfers: [team strength, usage allocation, minutes/rotation policy, pace level]
+
+instruments:
+  - "synthetic suite: every check passes at seed 0 and at >= 4 of 5 alternate seeds [strong]"
+  - "leakage tests T1-T7 detect the deliberately leaky reference models [strong]"
