@@ -305,6 +305,8 @@ def main():
              "L4plugin_cov80_low_le_L4": {"cov80_low_sample_PTS_A": {m: c.get("cov80") for m, c in cov_low.items()},
                                           "passed": (cov_low[RUNG["L4p"]].get("cov80", 1) <= cov_low[RUNG["L4"]].get("cov80", 0))}}
     res["gates"] = gates
+    from constraints import apply as apply_constraints  # frozen no-harm + calibration-floor downgrades (08 section 5)
+    res = apply_constraints(res)
     json.dump(res, open(os.path.join(OUT, "summary.json"), "w"), indent=1, default=float)
     print(json.dumps(res["gates"], indent=1, default=float))
     print("L2 selection:", sel)

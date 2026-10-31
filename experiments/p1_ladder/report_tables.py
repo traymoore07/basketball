@@ -47,13 +47,15 @@ def main():
         cc = r["credit_chain"][mode]
         L += ["", f"## B.{mode} Credit chain, mode {mode} (core = equal-weight mean CRPS skill over 7 targets, regular season)", "",
               "Core skill vs L0: " + ", ".join(f"{k} {pct(v)}" for k, v in cc["core_skill_vs_L0"].items()), "",
-              "| candidate | reference | kind | core effect | 95% CI | p (Holm) | clusters | decision | no-harm violations |",
-              "|---|---|---|---|---|---|---|---|---|"]
+              "| candidate | reference | kind | core effect | 95% CI | p (Holm) | clusters | decision (final) | raw decide() | downgrade reasons | no-harm violations |",
+              "|---|---|---|---|---|---|---|---|---|---|---|"]
         for c in cc["comparisons"]:
             k = c["core"]
             viol = ", ".join(k.get("harmful_secondary", [])) or "none"
+            reasons = "; ".join(r["constraint"] + (": " + ", ".join(x["target"] for x in r["targets"]) if r["constraint"] == "calibration-floor" else "")
+                                for r in k.get("downgrade_reasons", [])) or "none"
             L.append(f"| {c['candidate']} | {c['reference']} | {c['kind']} | {pct(k['effect'])} | [{pct(k['ci_low'])}, {pct(k['ci_high'])}] | "
-                     f"{num(k.get('p_adj', k['p_value']))} | {k['n_clusters']} | {k.get('decision', '')} | {viol} |")
+                     f"{num(k.get('p_adj', k['p_value']))} | {k['n_clusters']} | {k.get('decision', '')} | {k.get('decision_raw', '')} | {reasons} | {viol} |")
         L += ["", "Per-target CRPS skill of candidate vs reference (95% cluster-bootstrap CI):", "",
               "| comparison | " + " | ".join(TARGETS) + " |", "|---|" + "---|" * len(TARGETS)]
         for c in cc["comparisons"]:
