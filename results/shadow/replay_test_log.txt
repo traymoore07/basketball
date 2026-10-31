@@ -1,0 +1,21 @@
+store built 14s
+nba:nba_stats:0020900571 issued 27 p1 units 27 maxdiff 0.00e+00 scored 168 OK
+nba:nba_stats:0020900572 issued 26 p1 units 26 maxdiff 0.00e+00 scored 133 OK
+nba:nba_stats:0020900573 issued 27 p1 units 27 maxdiff 0.00e+00 scored 140 OK
+nba:nba_stats:0020900574 issued 26 p1 units 26 maxdiff 0.00e+00 scored 140 OK
+nba:nba_stats:0020900575 issued 28 p1 units 28 maxdiff 0.00e+00 scored 133 OK
+nba:nba_stats:0020900576 issued 27 p1 units 27 maxdiff 0.00e+00 scored 168 OK
+nba:nba_stats:0020900577 issued 31 p1 units 31 maxdiff 0.00e+00 scored 154 OK
+nba:nba_stats:0020900578 issued 28 p1 units 28 maxdiff 0.00e+00 scored 119 OK
+nba:nba_stats:0020900579 issued 29 p1 units 29 maxdiff 0.00e+00 scored 133 OK
+nba:nba_stats:0020900580 issued 28 p1 units 28 maxdiff 0.00e+00 scored 126 OK
+nba:nba_stats:0020900581 issued 28 p1 units 28 maxdiff 0.00e+00 scored 119 OK
+nba:nba_stats:0020900582 issued 26 p1 units 26 maxdiff 0.00e+00 scored 161 OK
+nba:nba_stats:0020900583 issued 29 p1 units 29 maxdiff 0.00e+00 scored 133 OK
+nba:nba_stats:0021400946 issued 29 p1 units 29 maxdiff 0.00e+00 scored 182 OK
+nba:nba_stats:0021400947 issued 30 p1 units 30 maxdiff 0.00e+00 scored 168 OK
+nba:nba_stats:0021400948 issued 30 p1 units 30 maxdiff 0.00e+00 scored 168 OK
+nba:nba_stats:0021400949 issued 29 p1 units 29 maxdiff 0.00e+00 scored 161 OK
+nba:nba_stats:0021400950 issued 29 p1 units 29 maxdiff 0.00e+00 scored 147 OK
+nba:nba_stats:0021400951 issued 28 p1 units 28 maxdiff 0.00e+00 scored 140 OK
+ALL PASSED 439s
