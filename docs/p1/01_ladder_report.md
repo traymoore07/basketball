@@ -266,6 +266,26 @@ Core skill of L4-plugin vs L4: mode U -0.05% [-0.05%, -0.04%]; mode A +0.04% [+0
 Integrating the gamma posterior changes the core CRPS by less than a tenth of a percent in either
 direction.
 
+### 3.6 One row per final ladder comparison (every required field together)
+
+League / seasons for every row: NBA `nba_stats`, regular season, development window 2000-2020 (21
+seasons), 3,378 game-day clusters; frozen test = game-day cluster bootstrap (B = 2000, block 7, seed
+12345), Holm within the four immediately-simpler comparisons, MPE 1%, then the no-harm and
+calibration-floor constraints. "Core CRPS / unit" = equal-weight mean over the seven targets of the
+per-unit CRPS (absolute primary score; per-target values in 3.1). Calibration column = the candidate's
+80% coverage / dispersion ratio on MIN and on PTS (full set in section 4).
+
+| mode | units | candidate (core CRPS / unit) | vs immediately prior rung | vs best simpler eligible rung | 95% CI (vs prior) | p (Holm) | final decision (raw) | gate result | calibration (MIN; PTS) |
+|---|---|---|---|---|---|---|---|---|---|
+| U | 816,775 | L1 (2.468) | L0 (3.130): +20.49% | same (L0) | [+19.78%, +21.25%] | 0.0020 | PROMISING (SUPPORTED; calibration floor on 6 targets) | L1 >> L0 gate FAIL (TOV +14.6%; all targets < 35%) | 0.644 / 1.346; 0.679 / 1.251 |
+| U | 816,775 | L2 h=5 (2.078) | L1 (2.468): +11.76% | same (L1) | [+11.61%, +11.93%] | 0.0020 | SUPPORTED | h = 5 at the grid boundary (OPTIMUM AT PRE-REGISTERED SEARCH BOUNDARY) | 0.728 / 1.126; 0.780 / 1.026 |
+| U | 816,775 | L3 (2.092) | L2 (2.078): -0.17% | same (L2) | [-0.26%, -0.07%] | 1.0000 | HARMFUL | L3 >= L2 on MIN gate FAIL (-3.24%) | 0.794 / 0.952; 0.765 / 1.063 |
+| U | 816,775 | L4 (2.092) | L3 (2.092): +0.03% | L2 (2.078): -0.14% [-0.23%, -0.04%] | [+0.01%, +0.04%] | 0.0080 | FALSIFIED | L4-plugin cov80 <= L4 gate PASS | 0.795 / 0.950; 0.766 / 1.057 |
+| A | 514,616 | L1 (2.466) | L0 (3.097): +20.51% | same (L0) | [+20.29%, +20.74%] | 0.0020 | PROMISING (SUPPORTED; no-harm log:MIN, floor on 5 targets) | (gates are defined in mode U) | 0.611 / 1.447; 0.678 / 1.292 |
+| A | 514,616 | L2 h=5 (2.148) | L1 (2.466): +8.36% | same (L1) | [+8.16%, +8.57%] | 0.0020 | PROMISING (SUPPORTED; no-harm log:TOV, floor on 5 targets) | boundary, as above | 0.753 / 1.109; 0.833 / 0.871 |
+| A | 514,616 | L3 (2.082) | L2 (2.148): +3.08% | same (L2) | [+2.93%, +3.23%] | 0.0020 | PROMISING (SUPPORTED; no-harm log:MIN, rps:MIN, floor on MIN) | - | 0.891 / 0.767; 0.808 / 0.976 |
+| A | 514,616 | L4 (2.081) | L3 (2.082): -0.01% | same (L3 is the best simpler rung in A) | [-0.03%, +0.01%] | 0.7876 | FALSIFIED | - | 0.891 / 0.767; 0.809 / 0.974 |
+
 ## 4. Calibration (randomised PIT, seed 0, regular season 2000-2020)
 
 Dispersion ratio = 12 Var(PIT): 1 = calibrated spread, > 1 = forecasts too narrow (under-dispersed),
