@@ -177,15 +177,21 @@ def parse_season(season: int, con) -> tuple[pd.DataFrame, dict]:
                     cur["points"] += int(made)
                     if n_of == of:
                         pending_miss = not made
+                        if any(k in sub[i] for k in ("Flagrant", "Clear Path", "Away From Play")) and made:
+                            close_seg(); next_start = "after_dead_ball"   # the fouled team retains possession
                 elif f == "rebound":
+                    # a rebound row acts only when a miss is pending (missed attempt or missed FINAL free throw).
+                    # nba_stats also logs a dead-ball team rebound after a missed non-final free throw and logs the
+                    # rebound of a put-back AFTER the made tip shot; both must not split the segment (rule fixed after the
+                    # timing-month controls exposed the split, see docs/p2/01).
                     rteam = team[i] if team[i] not in ("", "0") else pid[i]
-                    if cur is not None and cur["event_code"] >= 0:
+                    if cur is not None and cur["event_code"] >= 0 and pending_miss:
                         if rteam == O:
                             close_seg()                  # offensive rebound: next action opens after_oreb
                         else:
                             close_seg()
                             next_start = "possession_over"
-                    pending_miss = False
+                        pending_miss = False
                 elif f == "turnover":
                     if team[i] != O:
                         continue

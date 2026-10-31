@@ -144,6 +144,8 @@ def main():
     ap.add_argument("--test-seasons", nargs="+", type=int, required=True, help="development seasons whose months are tested")
     ap.add_argument("--months", nargs="*", default=None, help="restrict to these YYYY-MM test months")
     ap.add_argument("--no-controls", action="store_true")
+    ap.add_argument("--every", type=int, default=1, help="use every k-th test month (replication subset)")
+    ap.add_argument("--offset", type=int, default=0)
     a = ap.parse_args()
     bits_dir = os.path.join(OUT, "bits")
     os.makedirs(bits_dir, exist_ok=True)
@@ -152,6 +154,7 @@ def main():
     months = sorted(P.loc[P["season"].isin(a.test_seasons), "month"].unique())
     if a.months:
         months = [m for m in months if m in set(a.months)]
+    months = [m for i, m in enumerate(months) if i % a.every == a.offset]
     rng = np.random.default_rng(12345)
     log = open(os.path.join(OUT, f"run_{a.family}_{min(a.test_seasons)}_{max(a.test_seasons)}.log"), "a")
     for m in months:

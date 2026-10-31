@@ -5,7 +5,9 @@ Fixed architecture, written before any outcome: per (game, offence) sequence of 
 compact state (start type 4, home 1, margin bucket 7, period 5, clutch 1 = 18 dense) + sum of learned
 16-d embeddings of the 5 offence players + sum for the 5 defence players + 8-d one-hot of the PREVIOUS
 segment's class (zeros at the first segment) [+ GL latent feature for set G]; GRU hidden 32; softmax over
-8 classes. Adam lr 2e-3, batch 64 sequences, 4 epochs, weight decay 1e-5, seed 0. Same prequential
+8 classes. Nested state-only references in the SAME family: A_nn (no previous class, per-step MLP of width 32 instead
+of the GRU, no memory) and F_nn (A_nn + GL), so history_signal_nn = A_nn - E_gru and history_residual_nn = F_nn - G_gru
+compare like with like. Adam lr 2e-3, batch 64 sequences, 4 epochs, weight decay 1e-5, seed 0. Same prequential
 months and training windows as run_hist.py; same per-event bits output (bits_E_gru, bits_G_gru), so the
 summary can place the sequence model next to the frozen multinomial logit on identical test events.
 """
@@ -42,8 +44,11 @@ def dense_state(P):
 class Seqs:
     """Sequences per (game, offence), ordered by possession_seq; player codes from the training vocabulary."""
 
-    def __init__(self, P, vocab, with_gl):
+    def __init__(self, P, vocab, with_gl, with_prev=True, shuffle_order=False, seed=0):
         P = P.sort_values(["game_id", "off_team_id", "possession_seq"], kind="stable")
+        if shuffle_order:  # negative control: permute the segment order inside every (game, offence) sequence
+            rng = np.random.default_rng(seed)
+            P = P.assign(_k=rng.random(len(P))).sort_values(["game_id", "off_team_id", "_k"], kind="stable").drop(columns="_k")
         self.index = P.index.to_numpy()
         X = dense_state(P)
         y = event_classes(P)
@@ -59,21 +64,29 @@ class Seqs:
             yy = y[a:b]
             pv = np.zeros((b - a, 8), np.float32)
             pv[1:, :] = np.eye(8, dtype=np.float32)[yy[:-1]]
-            xx = np.concatenate([X[a:b], pv] + ([gl[a:b]] if with_gl else []), 1)
+            xx = np.concatenate([X[a:b]] + ([pv] if with_prev else []) + ([gl[a:b]] if with_gl else []), 1)
             self.seqs.append((torch.tensor(xx), torch.tensor(off[a:b]), torch.tensor(deff[a:b]), torch.tensor(yy), np.arange(a, b)))
         del prev
 
 
 class GRUNet(nn.Module):
-    def __init__(self, n_players, d_in):
+    """recurrent=True: GRU over the sequence (sets E / G). recurrent=False: the same embeddings and state through a
+    per-step MLP of the same width, no previous-class input, no memory (sets A_nn / F_nn): the nested state-only
+    reference inside the neural family."""
+
+    def __init__(self, n_players, d_in, recurrent=True):
         super().__init__()
+        self.recurrent = recurrent
         self.emb = nn.Embedding(n_players + 1, EMB, padding_idx=0)
-        self.gru = nn.GRU(d_in + 2 * EMB, HID, batch_first=True)
+        if recurrent:
+            self.gru = nn.GRU(d_in + 2 * EMB, HID, batch_first=True)
+        else:
+            self.mlp = nn.Sequential(nn.Linear(d_in + 2 * EMB, HID), nn.ReLU())
         self.out = nn.Linear(HID, 8)
 
     def forward(self, x, off, deff):
         e = torch.cat([x, self.emb(off).sum(2), self.emb(deff).sum(2)], -1)
-        h, _ = self.gru(e)
+        h = self.gru(e)[0] if self.recurrent else self.mlp(e)
         return self.out(h)
 
 
@@ -89,13 +102,15 @@ def batches(seqs, idx, bs):
         yield x, off, deff, y, pos
 
 
-def fit_eval(tr, te, with_gl, seed=0):
+def fit_eval(tr, te, with_gl, seed=0, recurrent=True, with_prev=None, shuffle_order=False):
     torch.manual_seed(seed); np.random.seed(seed)
+    with_prev = recurrent if with_prev is None else with_prev
     players = sorted({p for col in ("off_lineup", "def_lineup") for lu in tr[col] for p in lu})
     vocab = {p: i + 1 for i, p in enumerate(players)}
-    S_tr, S_te = Seqs(tr, vocab, with_gl), Seqs(te, vocab, with_gl)
+    S_tr = Seqs(tr, vocab, with_gl, with_prev=with_prev, shuffle_order=shuffle_order, seed=seed)
+    S_te = Seqs(te, vocab, with_gl, with_prev=with_prev, shuffle_order=shuffle_order, seed=seed + 1)
     d_in = S_tr.seqs[0][0].shape[1]
-    net = GRUNet(len(players), d_in)
+    net = GRUNet(len(players), d_in, recurrent=recurrent)
     opt = torch.optim.Adam(net.parameters(), lr=LR, weight_decay=1e-5)
     lossf = nn.CrossEntropyLoss(ignore_index=-100)
     rng = np.random.default_rng(seed)
@@ -125,6 +140,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--test-seasons", nargs="+", type=int, required=True)
     ap.add_argument("--months", nargs="*", default=None)
+    ap.add_argument("--controls", action="store_true", help="also fit E_shuffled (order permuted) and E_noprev (no previous-class input)")
+    ap.add_argument("--every", type=int, default=1)
+    ap.add_argument("--offset", type=int, default=0)
     a = ap.parse_args()
     bits_dir = os.path.join(OUT, "bits")
     os.makedirs(bits_dir, exist_ok=True)
@@ -133,6 +151,7 @@ def main():
     months = sorted(P.loc[P["season"].isin(a.test_seasons), "month"].unique())
     if a.months:
         months = [m for m in months if m in set(a.months)]
+    months = [m for i, m in enumerate(months) if i % a.every == a.offset]
     log = open(os.path.join(OUT, f"run_gru_{min(a.test_seasons)}_{max(a.test_seasons)}.log"), "a")
     for m in months:
         f = os.path.join(bits_dir, f"gru_{m}.parquet")
@@ -146,14 +165,19 @@ def main():
         if len(tr) < 20000:
             continue
         t0 = time.time()
+        bA = fit_eval(tr, te, with_gl=False, recurrent=False)
+        bF = fit_eval(tr, te, with_gl=True, recurrent=False)
         bE = fit_eval(tr, te, with_gl=False)
         bG = fit_eval(tr, te, with_gl=True)
         out = pd.DataFrame({"game_id": te["game_id"].to_numpy(), "possession_seq": te["possession_seq"].to_numpy(), "season": te["season"].to_numpy(),
-                            "month": m, "y": event_classes(te), "bits_E_gru": bE, "bits_G_gru": bG})
+                            "month": m, "y": event_classes(te), "bits_A_nn": bA, "bits_F_nn": bF, "bits_E_gru": bE, "bits_G_gru": bG})
+        if a.controls:
+            out["bits_E_gru_shuffled"] = fit_eval(tr, te, with_gl=False, shuffle_order=True)
+            out["bits_E_gru_noprev"] = fit_eval(tr, te, with_gl=False, with_prev=False)
         out.to_parquet(f, index=False)
         json.dump({"month": m, "n_train": int(len(tr)), "n_test": int(len(te)), "seconds": round(time.time() - t0, 1)},
                   open(os.path.join(bits_dir, f"gru_{m}.json"), "w"))
-        msg = f"{m} gru n_train={len(tr)} n_test={len(te)} E={np.nanmean(bE):.4f} G={np.nanmean(bG):.4f} {time.time()-t0:.0f}s"
+        msg = f"{m} gru n_train={len(tr)} n_test={len(te)} A_nn={np.nanmean(bA):.4f} F_nn={np.nanmean(bF):.4f} E={np.nanmean(bE):.4f} G={np.nanmean(bG):.4f}" + (f" E_shuffled={out['bits_E_gru_shuffled'].mean():.4f} E_noprev={out['bits_E_gru_noprev'].mean():.4f}" if a.controls else "") + f" {time.time()-t0:.0f}s"
         print(msg, file=log, flush=True); print(msg, flush=True)
 
 
