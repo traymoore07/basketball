@@ -1,5 +1,5 @@
 {
- "at_utc": "2026-10-31T03:01:54+00:00",
+ "at_utc": "2026-10-31T23:06:31+00:00",
  "checks": {
   "registry_verify": {
    "output": "PRE-REGISTRATION INTACT (tier 1, tier 2, archive, logs)",
@@ -31,145 +31,145 @@
     "1997": {
      "points_match_rate": 0.9939,
      "fga_match_rate": 1.0,
-     "segments": 268215,
-     "dropped_no_terminal": 372
+     "segments": 260703,
+     "dropped_no_terminal": 137
     },
     "1998": {
      "points_match_rate": 0.9945,
      "fga_match_rate": 1.0,
-     "segments": 269821,
-     "dropped_no_terminal": 431
+     "segments": 262036,
+     "dropped_no_terminal": 160
     },
     "1999": {
      "points_match_rate": 0.9957,
      "fga_match_rate": 1.0,
-     "segments": 166863,
-     "dropped_no_terminal": 259
+     "segments": 161904,
+     "dropped_no_terminal": 89
     },
     "2000": {
      "points_match_rate": 0.9956,
      "fga_match_rate": 1.0,
-     "segments": 275192,
-     "dropped_no_terminal": 484
+     "segments": 267977,
+     "dropped_no_terminal": 170
     },
     "2001": {
-     "points_match_rate": 0.9943,
+     "points_match_rate": 0.9944,
      "fga_match_rate": 0.9998,
-     "segments": 268345,
-     "dropped_no_terminal": 1016
+     "segments": 261126,
+     "dropped_no_terminal": 638
     },
     "2002": {
      "points_match_rate": 0.9937,
      "fga_match_rate": 1.0,
-     "segments": 267980,
-     "dropped_no_terminal": 493
+     "segments": 261134,
+     "dropped_no_terminal": 202
     },
     "2003": {
-     "points_match_rate": 0.9938,
+     "points_match_rate": 0.9939,
      "fga_match_rate": 1.0,
-     "segments": 272921,
-     "dropped_no_terminal": 2
+     "segments": 265633,
+     "dropped_no_terminal": 1
     },
     "2004": {
      "points_match_rate": 0.9949,
      "fga_match_rate": 1.0,
-     "segments": 269427,
+     "segments": 262063,
      "dropped_no_terminal": 1
     },
     "2005": {
      "points_match_rate": 0.9948,
      "fga_match_rate": 1.0,
-     "segments": 281248,
-     "dropped_no_terminal": 1
+     "segments": 273213,
+     "dropped_no_terminal": 0
     },
     "2006": {
      "points_match_rate": 0.9943,
      "fga_match_rate": 1.0,
-     "segments": 279612,
+     "segments": 271218,
      "dropped_no_terminal": 1
     },
     "2007": {
      "points_match_rate": 0.9936,
      "fga_match_rate": 1.0,
-     "segments": 279868,
+     "segments": 271991,
      "dropped_no_terminal": 1
     },
     "2008": {
      "points_match_rate": 0.9949,
      "fga_match_rate": 1.0,
-     "segments": 282005,
+     "segments": 274417,
      "dropped_no_terminal": 0
     },
     "2009": {
      "points_match_rate": 0.9945,
      "fga_match_rate": 1.0,
-     "segments": 279222,
+     "segments": 272075,
      "dropped_no_terminal": 3
     },
     "2010": {
      "points_match_rate": 0.9949,
      "fga_match_rate": 1.0,
-     "segments": 280681,
+     "segments": 273310,
      "dropped_no_terminal": 1
     },
     "2011": {
-     "points_match_rate": 0.9939,
+     "points_match_rate": 0.994,
      "fga_match_rate": 1.0,
-     "segments": 305049,
+     "segments": 297209,
      "dropped_no_terminal": 0
     },
     "2012": {
      "points_match_rate": 0.9952,
      "fga_match_rate": 1.0,
-     "segments": 234666,
+     "segments": 228847,
      "dropped_no_terminal": 0
     },
     "2013": {
-     "points_match_rate": 0.9959,
+     "points_match_rate": 0.996,
      "fga_match_rate": 1.0,
-     "segments": 305927,
+     "segments": 298303,
      "dropped_no_terminal": 3
     },
     "2014": {
      "points_match_rate": 0.9956,
      "fga_match_rate": 1.0,
-     "segments": 311623,
+     "segments": 303648,
      "dropped_no_terminal": 1
     },
     "2015": {
-     "points_match_rate": 0.9967,
+     "points_match_rate": 0.9968,
      "fga_match_rate": 1.0,
-     "segments": 311269,
+     "segments": 303249,
      "dropped_no_terminal": 3
     },
     "2016": {
      "points_match_rate": 0.996,
      "fga_match_rate": 1.0,
-     "segments": 313555,
+     "segments": 305729,
      "dropped_no_terminal": 10
     },
     "2017": {
      "points_match_rate": 0.9963,
      "fga_match_rate": 0.9999,
-     "segments": 310603,
+     "segments": 303376,
      "dropped_no_terminal": 9
     },
     "2018": {
      "points_match_rate": 0.9948,
      "fga_match_rate": 0.9999,
-     "segments": 308952,
+     "segments": 302153,
      "dropped_no_terminal": 88
     },
     "2019": {
      "points_match_rate": 0.9963,
      "fga_match_rate": 0.9999,
-     "segments": 320805,
+     "segments": 313423,
      "dropped_no_terminal": 42
     },
     "2020": {
-     "points_match_rate": 0.9964,
+     "points_match_rate": 0.9965,
      "fga_match_rate": 1.0,
-     "segments": 262465,
+     "segments": 256785,
      "dropped_no_terminal": 10
     }
    },
@@ -184,16 +184,24 @@
     "src/hoopslab/metrics/compare.py": "5273f4d7f1596f3c2a7b7c2c635ca139efb6f0b9cb0b7b55cd1a2731c114b57a"
    },
    "experiment_scripts": {
+    "experiments/p2_hist\\downstream_form.py": "e3cad2a81d41382b6af98e6f32d5c24df45b54100c606da8c25b132b548d15bf",
+    "experiments/p2_hist\\explore_timemargin.py": "32e06d24e9b0de86c39c5795263aa73262fbc75d1d0e53540b7cfd32c38162f1",
+    "experiments/p2_hist\\launch.py": "1a4ba3f3b60c73143f51c26265d42869cf324c7d9755c4e2f595dd36eabfe08d",
     "experiments/p2_hist\\preflight_p2.py": "5ad5a1bddce90bce802c5cc56ab396da3411a2cd0ea0cce7737e53ba31477b47",
-    "experiments/p2_hist\\run_gru.py": "8e5d666c8926e97c24e40f9160bfd7e59967a90a012c9dabf585a0e769492c72",
-    "experiments/p2_hist\\run_hist.py": "4cce5c7024bfff8de52220d352668410bdfb05b4a0bd1814b8860cf4a2276e68",
-    "experiments/p2_hist\\segments.py": "d0a91c0bdce7bfca40a12954c34c6a3fa0aa807470d7c4be5bf63d8370f4ac38"
+    "experiments/p2_hist\\probe_prevclass.py": "2fe3d0a0f8ebffde2dbe260462c7601c1f0f98c6d1cb74cbdca0d3c4b318953b",
+    "experiments/p2_hist\\run_attrib.py": "de021eb4daf9f2eac6cd916b2d54c168118eb9cc86c4a1abc4e11bf541c1a3a4",
+    "experiments/p2_hist\\run_canary.py": "4b4fd5ae3efc087fda06abd1445380c8bc839193b0f1ac1b45a68ba834675c67",
+    "experiments/p2_hist\\run_gru.py": "a7b7e965ce4b7edcff9110bb6e2f936b50cdf10d0b2aa3f5e9f911a60000c263",
+    "experiments/p2_hist\\run_hist.py": "be0ab58accbe21fc04d3632b0c765450f176c59af14887149b93ac8454ad3224",
+    "experiments/p2_hist\\segments.py": "8f1a631877f0ea6f5f5e3d6d2d0085a8e8afd23717411e0042ba03bf8fb20e09",
+    "experiments/p2_hist\\slow_vars.py": "577adf0465e692583f82250a0db5524835b6f7024637ae627042ff94db115044",
+    "experiments/p2_hist\\summarize_hist.py": "08434b423f4c70ce7e3884d36b341165dc454b291f8e034fe46465ff8eace26e"
    },
    "frozen_in_registry_manifest": true
   },
   "environment": {
-   "git_head": "dfe7e0de7c389996973c58f1bca6deef7b3d4d69",
-   "git_status_short": "?? experiments/p2_hist/\n?? results/p2_hist/",
+   "git_head": "3abefda2acba498351157cd192a6a13d6f47ca29",
+   "git_status_short": "M .gitignore\n M experiments/p2_hist/run_attrib.py\n M experiments/p2_hist/summarize_hist.py\n M registry/POSTFREEZE_CHANGELOG.md\n M results/p2_hist/probe_prevclass_after_fix.txt\n?? docs/p2/\n?? experiments/p2_hist/explore_timemargin.py\n?? experiments/p2_hist/run_canary.py\n?? results/p2_hist/bits/\n?? results/p2_hist/downstream_form_log.txt\n?? results/p2_hist/gru_1999-12.json\n?? results/p2_hist/gru_timing.txt\n?? results/p2_hist/parse_log.txt\n?? results/p2_hist/pytest_p2.log\n?? results/p2_hist/run_attrib_2017_2017.log\n?? results/p2_hist/run_attrib_2018_2018.log\n?? results/p2_hist/run_attrib_2019_2019.log\n?? results/p2_hist/run_attrib_2020_2020.log\n?? results/p2_hist/run_canary.log\n?? results/p2_hist/run_gbm_2000_2010.log\n?? results/p2_hist/run_gbm_2011_2020.log\n?? results/p2_hist/run_gru_2000_2000.log\n?? results/p2_hist/run_gru_2000_2010.log\n?? results/p2_hist/run_gru_2011_2020.log\n?? results/p2_hist/run_mnl_2000_2001.log\n?? results/p2_hist/run_mnl_2002_2003.log\n?? results/p2_hist/run_mnl_2004_2005.log\n?? results/p2_hist/run_mnl_2006_2007.log\n?? results/p2_hist/run_mnl_2008_2009.log\n?? results/p2_hist/run_mnl_2010_2011.log\n?? results/p2_hist/run_mnl_2012_2013.log\n?? results/p2_hist/run_mnl_2014_2015.log\n?? results/p2_hist/slow_vars_log.txt\n?? results/p2_hist/summarize_run1.log\n?? results/p2_hist/summarize_run2.log\n?? results/p2_hist/summary.json\n?? results/p2_hist/summary_tables.md\n?? results/p2_hist/where_is_the_gain.txt",
    "python": "3.13.15",
    "platform": "Windows-11-10.0.26200-SP0",
    "numpy": "2.5.3",

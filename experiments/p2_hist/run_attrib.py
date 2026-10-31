@@ -3,7 +3,7 @@ at a time to the latent set and re-measure history_residual. Also measures the p
 (PC: 8 classes + none), which the frozen L1 block (previous points) does not carry, and whether the slow
 variables absorb it.
 
-Runs on a pre-specified subset of prequential months (every third test month of the development window, in
+Runs on a pre-specified subset of prequential months (every sixth test month of the development window, in
 chronological order, index 0, 3, 6, ...) with the frozen multinomial logit; same training windows as run_hist.py.
 Sets fitted per month (bits per event stored per segment):
     A, F, G (as the main run), E+PC, G+PC,
@@ -98,11 +98,9 @@ def main():
         for k in SLOW:
             sets[f"F_{k}"] = SETS["F"] + [k]
             sets[f"G_{k}"] = SETS["G"] + [k]
-            sets[f"G_{k}_PC"] = SETS["G"] + [k, "PC"]
         sets["F_all"] = SETS["F"] + allslow
         sets["G_all"] = SETS["G"] + allslow
         sets["G_all_PC"] = SETS["G"] + allslow + ["PC"]
-        sets["A_all"] = SETS["A"] + allslow
         out = pd.DataFrame({"game_id": te["game_id"].to_numpy(), "possession_seq": te["possession_seq"].to_numpy(), "season": te["season"].to_numpy(),
                             "month": m, "y": yte})
         conv = {}
@@ -113,7 +111,7 @@ def main():
         out.to_parquet(f, index=False)
         json.dump({"month": m, "n_train": int(len(tr)), "n_test": int(len(te)), "converged": conv, "seconds": round(time.time() - t0, 1)},
                   open(os.path.join(bits_dir, f"attrib_{m}.json"), "w"), indent=1)
-        msg = f"{m} attrib n_test={len(te)} " + " ".join(f"{k}={out[f'bits_{k}'].mean():.4f}" for k in ("A", "F", "G", "E_PC", "G_PC", "F_fouls", "G_fouls", "G_fouls_PC", "G_all_PC")) + f" {time.time()-t0:.0f}s"
+        msg = f"{m} attrib n_test={len(te)} " + " ".join(f"{k}={out[f'bits_{k}'].mean():.4f}" for k in ("A", "F", "G", "E_PC", "G_PC", "F_fouls", "G_fouls", "F_all", "G_all", "G_all_PC")) + f" {time.time()-t0:.0f}s"
         print(msg, file=log, flush=True)
         print(msg, flush=True)
 

@@ -15,3 +15,6 @@ results/p1_ladder_run1_chunkbug/*
 results/p2_hist/segments_*.parquet
 results/p2_hist/bits/*.parquet
 results/p2_hist/stdout_*.txt
+results/p2_hist/slow_*.parquet
+results/p2_hist/server_pull/
+results/p2_hist/gru_1999-12.parquet

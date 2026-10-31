@@ -1,0 +1,16 @@
+{
+ "month": "2005-03",
+ "n_train": 524083,
+ "n_test": 47933,
+ "converged": {
+  "A": true,
+  "F": true,
+  "G": true,
+  "A_TM": true,
+  "F_TM": true,
+  "G_TM": true,
+  "F_all_TM": true,
+  "G_all_TM": false
+ },
+ "seconds": 3619.3
+}

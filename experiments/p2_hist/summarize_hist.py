@@ -153,6 +153,46 @@ def main():
             L.append(md_contrast(k, r[k]))
         L.append("")
         L.append(f"neural-family diagnosis: {r['diagnosis_nn']}")
+    att, _ = load_family("attrib")
+    if att is not None:
+        r = {"n_events": int(len(att)), "months": sorted(att["month"].unique().tolist())}
+        r["history_residual_baseline (F vs G)"] = contrast(att, "bits_F", "bits_G", rng)
+        for v in ("fouls", "stint", "lineup", "gap", "all"):
+            r[f"history_residual_after_{v} (F_{v} vs G_{v})"] = contrast(att, f"bits_F_{v}", f"bits_G_{v}", rng)
+            r[f"slow_variable_gain_{v} (F vs F_{v})"] = contrast(att, "bits_F", f"bits_F_{v}", rng)
+        if mnl is not None:
+            j = att.merge(mnl[["game_id", "possession_seq", "bits_E"]], on=["game_id", "possession_seq"], how="inner")
+            r["previous_class_gain (E vs E_PC)"] = contrast(j, "bits_E", "bits_E_PC", rng)
+        r["previous_class_gain_beyond_latent_and_slow (G_all vs G_all_PC)"] = contrast(att, "bits_G_all", "bits_G_all_PC", rng)
+        r["previous_class_gain_beyond_latent (G vs G_PC)"] = contrast(att, "bits_G", "bits_G_PC", rng)
+        res["attribution"] = r
+        L += ["", f"## 5. H3b attribution (frozen multinomial logit; every sixth test month: {len(r['months'])} months, {r['n_events']:,} events)", "",
+              "| contrast | millibits/event | 95% CI | p | n |", "|---|---|---|---|---|"]
+        for k, v in r.items():
+            if isinstance(v, dict) and "millibits" in v:
+                L.append(md_contrast(k, v))
+    can, _ = load_family("canary2")
+    if can is not None:
+        c = contrast(can, "bits_A", "bits_A_CANARY2", rng)
+        res["positive_control_canary2"] = {"n_events": int(len(can)), "months": int(can["month"].nunique()), "gain": c}
+        L += ["", f"## 6. Positive control (canary 2: next segment's start type and margin change; {can['month'].nunique()} months, {len(can):,} events)", "",
+              "| contrast | millibits/event | 95% CI | p | n |", "|---|---|---|---|---|", md_contrast("A + canary2 vs A", c)]
+    ex, _ = load_family("explore_tm")
+    if ex is not None:
+        r = {"n_events": int(len(ex)), "months": sorted(ex["month"].unique().tolist()), "note": "EXPLORATORY post-hoc block (clock x margin), not pre-registered; no decision rests on it"}
+        for k, (a, b) in {"TM_gain_on_state (A vs A_TM)": ("A", "A_TM"), "history_signal_with_TM (A_TM vs G_TM minus latent)": ("A_TM", "G_TM"),
+                          "history_residual_baseline (F vs G)": ("F", "G"), "history_residual_with_TM (F_TM vs G_TM)": ("F_TM", "G_TM"),
+                          "history_residual_with_TM_and_slow (F_all_TM vs G_all_TM)": ("F_all_TM", "G_all_TM")}.items():
+            r[k] = contrast(ex, f"bits_{a}", f"bits_{b}", rng)
+        late = ex[ex["late"]]
+        r["late_only (4Q/OT): history_residual_with_TM (F_TM vs G_TM)"] = contrast(late, "bits_F_TM", "bits_G_TM", rng)
+        r["late_only (4Q/OT): history_residual_baseline (F vs G)"] = contrast(late, "bits_F", "bits_G", rng)
+        res["exploratory_time_margin"] = r
+        L += ["", f"## 7. EXPLORATORY (not pre-registered): clock x margin block added to the frozen sets ({len(r['months'])} months, {r['n_events']:,} events)", "",
+              "| contrast | millibits/event | 95% CI | p | n |", "|---|---|---|---|---|"]
+        for k, v in r.items():
+            if isinstance(v, dict) and "millibits" in v:
+                L.append(md_contrast(k, v))
     seg_files = sorted(glob.glob(os.path.join(OUT, "segments_20[0-2][0-9].parquet")))
     seg_files = [f for f in seg_files if 2000 <= int(os.path.basename(f)[9:13]) <= 2020]
     if seg_files:
