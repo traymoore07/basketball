@@ -1,0 +1,219 @@
+{
+ "at_utc": "2026-10-31T03:01:54+00:00",
+ "checks": {
+  "registry_verify": {
+   "output": "PRE-REGISTRATION INTACT (tier 1, tier 2, archive, logs)",
+   "passed": true
+  },
+  "adapter_attestation": {
+   "attested_at": "2026-10-31T01:18:33+00:00",
+   "mismatches": {},
+   "passed": true
+  },
+  "holdout_sealed": {
+   "rows_season_ge_2023": {
+    "possessions": 0,
+    "play_by_play": 0,
+    "player_game_box": 0
+   },
+   "passed": true
+  },
+  "lockbox_present_but_never_parsed": {
+   "rows_2021_2022_in_package": {
+    "possessions": 515792,
+    "play_by_play": 1275824
+   },
+   "segment_files_for_2021_2022": [],
+   "passed": true
+  },
+  "segment_parser_gate": {
+   "per_season": {
+    "1997": {
+     "points_match_rate": 0.9939,
+     "fga_match_rate": 1.0,
+     "segments": 268215,
+     "dropped_no_terminal": 372
+    },
+    "1998": {
+     "points_match_rate": 0.9945,
+     "fga_match_rate": 1.0,
+     "segments": 269821,
+     "dropped_no_terminal": 431
+    },
+    "1999": {
+     "points_match_rate": 0.9957,
+     "fga_match_rate": 1.0,
+     "segments": 166863,
+     "dropped_no_terminal": 259
+    },
+    "2000": {
+     "points_match_rate": 0.9956,
+     "fga_match_rate": 1.0,
+     "segments": 275192,
+     "dropped_no_terminal": 484
+    },
+    "2001": {
+     "points_match_rate": 0.9943,
+     "fga_match_rate": 0.9998,
+     "segments": 268345,
+     "dropped_no_terminal": 1016
+    },
+    "2002": {
+     "points_match_rate": 0.9937,
+     "fga_match_rate": 1.0,
+     "segments": 267980,
+     "dropped_no_terminal": 493
+    },
+    "2003": {
+     "points_match_rate": 0.9938,
+     "fga_match_rate": 1.0,
+     "segments": 272921,
+     "dropped_no_terminal": 2
+    },
+    "2004": {
+     "points_match_rate": 0.9949,
+     "fga_match_rate": 1.0,
+     "segments": 269427,
+     "dropped_no_terminal": 1
+    },
+    "2005": {
+     "points_match_rate": 0.9948,
+     "fga_match_rate": 1.0,
+     "segments": 281248,
+     "dropped_no_terminal": 1
+    },
+    "2006": {
+     "points_match_rate": 0.9943,
+     "fga_match_rate": 1.0,
+     "segments": 279612,
+     "dropped_no_terminal": 1
+    },
+    "2007": {
+     "points_match_rate": 0.9936,
+     "fga_match_rate": 1.0,
+     "segments": 279868,
+     "dropped_no_terminal": 1
+    },
+    "2008": {
+     "points_match_rate": 0.9949,
+     "fga_match_rate": 1.0,
+     "segments": 282005,
+     "dropped_no_terminal": 0
+    },
+    "2009": {
+     "points_match_rate": 0.9945,
+     "fga_match_rate": 1.0,
+     "segments": 279222,
+     "dropped_no_terminal": 3
+    },
+    "2010": {
+     "points_match_rate": 0.9949,
+     "fga_match_rate": 1.0,
+     "segments": 280681,
+     "dropped_no_terminal": 1
+    },
+    "2011": {
+     "points_match_rate": 0.9939,
+     "fga_match_rate": 1.0,
+     "segments": 305049,
+     "dropped_no_terminal": 0
+    },
+    "2012": {
+     "points_match_rate": 0.9952,
+     "fga_match_rate": 1.0,
+     "segments": 234666,
+     "dropped_no_terminal": 0
+    },
+    "2013": {
+     "points_match_rate": 0.9959,
+     "fga_match_rate": 1.0,
+     "segments": 305927,
+     "dropped_no_terminal": 3
+    },
+    "2014": {
+     "points_match_rate": 0.9956,
+     "fga_match_rate": 1.0,
+     "segments": 311623,
+     "dropped_no_terminal": 1
+    },
+    "2015": {
+     "points_match_rate": 0.9967,
+     "fga_match_rate": 1.0,
+     "segments": 311269,
+     "dropped_no_terminal": 3
+    },
+    "2016": {
+     "points_match_rate": 0.996,
+     "fga_match_rate": 1.0,
+     "segments": 313555,
+     "dropped_no_terminal": 10
+    },
+    "2017": {
+     "points_match_rate": 0.9963,
+     "fga_match_rate": 0.9999,
+     "segments": 310603,
+     "dropped_no_terminal": 9
+    },
+    "2018": {
+     "points_match_rate": 0.9948,
+     "fga_match_rate": 0.9999,
+     "segments": 308952,
+     "dropped_no_terminal": 88
+    },
+    "2019": {
+     "points_match_rate": 0.9963,
+     "fga_match_rate": 0.9999,
+     "segments": 320805,
+     "dropped_no_terminal": 42
+    },
+    "2020": {
+     "points_match_rate": 0.9964,
+     "fga_match_rate": 1.0,
+     "segments": 262465,
+     "dropped_no_terminal": 10
+    }
+   },
+   "rule": "points_match_rate >= 0.99 and fga_match_rate >= 0.99 in every parsed season",
+   "passed": true
+  },
+  "hashes": {
+   "frozen_event_modules": {
+    "src/hoopslab/models/event.py": "babc543068ba2b1ef0d45c18dd508896d4c70117b86ff0cf45b5c7ef6f46ca4c",
+    "src/hoopslab/experiments/history.py": "cc2fd31b94f244dc5f436b79c01d56f192538552f635e9c959337a209c187a03",
+    "src/hoopslab/metrics/information.py": "e9ed755dbfc0314b876204305536529bb49e642a344c106335b793aba086579f",
+    "src/hoopslab/metrics/compare.py": "5273f4d7f1596f3c2a7b7c2c635ca139efb6f0b9cb0b7b55cd1a2731c114b57a"
+   },
+   "experiment_scripts": {
+    "experiments/p2_hist\\preflight_p2.py": "5ad5a1bddce90bce802c5cc56ab396da3411a2cd0ea0cce7737e53ba31477b47",
+    "experiments/p2_hist\\run_gru.py": "8e5d666c8926e97c24e40f9160bfd7e59967a90a012c9dabf585a0e769492c72",
+    "experiments/p2_hist\\run_hist.py": "4cce5c7024bfff8de52220d352668410bdfb05b4a0bd1814b8860cf4a2276e68",
+    "experiments/p2_hist\\segments.py": "d0a91c0bdce7bfca40a12954c34c6a3fa0aa807470d7c4be5bf63d8370f4ac38"
+   },
+   "frozen_in_registry_manifest": true
+  },
+  "environment": {
+   "git_head": "dfe7e0de7c389996973c58f1bca6deef7b3d4d69",
+   "git_status_short": "?? experiments/p2_hist/\n?? results/p2_hist/",
+   "python": "3.13.15",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "numpy": "2.5.3",
+   "pandas": "3.0.6",
+   "scipy": "1.18.1",
+   "sklearn": "1.9.1",
+   "lightgbm": "4.7.0",
+   "torch": "2.15.0+cpu"
+  }
+ },
+ "design_fixed_before_outcomes": {
+  "unit": "possession segment (experiments/p2_hist/segments.py rules)",
+  "target": "8-class terminal outcome (hoopslab.models.event)",
+  "sets": "A-G of hoopslab.experiments.history.SETS",
+  "families": "mnl (frozen MultinomialLogit L2=1e-4), gbm (LightGBM fixed params in run_hist.py), gru (run_gru.py fixed architecture) for E and G",
+  "protocol": "prequential by month over development seasons 2000-2020; training window = 730 days before the test month (burn-in allowed)",
+  "mpe_bits": 0.0005,
+  "bootstrap": "game cluster, B=2000, seed 12345",
+  "controls": "negative (permuted history within state cells), canary (next segment class), hot-hand contrast",
+  "decision": "hoopslab.experiments.history.diagnose_history on the pooled contrasts; per season reported"
+ },
+ "all_passed": true
+}

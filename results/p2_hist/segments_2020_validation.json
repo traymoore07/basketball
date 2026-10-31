@@ -1,0 +1,30 @@
+{
+ "possessions": 229393,
+ "segments": 262475,
+ "dropped_no_terminal": 10,
+ "points_match": 228578,
+ "fga_match": 229390,
+ "games_missing": 0,
+ "possessions_without_events": 0,
+ "segments_kept": 262465,
+ "points_match_rate": 0.9964,
+ "fga_match_rate": 1.0,
+ "class_shares": {
+  "0": 0.1208,
+  "1": 0.0265,
+  "2": 0.0285,
+  "3": 0.0529,
+  "4": 0.2251,
+  "5": 0.2484,
+  "6": 0.1907,
+  "7": 0.1071
+ },
+ "start_type_shares": {
+  "after_make": 0.3775,
+  "after_dreb": 0.2932,
+  "after_dead_ball": 0.1357,
+  "after_oreb": 0.1291,
+  "after_live_turnover": 0.0645
+ },
+ "seconds": 11
+}
