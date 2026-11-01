@@ -49,6 +49,16 @@ OUT = os.path.join(ROOT, "results", "p2_hist")
 START_MAP = {"OffMadeShot": "after_make", "OffMissedShot": "after_dreb", "OffLiveBallTurnover": "after_live_turnover"}
 FT_RE = re.compile(r"(\d) of (\d)")
 PERIOD_S, OT_S = 720.0, 300.0
+# Store configuration (E-STATE portability, docs/p2/02 section 7). Defaults reproduce the NBA nba_stats parse exactly.
+# A store with shorter regulation periods (WNBA: 600 s) has its regulation clock RESCALED to 720-s periods so that the
+# frozen EventDesign (period = elapsed // 720, clutch >= 2760 s) and every E-STATE clock block apply unchanged; overtime
+# (300 s) is not rescaled. Ids keep the store's own namespace.
+LEAGUE, SOURCE, PREFIX, REG_PERIOD_S = "nba", "nba_stats", "nba", 720.0
+
+
+def configure(league="nba", source="nba_stats", prefix="nba", reg_period_s=720.0):
+    global LEAGUE, SOURCE, PREFIX, REG_PERIOD_S
+    LEAGUE, SOURCE, PREFIX, REG_PERIOD_S = league, source, prefix, float(reg_period_s)
 
 
 def clock_s(v):
@@ -67,28 +77,30 @@ def clock_s(v):
 def elapsed(period, clock):
     p = int(period)
     before = min(p - 1, 4) * PERIOD_S + max(p - 5, 0) * OT_S
-    plen = PERIOD_S if p <= 4 else OT_S
-    return before + (plen - clock)
+    if p <= 4:
+        return before + (REG_PERIOD_S - clock) * (PERIOD_S / REG_PERIOD_S)
+    return before + (OT_S - clock)
 
 
 def parse_season(season: int, con) -> tuple[pd.DataFrame, dict]:
     if season > 2020:
         raise PermissionError("segments are built for burn-in/development seasons only (<= 2020)")
+    LEAGUE_, SOURCE_, PREFIX_ = LEAGUE, SOURCE, PREFIX
     poss = con.execute(f"""
         SELECT source_game_id, possession_number, offense_team_id, defense_team_id, start_sequence, end_sequence, points,
                is_turnover, start_reason, players_on_floor, defense_players_on_floor, src_fg2a, src_fg3a, src_fta, src_ftm, src_oreb,
                ambiguous_boundary
-        FROM possessions WHERE league='nba' AND source='nba_stats' AND season={season} AND coalesce(count_as_possession, TRUE)
+        FROM possessions WHERE league='{LEAGUE}' AND source='{SOURCE}' AND season={season} AND coalesce(count_as_possession, TRUE)
           AND offense_team_id IS NOT NULL AND start_sequence IS NOT NULL AND end_sequence IS NOT NULL
         ORDER BY source_game_id, possession_number""").df()
     ev = con.execute(f"""
         SELECT source_game_id, sequence, period, game_clock, team_id, player_id, event_family, event_subtype, description,
                home_score, away_score, shot_value
-        FROM play_by_play WHERE league='nba' AND source='nba_stats' AND season={season}
+        FROM play_by_play WHERE league='{LEAGUE}' AND source='{SOURCE}' AND season={season}
         ORDER BY source_game_id, sequence""").df()
     games = con.execute(f"""
         SELECT source_game_id, game_date, season_type, home_team_id, away_team_id FROM games
-        WHERE league='nba' AND source='nba_stats' AND season={season}""").df().drop_duplicates("source_game_id").set_index("source_game_id")
+        WHERE league='{LEAGUE}' AND source='{SOURCE}' AND season={season}""").df().drop_duplicates("source_game_id").set_index("source_game_id")
     ev["home_score"] = pd.to_numeric(ev["home_score"], errors="coerce")
     ev["away_score"] = pd.to_numeric(ev["away_score"], errors="coerce")
     ev[["home_score", "away_score"]] = ev.groupby("source_game_id")[["home_score", "away_score"]].ffill().fillna(0)
@@ -208,14 +220,14 @@ def parse_season(season: int, con) -> tuple[pd.DataFrame, dict]:
             pts = sum(s["points"] for s in segs)
             stats["points_match"] += int(pts == int(r.points if r.points == r.points else 0))
             stats["fga_match"] += int(fga == int((r.src_fg2a or 0) + (r.src_fg3a or 0)))
-            off_lu = tuple(f"nba:{x}" for x in list(r.players_on_floor)) if r.players_on_floor is not None else None
-            def_lu = tuple(f"nba:{x}" for x in list(r.defense_players_on_floor)) if r.defense_players_on_floor is not None else None
+            off_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.players_on_floor)) if r.players_on_floor is not None else None
+            def_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.defense_players_on_floor)) if r.defense_players_on_floor is not None else None
             D = str(r.defense_team_id) if r.defense_team_id is not None and str(r.defense_team_id) != "None" else (str(g["away_team_id"]) if off_home else home)
             for s in segs:
                 if s["start_type"] == "possession_over" or np.isnan(s["elapsed"]) or off_lu is None or def_lu is None or len(off_lu) != 5 or len(def_lu) != 5:
                     stats["dropped_no_terminal"] += 1
                     continue
-                rows.append((f"nba:nba_stats:{gid}", int(r.possession_number) * 10 + s["k"], s["k"] + 1, f"nba:nba_stats:{O}", f"nba:nba_stats:{D}",
+                rows.append((f"{LEAGUE_}:{SOURCE_}:{gid}", int(r.possession_number) * 10 + s["k"], s["k"] + 1, f"{LEAGUE_}:{SOURCE_}:{O}", f"{LEAGUE_}:{SOURCE_}:{D}",
                              off_home, float(s["elapsed"]), s["start_type"], int(s["event_code"]), int(s["made"]), int(min(s["ftm"], 2)),
                              int(s["points"]), int(s["margin"]), off_lu, def_lu, int(per[s["i"]]), str(g["game_date"])[:10], str(g["season_type"])))
             stats["segments"] += len(segs)

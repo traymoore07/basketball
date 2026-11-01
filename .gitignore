@@ -18,3 +18,9 @@ results/p2_hist/stdout_*.txt
 results/p2_hist/slow_*.parquet
 results/p2_hist/server_pull/
 results/p2_hist/gru_1999-12.parquet
+results/p2_state/state_*.parquet
+results/p2_state/bits/
+results/p2_state/timing/
+results/p2_state/stdout_*.txt
+results/p2_state/wnba/*.parquet
+results/p2_state/wnba/bits/

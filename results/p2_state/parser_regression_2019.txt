@@ -1,0 +1,1 @@
+rows 313423 313423 identical True gate 0.9963 0.9999

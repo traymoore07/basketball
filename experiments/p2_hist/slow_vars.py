@@ -30,27 +30,22 @@ TEAM_FOUL_SUBTYPES = ("Personal", "Shooting", "Loose Ball", "Clear Path", "Flagr
                       "Personal Take", "Inbound", "Double Personal")
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--seasons", nargs="+", type=int, required=True)
-    a = ap.parse_args()
-    con = duckdb.connect(DEFAULT_DB, read_only=True)
-    for S in a.seasons:
-        if S > 2020:
-            raise PermissionError("<= 2020 only")
-        seg = pd.read_parquet(os.path.join(OUT, f"segments_{S}.parquet"))
+def build_slow(S, con, league="nba", source="nba_stats", seg_dir=OUT, out_dir=OUT):
+    """One season of slow variables; the defaults reproduce the E-HIST NBA build (E-STATE portability adds the parameters)."""
+    if True:
+        seg = pd.read_parquet(os.path.join(seg_dir, f"segments_{S}.parquet"))
         ev = con.execute(f"""SELECT source_game_id, sequence, period, game_clock, team_id, player_id, event_family, event_subtype
-                             FROM play_by_play WHERE league='nba' AND source='nba_stats' AND season={S}
+                             FROM play_by_play WHERE league='{league}' AND source='{source}' AND season={S}
                                AND event_family IN ('foul','timeout') ORDER BY source_game_id, sequence""").df()
         ev["clock_s"] = ev["game_clock"].map(clock_s)
         ev["elapsed"] = [elapsed(p, c) if not np.isnan(c) else np.nan for p, c in zip(ev["period"], ev["clock_s"])]
-        ev["team"] = "nba:nba_stats:" + ev["team_id"].astype("string").fillna("")
+        ev["team"] = f"{league}:{source}:" + ev["team_id"].astype("string").fillna("")
         ev["sub"] = ev["event_subtype"].astype("string").fillna("")
         is_tf = (ev["event_family"] == "foul") & ev["sub"].map(lambda s: any(s.startswith(k) for k in TEAM_FOUL_SUBTYPES))
         fouls = ev[is_tf & ev["elapsed"].notna()].copy()
-        fouls["gid"] = "nba:nba_stats:" + fouls["source_game_id"].astype(str)
+        fouls["gid"] = f"{league}:{source}:" + fouls["source_game_id"].astype(str)
         tos = ev[(ev["event_family"] == "timeout") & ev["elapsed"].notna()].copy()
-        tos["gid"] = "nba:nba_stats:" + tos["source_game_id"].astype(str)
+        tos["gid"] = f"{league}:{source}:" + tos["source_game_id"].astype(str)
         seg = seg.sort_values(["game_id", "start_elapsed_s", "possession_seq"], kind="stable").reset_index(drop=True)
         out = pd.DataFrame({"game_id": seg["game_id"], "possession_seq": seg["possession_seq"]})
         # fouls in the current period before the segment start, per team
@@ -97,9 +92,21 @@ def main():
                 stint_start[d.index[i]] = last
                 prev = tl
         out["stint_len_s"] = seg["start_elapsed_s"].to_numpy() - stint_start
-        out.to_parquet(os.path.join(OUT, f"slow_{S}.parquet"), index=False)
+        out.to_parquet(os.path.join(out_dir, f"slow_{S}.parquet"), index=False)
         print(S, len(out), "bonus share", round(out["def_in_bonus"].mean(), 3), "lineup_change", round(out["lineup_change"].mean(), 3),
               "mean def fouls", round(out["def_fouls_period"].mean(), 2), flush=True)
+        return out
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--seasons", nargs="+", type=int, required=True)
+    a = ap.parse_args()
+    con = duckdb.connect(DEFAULT_DB, read_only=True)
+    for S in a.seasons:
+        if S > 2020:
+            raise PermissionError("<= 2020 only")
+        build_slow(S, con)
 
 
 if __name__ == "__main__":
