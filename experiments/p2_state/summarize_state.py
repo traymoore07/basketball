@@ -109,7 +109,7 @@ def diagnostics(df):
     d = df.copy()
     d["r6"] = d["bits_S6"] - d["bits_S6_H"]
     d["r0"] = d["bits_S0"] - d["bits_S0_H"]
-    d["phase"] = np.select([d["period"] <= 3, d["period"] >= 4], ["periods 1-3", "4Q/OT"])
+    d["phase"] = np.select([d["period"] <= 3, d["period"] >= 4], ["periods 1-3", "4Q/OT"], default="")
     d["margin"] = pd.cut(d["off_margin_start"].abs(), [-1, 5, 10, 15, 999], labels=["0-5", "6-10", "11-15", "16+"])
     out = {}
     for key in ("phase", "margin", "start_type", "y", "def_in_bonus"):
@@ -120,8 +120,17 @@ def diagnostics(df):
 
 
 def main():
+    global OUT
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--league", choices=["nba", "wnba"], default="nba", help="wnba: portability run in results/p2_state/wnba (logit only, every month present)")
+    a = ap.parse_args()
     rng = np.random.default_rng(SEED)
-    mnl, meta_m = load_family("mnl")
+    months = None
+    if a.league == "wnba":
+        OUT = os.path.join(OUT, "wnba")
+        months = sorted(os.path.basename(f)[4:11] for f in glob.glob(os.path.join(OUT, "bits", "mnl_*.parquet")))
+    mnl, meta_m = load_family("mnl", months)
     if mnl is None:
         raise SystemExit("no mnl months")
     S = {"mnl": chain_summary(mnl, meta_m, rng, True)}
@@ -155,7 +164,8 @@ def main():
 def write_tables(S, mnl, gbm):
     L = []
     m = S["mnl"]
-    L.append("# E-STATE summary (NBA nba_stats segments, development seasons 2000-2020, prequential by month)\n")
+    L.append("# E-STATE summary (NBA nba_stats segments, development seasons 2000-2020, prequential by month)\n" if "wnba" not in OUT else
+             "# E-STATE portability summary (WNBA wnba_stats segments 2016-2020, test months 2018-05..2020-10, logit only; spec section 7)\n")
     L.append(f"## 1. Frozen multinomial logit: events {m['n_events']:,}, games {m['n_games']:,}, months {m['n_months']}\n")
     L.append("| state | blocks | columns (median) | held-out bits/event | add-one gain (mb) [CI] | residual history r_k (mb) [CI] | converged |")
     L.append("|---|---|---|---|---|---|---|")
