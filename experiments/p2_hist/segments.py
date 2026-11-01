@@ -82,6 +82,11 @@ def elapsed(period, clock):
     return before + (OT_S - clock)
 
 
+def _has_lineup(v) -> bool:
+    """A supplied lineup is a list/array; a missing one is None (nba_stats) or a scalar NA (wnba_stats)."""
+    return v is not None and hasattr(v, "__len__")
+
+
 def parse_season(season: int, con) -> tuple[pd.DataFrame, dict]:
     if season > 2020:
         raise PermissionError("segments are built for burn-in/development seasons only (<= 2020)")
@@ -220,8 +225,8 @@ def parse_season(season: int, con) -> tuple[pd.DataFrame, dict]:
             pts = sum(s["points"] for s in segs)
             stats["points_match"] += int(pts == int(r.points if r.points == r.points else 0))
             stats["fga_match"] += int(fga == int((r.src_fg2a or 0) + (r.src_fg3a or 0)))
-            off_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.players_on_floor)) if r.players_on_floor is not None else None
-            def_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.defense_players_on_floor)) if r.defense_players_on_floor is not None else None
+            off_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.players_on_floor)) if _has_lineup(r.players_on_floor) else None
+            def_lu = tuple(f"{PREFIX_}:{x}" for x in list(r.defense_players_on_floor)) if _has_lineup(r.defense_players_on_floor) else None
             D = str(r.defense_team_id) if r.defense_team_id is not None and str(r.defense_team_id) != "None" else (str(g["away_team_id"]) if off_home else home)
             for s in segs:
                 if s["start_type"] == "possession_over" or np.isnan(s["elapsed"]) or off_lu is None or def_lu is None or len(off_lu) != 5 or len(def_lu) != 5:

@@ -1,0 +1,10 @@
+2016 segments=25268 possessions=34625 points_match=0.9956 fga_match=1.0 dropped=13821
+{'season': 2016, 'segments': 25268, 'personal_fouls': 8645, 'tagged': 8641, 'tag_agreement': 0.9988427265362805, 'def_bonus_l2m_share': 0.04859901852145006, 'def_pf_trouble_share': 0.08884755421877473, 'def_pf_5_share': 0.030037992718062373, 'def_lineup_change_share': 0.1718378977362672}
+2017 segments=26121 possessions=34293 points_match=0.9957 fga_match=1.0 dropped=12690
+{'season': 2017, 'segments': 26121, 'personal_fouls': 8273, 'tagged': 8271, 'tag_agreement': 0.9995163825414097, 'def_bonus_l2m_share': 0.048466750890088436, 'def_pf_trouble_share': 0.09291374755943493, 'def_pf_5_share': 0.022127789900846063, 'def_lineup_change_share': 0.17346196546839707}
+2018 segments=28951 possessions=34563 points_match=0.9943 fga_match=1.0 dropped=10262
+{'season': 2018, 'segments': 28951, 'personal_fouls': 7965, 'tagged': 7961, 'tag_agreement': 0.9991207134782063, 'def_bonus_l2m_share': 0.04583606783876205, 'def_pf_trouble_share': 0.08203516286138648, 'def_pf_5_share': 0.021933611965044387, 'def_lineup_change_share': 0.15736934820904286}
+2019 segments=34960 possessions=34450 points_match=0.9945 fga_match=1.0 dropped=4358
+{'season': 2019, 'segments': 34960, 'personal_fouls': 7655, 'tagged': 7653, 'tag_agreement': 0.997125310335816, 'def_bonus_l2m_share': 0.04937070938215103, 'def_pf_trouble_share': 0.07677345537757436, 'def_pf_5_share': 0.022568649885583523, 'def_lineup_change_share': 0.15992562929061785}
+2020 segments=22910 possessions=23441 points_match=0.9968 fga_match=1.0 dropped=3400
+{'season': 2020, 'segments': 22910, 'personal_fouls': 5241, 'tagged': 5237, 'tag_agreement': 0.9990452549169372, 'def_bonus_l2m_share': 0.04958533391532082, 'def_pf_trouble_share': 0.07939764295067656, 'def_pf_5_share': 0.0233085988651244, 'def_lineup_change_share': 0.16673941510257528}

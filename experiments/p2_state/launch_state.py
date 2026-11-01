@@ -19,9 +19,11 @@ ap.add_argument("--months", nargs="*", default=None)
 ap.add_argument("--chunks", type=int, default=1)
 ap.add_argument("--chunk-index", type=int, default=0)
 ap.add_argument("--dry", action="store_true")
+ap.add_argument("--league", choices=["nba", "wnba"], default="nba")
 a = ap.parse_args()
 months = a.months or months_from_gbm()
-done = {os.path.basename(f)[len(a.family) + 1:-8] for f in __import__("glob").glob(os.path.join(OUT, "bits", f"{a.family}_*.parquet"))}
+out_dir = OUT if a.league == "nba" else os.path.join(OUT, "wnba")
+done = {os.path.basename(f)[len(a.family) + 1:-8] for f in __import__("glob").glob(os.path.join(out_dir, "bits", f"{a.family}_*.parquet"))}
 months = [m for m in months if m not in done]
 months = [m for i, m in enumerate(months) if (i * a.chunks) // len(months) == a.chunk_index] if a.chunks > 1 else months
 env = dict(os.environ, OMP_NUM_THREADS=str(a.threads), OPENBLAS_NUM_THREADS=str(a.threads), MKL_NUM_THREADS=str(a.threads))
@@ -32,11 +34,11 @@ for w in range(a.workers):
     chunk = [m for i, m in enumerate(months) if (i * a.workers) // max(n, 1) == w]
     if not chunk:
         continue
-    cmd = [sys.executable, os.path.join(ROOT, "experiments", "p2_state", "run_state.py"), "--family", a.family, "--months", *chunk]
+    cmd = [sys.executable, os.path.join(ROOT, "experiments", "p2_state", "run_state.py"), "--family", a.family, "--league", a.league, "--months", *chunk]
     if a.dry:
         print(w, chunk)
         continue
-    log = open(os.path.join(OUT, f"stdout_{a.family}_{chunk[0]}_{chunk[-1]}.txt"), "a")
+    log = open(os.path.join(out_dir, f"stdout_{a.family}_{chunk[0]}_{chunk[-1]}.txt"), "a")
     p = subprocess.Popen(cmd, cwd=ROOT, env=env, stdout=log, stderr=subprocess.STDOUT, creationflags=flags)
     pids.append((chunk[0], chunk[-1], p.pid))
 print("months", n, "launched", pids)
