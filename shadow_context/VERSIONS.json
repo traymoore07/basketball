@@ -1,0 +1,106 @@
+{
+ "plan_version": "context-shadow-plan/1",
+ "written_utc": "2026-11-02",
+ "governance": "docs/lanes/00_lane_registry.md section 3; shadow_context/README.md",
+ "rules": [
+  "every version forecasts the same eligible games at the same T-60 information cutoff from the same L1 snapshot",
+  "each version writes its own immutable forecast package per game; a locked package is never rewritten; corrections are new package versions",
+  "a model version never changes after its card is written; learning from prospective outcomes creates a new version",
+  "no version's prospective results alter another version during the evaluation period",
+  "comparisons use only games every compared version forecast, per target and population, on the cumulative tables",
+  "attribution is reported stepwise: v0.2 - v0.1 = season awareness; v0.3 - v0.2 = availability; v0.4 - v0.3 = rotation / minutes + opportunity redistribution; never only the v0.4 score",
+  "PLANNED versions are refused by the executor until their card is FROZEN with hashes and a pinned commit"
+ ],
+ "versions": [
+  {
+   "model_version": "L2-A-SHADOW-v0.1",
+   "role": "BASELINE (permanent control group)",
+   "lane": "S0 (also run by X1 alongside every challenger)",
+   "status": "FROZEN",
+   "frozen_utc": "2026-10-30",
+   "lineage": "P1 ladder rung L2 = hoopslab.models.baselines.PlayerMean(half_life=5.0), mode A",
+   "changes": "none; must never be modified (no season reset, no injury information, no minutes model, no recalibration, h = 5, forecast population unchanged)",
+   "inputs": [
+    "GAME",
+    "PLAYER_GAME",
+    "ELIGIBLE (4 states, derived one way from an L1 snapshot by hoopslab.pregame.contract.to_eligible_v01)"
+   ],
+   "card": "shadow/MODEL_CARD_L2-A-SHADOW-v0.1.json",
+   "card_sha256": "9850040e05a54476fa5196bf2fc6cc68d274c19dc0ddfbf37eeaedc2bcc5aee1",
+   "implementation_combined": "caf0cb4407b109128f3d91f8ef631aacc531cafd72365208e74c3894507c65e8",
+   "pinned_commit": "dfe7e0de7c389996973c58f1bca6deef7b3d4d69"
+  },
+  {
+   "model_version": "SEASON-AWARE-SHADOW-v0.2",
+   "role": "CHALLENGER 1",
+   "lane": "X1",
+   "status": "PLANNED",
+   "lineage": "L2-A-SHADOW-v0.1 + the R1 artefact SEASON-AWARE-L2-v0.2 (research_season/)",
+   "changes": "historical weighting only: weight = recency x season-transition x context-similarity with the grid point frozen by R1; same targets, pmf construction, dispersion fit, league fallback, cutoff",
+   "must_not_contain": [
+    "current injury reports",
+    "current-season prospective outcomes",
+    "tonight's availability beyond the ELIGIBLE states the baseline also receives"
+   ],
+   "inputs": [
+    "GAME",
+    "PLAYER_GAME",
+    "ELIGIBLE (4 states)"
+   ],
+   "requires": [
+    "research_season/01_carryover_spec.md frozen by a changelog row",
+    "R1 report with ARTEFACT: YES",
+    "card with implementation hash and pinned commit"
+   ],
+   "card": "shadow_context/cards/MODEL_CARD_SEASON-AWARE-SHADOW-v0.2.json",
+   "card_sha256": null,
+   "implementation_combined": null,
+   "pinned_commit": null
+  },
+  {
+   "model_version": "AVAILABILITY-SHADOW-v0.3",
+   "role": "CHALLENGER 2",
+   "lane": "X1",
+   "status": "PLANNED",
+   "lineage": "SEASON-AWARE-SHADOW-v0.2",
+   "changes": "adds tonight's player availability and roster status from the L1 snapshot (availability, roster, lineup, team_absences tables): who is eligible and which teammates are absent; the historical weighting is v0.2's",
+   "inputs": [
+    "GAME",
+    "PLAYER_GAME",
+    "L1 snapshot: availability, roster, lineup, team_absences"
+   ],
+   "requires": [
+    "v0.2 FROZEN",
+    "live_inputs/01_pregame_context_contract.md",
+    "a frozen rule for how absent teammates enter (fixed before any prospective forecast)"
+   ],
+   "card": "shadow_context/cards/MODEL_CARD_AVAILABILITY-SHADOW-v0.3.json",
+   "card_sha256": null,
+   "implementation_combined": null,
+   "pinned_commit": null
+  },
+  {
+   "model_version": "CONTEXT-SHADOW-v0.4",
+   "role": "CHALLENGER 3 (full context)",
+   "lane": "X1",
+   "status": "PLANNED",
+   "lineage": "AVAILABILITY-SHADOW-v0.3 + the R2 components (research_rotation/)",
+   "changes": "season awareness + availability + rotation / minutes redistribution + opportunity redistribution; decomposed: current roster -> availability -> start / bench / role -> minutes distribution -> usage / FGA / opportunity distribution -> per-minute production -> PTS / REB / AST / FG3M / TOV / PRA distributions",
+   "inputs": [
+    "GAME",
+    "PLAYER_GAME",
+    "L1 snapshot: all five tables"
+   ],
+   "requires": [
+    "v0.3 FROZEN",
+    "research_rotation/01_opportunity_spec.md frozen",
+    "R2 report with COMPONENTS FROZEN FOR v0.4: YES",
+    "card with per-component hashes"
+   ],
+   "card": "shadow_context/cards/MODEL_CARD_CONTEXT-SHADOW-v0.4.json",
+   "card_sha256": null,
+   "implementation_combined": null,
+   "pinned_commit": null
+  }
+ ]
+}
