@@ -17,10 +17,11 @@ lane card in its own directory; this file is the index and the firewall map.*
 | L1 | PREGAME-CONTEXT-LIVE | live input lane | external executor | contract and validator in this repository (`live_inputs/`, `src/hoopslab/pregame/`); snapshots in `CONTEXT_HOME/live_inputs/` outside the repository | CREATED (contract, validator, fixture; no live source contacted) |
 | X1 | CONTEXT-SHADOW | prospective executor (challengers) | external executor | executor package in this repository (`shadow_context/`, `src/hoopslab/pregame/`); forecasts, outcomes and ledger in `CONTEXT_HOME/live_results/` outside the repository | CREATED (version plan, executor skeleton, refusal guards; no challenger model exists yet) |
 
-`SHADOW_HOME` and `CONTEXT_HOME` are environment variables of the executor's machine. Their defaults
-(`C:\Users\Tray\Documents\Claude\shadow_lane`, `C:\Users\Tray\Documents\Claude\context_lane`) are outside
-the repository and outside every path Research Claude is pointed at (memory rule "stay in task files").
-The two may be the same directory tree; the ledgers inside are separate files keyed by model version.
+`SHADOW_HOME` and `CONTEXT_HOME` are environment variables of the executor's machine. `SHADOW_HOME` defaults to
+`C:\Users\Tray\Documents\Claude\shadow_lane` (docs/shadow/00, unchanged). `CONTEXT_HOME` defaults to
+`C:\Users\Tray\context_lane`, outside `Documents\Claude` (every research session's working folder); the
+executor CLI refuses a `CONTEXT_HOME` inside the repository or inside `Documents\Claude`. The context executor
+never writes under `SHADOW_HOME`. Ledgers are separate files keyed by model version.
 
 ## 2. Permitted and forbidden data per lane
 
@@ -67,6 +68,11 @@ L4 (hierarchical shrinkage), L5 (teammate-availability "vacated usage" redistrib
 forecast error is minutes and availability). R1 and R2 do not amend tier-1 files; their questions are
 lane-level pre-registrations (draft specs in their directories, frozen by a changelog row before any
 evaluation). A result that would change a frozen hypothesis or rung goes through `registry/AMENDMENTS.md`.
+
+No version uses betting lines (game total, point spread, player props) or any market-derived quantity; game
+pace, if ever wanted, is its own registered later step. Every challenger carries a `live_decision_rule` in
+`shadow_context/VERSIONS.json` (primary score, minimum game days and units, inference, minimum effect,
+checkpoints) written before it forecasts a game.
 
 Version rule (shared with docs/shadow/00 and 01): a model that has learned from prospective outcomes is a
 new version; a version never changes after its card is written; a card carries the implementation hash

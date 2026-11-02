@@ -108,6 +108,47 @@ def test_research_lane_cannot_forecast_score_or_report(monkeypatch, tmp_path):
         CLI.main(["forecast", "--version", "SEASON-AWARE-SHADOW-v0.2", "--snapshot", FIX, "--shadow-snapshot", str(tmp_path), "--game-id", "G:FIXTURE:1"])
 
 
+def test_research_lane_reads_only_the_fixture_and_never_overwrites(monkeypatch, tmp_path):
+    monkeypatch.delenv("HOOPSLAB_LANE", raising=False)
+    other = tmp_path / "snap"
+    other.mkdir()
+    with pytest.raises(SystemExit, match="only the fixture snapshot"):
+        CLI.main(["validate", "--snapshot", str(other)])
+    with pytest.raises(SystemExit, match="only the fixture snapshot"):
+        CLI.main(["eligible", "--snapshot", str(other), "--out", str(tmp_path / "e.csv")])
+    out = tmp_path / "eligible.csv"
+    assert CLI.main(["eligible", "--snapshot", FIX, "--out", str(out)]) == 0
+    with pytest.raises(SystemExit, match="never overwritten"):
+        CLI.main(["eligible", "--snapshot", FIX, "--out", str(out)])
+
+
+def test_live_forecast_refuses_shadow_home_and_existing_derived_files(monkeypatch, tmp_path):
+    monkeypatch.setenv("HOOPSLAB_LANE", "live")
+    monkeypatch.setenv("CONTEXT_HOME", str(tmp_path / "ctx"))
+    monkeypatch.setenv("SHADOW_HOME", str(tmp_path / "shadow_lane"))
+    inside = tmp_path / "shadow_lane" / "snapshots" / "x"
+    inside.mkdir(parents=True)
+    with pytest.raises(SystemExit, match="under SHADOW_HOME"):
+        CLI.main(["forecast", "--version", "L2-A-SHADOW-v0.1", "--snapshot", FIX, "--shadow-snapshot", str(inside), "--game-id", "G:FIXTURE:1"])
+    ss = tmp_path / "ss"
+    ss.mkdir()
+    (ss / "eligible.csv").write_text("x")
+    with pytest.raises(SystemExit, match="never overwritten"):
+        CLI.main(["forecast", "--version", "L2-A-SHADOW-v0.1", "--snapshot", FIX, "--shadow-snapshot", str(ss), "--game-id", "G:FIXTURE:1"])
+    monkeypatch.setenv("CONTEXT_HOME", os.path.join(os.path.expanduser("~"), "Documents", "Claude", "context_lane"))
+    with pytest.raises(SystemExit, match="research working folder"):
+        CLI.main(["report", "--version", "L2-A-SHADOW-v0.1"])
+    assert "Documents" not in CLI.DEFAULT_CONTEXT_HOME.replace(os.path.expanduser("~"), "")
+
+
+def test_version_plan_names_the_live_rules():
+    plan = V.load_plan()
+    assert any("betting lines" in r for r in plan["rules"])
+    v = {x["model_version"]: x for x in plan["versions"]}
+    assert "live_decision_rule" in v["SEASON-AWARE-SHADOW-v0.2"] and "0.01" in v["SEASON-AWARE-SHADOW-v0.2"]["live_decision_rule"]["minimum_effect"]
+    assert "NO ARTEFACT" in v["AVAILABILITY-SHADOW-v0.3"]["lineage"] or "otherwise L2-A-SHADOW-v0.1" in v["AVAILABILITY-SHADOW-v0.3"]["lineage"]
+
+
 def test_cli_validate_and_eligible_on_the_fixture(tmp_path, capsys):
     assert CLI.main(["validate", "--snapshot", FIX]) == 0
     out = tmp_path / "eligible.csv"

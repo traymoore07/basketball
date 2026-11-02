@@ -1,7 +1,7 @@
 # Lane R1: SEASON-CARRYOVER-RESEARCH
 
 *Lane card. Created 2026-11-02 (docs/lanes/00_lane_registry.md). Historical research only, operated by
-Research Claude. Status: CREATED, no experiment run.*
+Research Claude. Status: spec FROZEN 2026-11-02 (C25); experiment not yet run (waits for the E-STATE compute to finish).*
 
 **Purpose.** Determine how much information from a player's previous season(s) should influence his
 forecast early in the next season, and how fast that information stops being useful. The frozen L2 uses a
@@ -32,10 +32,9 @@ development window) and its shadow package `L2-A-SHADOW-v0.1`. The lane changes 
 historical observations; targets, pmf construction, dispersion fit, league fallback and the T-60 cutoff are
 inherited unchanged. Tier-1 registry files are not amended by this lane.
 
-**Governance before any run.** `01_carryover_spec_draft.md` fixes the candidate families, the grid, the
-evaluation strata and the decision rule. It is a DRAFT until a POSTFREEZE_CHANGELOG row freezes it (then it
-is renamed `01_carryover_spec.md`); only after that row may an evaluation start, with an EXPOSURE_LOG start
-row. Weights are never chosen after looking at results: the grid point is selected on prior seasons inside
+**Governance.** `01_carryover_spec.md` fixes the candidate families, the grid, the evaluation strata and the
+decision rule; FROZEN 2026-11-02 (changelog C25) before any fit. An evaluation starts only with an EXPOSURE_LOG
+start row. Weights are never chosen after looking at results: the grid point is selected on prior seasons inside
 the prequential loop, as the P1 half-life was.
 
 **Output.** A report with the frozen return fields and, only if the evidence supports it, a frozen artefact

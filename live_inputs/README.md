@@ -26,5 +26,8 @@ unofficial and PROBABLE -> EXPECTED_ACTIVE; QUESTIONABLE / DOUBTFUL / UNKNOWN ->
 OUT). To X1 challengers v0.3 / v0.4: the full snapshot. `validate` must pass first; the report carries the
 table hashes and the `snapshot_id`.
 
+**Research-session rule.** Outside `HOOPSLAB_LANE=live` the CLI validates and maps only the committed fixture;
+no real snapshot is ever read in a research session.
+
 **Status.** CREATED: contract fixed, validator and mapping tested on the fixture (`tests/test_lanes.py`),
 no live source contacted, no real snapshot exists.

@@ -46,7 +46,7 @@ CONTEXT_HOME (outside git)    live_inputs/<cutoff>/            L1 snapshots
 
 ```bash
 set HOOPSLAB_LANE=live
-set CONTEXT_HOME=C:\Users\Tray\Documents\Claude\context_lane     # outside the repository
+set CONTEXT_HOME=C:\Users\Tray\context_lane                      # outside the repository and outside Documents\Claude
 python -m hoopslab.pregame.cli versions                            # which versions are forecastable (hashes verified)
 python -m hoopslab.pregame.cli validate --snapshot %CONTEXT_HOME%\live_inputs\<stamp> --out <stamp>_validation.json
 python -m hoopslab.pregame.cli forecast --version L2-A-SHADOW-v0.1 --snapshot %CONTEXT_HOME%\live_inputs\<stamp> ^
@@ -57,7 +57,11 @@ python -m hoopslab.pregame.cli report --version <v>                # cumulative 
 ```
 
 The guard refuses `forecast`, `score`, `report` and `verify` unless `HOOPSLAB_LANE=live` and `CONTEXT_HOME`
-is outside the repository, so a research session cannot run them by accident. The frozen baseline is run
+is outside the repository and outside `Documents\Claude`; outside the live lane `validate` and `eligible`
+read only the committed fixture; `forecast` refuses a `--shadow-snapshot` under `SHADOW_HOME` and never
+overwrites an existing `eligible.csv` or `pregame_manifest.json`. No version uses betting lines or any
+market quantity (VERSIONS.json rules); each challenger's `live_decision_rule` (primary score, minimum game
+days and units, inference, minimum effect, checkpoints) is in VERSIONS.json before it forecasts a game. The frozen baseline is run
 unchanged through its own CLI (`hoopslab.shadow.cli`) with only the ELIGIBLE table derived from the L1
 snapshot; its S0 lane in `SHADOW_HOME` is untouched by this.
 

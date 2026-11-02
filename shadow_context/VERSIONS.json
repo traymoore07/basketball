@@ -9,7 +9,9 @@
   "no version's prospective results alter another version during the evaluation period",
   "comparisons use only games every compared version forecast, per target and population, on the cumulative tables",
   "attribution is reported stepwise: v0.2 - v0.1 = season awareness; v0.3 - v0.2 = availability; v0.4 - v0.3 = rotation / minutes + opportunity redistribution; never only the v0.4 score",
-  "PLANNED versions are refused by the executor until their card is FROZEN with hashes and a pinned commit"
+  "PLANNED versions are refused by the executor until their card is FROZEN with hashes and a pinned commit",
+  "no version uses betting lines (game total, point spread, player props) or any market-derived quantity as an input; game pace, if ever wanted, is registered here as its own later step (its own version and card) before use",
+  "a challenger is judged only by its registered live_decision_rule, read at the pre-set checkpoints; the executor's comparison tables are computed continuously but no decision is taken between checkpoints and no version is retired or retuned on an interim reading"
  ],
  "versions": [
   {
@@ -55,14 +57,33 @@
    "card": "shadow_context/cards/MODEL_CARD_SEASON-AWARE-SHADOW-v0.2.json",
    "card_sha256": null,
    "implementation_combined": null,
-   "pinned_commit": null
+   "pinned_commit": null,
+   "live_decision_rule": {
+    "primary_score": "mean CRPS per target on STATUS_CONFIRMED units (docs/shadow/01 section 4) of games both versions forecast at the same information cutoff; secondary: log score, 80% coverage, PIT dispersion",
+    "targets": [
+     "MIN",
+     "PTS",
+     "REB",
+     "AST",
+     "FG3M",
+     "TOV",
+     "PRA"
+    ],
+    "minimum_data_before_first_reading": "60 NBA game days with both versions locked and scored and >= 3,000 scored STATUS_CONFIRMED units per target; further readings only at every additional 30 game days (checkpoints fixed in advance)",
+    "inference": "paired block bootstrap over game days (hoopslab.metrics.compare.compare_losses, B = 2000, seed 12345), 95% CI, Holm over the seven targets (apply_decisions)",
+    "minimum_effect": "CRPS skill 0.01 (relative to the compared version), the P1 ladder MPE (experiments/p1_ladder/config.json), on the core targets PTS, REB, AST, MIN",
+    "decision_labels": "SUPPORTED / FALSIFIED / PROMISING per docs/prereg/08_metric_spec.md; a challenger is adopted as the new reference only when SUPPORTED on the core targets and not FALSIFIED on any target; the baseline keeps forecasting regardless",
+    "strata_reported": "team game index <= 20 (the window v0.2 is built for) vs > 20; STATUS_EXPECTED and UNKNOWN populations; month",
+    "no_peeking": "results reach Research Claude only as a Tray-logged O-shadow aggregate after a checkpoint",
+    "compared_against": "L2-A-SHADOW-v0.1"
+   }
   },
   {
    "model_version": "AVAILABILITY-SHADOW-v0.3",
    "role": "CHALLENGER 2",
    "lane": "X1",
    "status": "PLANNED",
-   "lineage": "SEASON-AWARE-SHADOW-v0.2",
+   "lineage": "SEASON-AWARE-SHADOW-v0.2 if R1 produced the artefact; otherwise L2-A-SHADOW-v0.1 directly (then v0.3 - v0.1 is the availability attribution and no season-awareness step exists)",
    "changes": "adds tonight's player availability and roster status from the L1 snapshot (availability, roster, lineup, team_absences tables): who is eligible and which teammates are absent; the historical weighting is v0.2's",
    "inputs": [
     "GAME",
@@ -77,7 +98,26 @@
    "card": "shadow_context/cards/MODEL_CARD_AVAILABILITY-SHADOW-v0.3.json",
    "card_sha256": null,
    "implementation_combined": null,
-   "pinned_commit": null
+   "pinned_commit": null,
+   "live_decision_rule": {
+    "primary_score": "mean CRPS per target on STATUS_CONFIRMED units (docs/shadow/01 section 4) of games both versions forecast at the same information cutoff; secondary: log score, 80% coverage, PIT dispersion",
+    "targets": [
+     "MIN",
+     "PTS",
+     "REB",
+     "AST",
+     "FG3M",
+     "TOV",
+     "PRA"
+    ],
+    "minimum_data_before_first_reading": "60 NBA game days with both versions locked and scored and >= 3,000 scored STATUS_CONFIRMED units per target; further readings only at every additional 30 game days (checkpoints fixed in advance)",
+    "inference": "paired block bootstrap over game days (hoopslab.metrics.compare.compare_losses, B = 2000, seed 12345), 95% CI, Holm over the seven targets (apply_decisions)",
+    "minimum_effect": "CRPS skill 0.01 (relative to the compared version), the P1 ladder MPE (experiments/p1_ladder/config.json), on the core targets PTS, REB, AST, MIN",
+    "decision_labels": "SUPPORTED / FALSIFIED / PROMISING per docs/prereg/08_metric_spec.md; a challenger is adopted as the new reference only when SUPPORTED on the core targets and not FALSIFIED on any target; the baseline keeps forecasting regardless",
+    "strata_reported": "games with >= 1 OUT / DOUBTFUL rotation teammate vs none; STATUS_EXPECTED and UNKNOWN populations; month",
+    "no_peeking": "results reach Research Claude only as a Tray-logged O-shadow aggregate after a checkpoint",
+    "compared_against": "its lineage version (v0.2, or v0.1 if R1 reported NO ARTEFACT)"
+   }
   },
   {
    "model_version": "CONTEXT-SHADOW-v0.4",
@@ -100,7 +140,26 @@
    "card": "shadow_context/cards/MODEL_CARD_CONTEXT-SHADOW-v0.4.json",
    "card_sha256": null,
    "implementation_combined": null,
-   "pinned_commit": null
+   "pinned_commit": null,
+   "live_decision_rule": {
+    "primary_score": "mean CRPS per target on STATUS_CONFIRMED units (docs/shadow/01 section 4) of games both versions forecast at the same information cutoff; secondary: log score, 80% coverage, PIT dispersion",
+    "targets": [
+     "MIN",
+     "PTS",
+     "REB",
+     "AST",
+     "FG3M",
+     "TOV",
+     "PRA"
+    ],
+    "minimum_data_before_first_reading": "60 NBA game days with both versions locked and scored and >= 3,000 scored STATUS_CONFIRMED units per target; further readings only at every additional 30 game days (checkpoints fixed in advance)",
+    "inference": "paired block bootstrap over game days (hoopslab.metrics.compare.compare_losses, B = 2000, seed 12345), 95% CI, Holm over the seven targets (apply_decisions)",
+    "minimum_effect": "CRPS skill 0.01 (relative to the compared version), the P1 ladder MPE (experiments/p1_ladder/config.json), on the core targets PTS, REB, AST, MIN",
+    "decision_labels": "SUPPORTED / FALSIFIED / PROMISING per docs/prereg/08_metric_spec.md; a challenger is adopted as the new reference only when SUPPORTED on the core targets and not FALSIFIED on any target; the baseline keeps forecasting regardless",
+    "strata_reported": "games with >= 1 absent starter vs none; receiving role; STATUS_EXPECTED and UNKNOWN populations; month",
+    "no_peeking": "results reach Research Claude only as a Tray-logged O-shadow aggregate after a checkpoint",
+    "compared_against": "AVAILABILITY-SHADOW-v0.3 (and the minutes-only ablation version for the two-way split)"
+   }
   }
  ]
 }
