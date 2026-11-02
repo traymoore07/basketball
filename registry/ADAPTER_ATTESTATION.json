@@ -1,0 +1,36 @@
+{
+ "attested_at_utc": "2026-10-31T01:18:33+00:00",
+ "corpus_package": "BASKETBALL_CORPUS_v1.0.2/researcher_isolated",
+ "corpus_built_at_utc": "2026-10-10 19:25:57",
+ "corpus_release_manifest": "release/BASKETBALL_CORPUS_v1.0.2/MANIFEST.sha256 (9,317 files; verified OK 2026-10-10)",
+ "exposure_at_attestation": "O-dev (EXPOSURE_LOG rows 1-11); adapter code unchanged since C9",
+ "files": {
+  "src/hoopslab/adapters/corpus_v102.py": "8fbca2812e789faab7f082f5b653278910de5f7f000a9c6d6d3a57fc5b2c7d64",
+  "tests/test_corpus_adapter.py": "252f9698bfa15bf63b03a9ab2dbab4d092cd9db546ef1d7b0b946afaba6dd986",
+  "experiments/onboarding/audit_corpus_s1s2.py": "aa7ad76c6ec4251a2c06b999e15579e5c4782b7366aef6df639233249cae6bb3",
+  "experiments/onboarding/power_inventory.py": "0c6a01e21c50d9bdc216f0fffca399ccd7ef400eacf24f1510d2bc1b5aa18ca9",
+  "experiments/onboarding/smoke_adapter.py": "85c11df23941b09f48f2fcfc44f428b84bdc68a6d5660b6a9fe600f57565d21b",
+  "docs/onboarding/01_corpus_compatibility_audit.md": "807d557914556284460f9736f9a16ba312f50c426767451da7d2fed37b83934d",
+  "registry/DATA_CONTRACT_MISMATCHES.md": "0056cad1eeaa0e295294922a30a70855ddbc9091b4a859e2e2c2bcbd88d317ca"
+ },
+ "note": "The adapter is tier-3 (post-freeze engineering). Any later edit must be logged in POSTFREEZE_CHANGELOG.md and re-attested here; the frozen pre-registration (tiers 1-2) is unaffected.",
+ "history": [
+  {
+   "at": "2026-10-30T05:09:23+00:00",
+   "change": "C9 roster gap-close bugfix (pre-outcome)",
+   "prior_adapter_sha256": "6140402af41f916adc2f05775c9478a6bf774744fc5ce71c890bf0be624983a8"
+  },
+  {
+   "at": "2026-10-30T05:09:23+00:00",
+   "change": "audit doc erratum (C9) re-hashed"
+  },
+  {
+   "at": "2026-10-30T14:01:26+00:00",
+   "change": "M24 (DI-1 placeholder-team rows) appended to registry/DATA_CONTRACT_MISMATCHES.md and re-hashed; adapter sha256 unchanged (8fbca2812e78)"
+  },
+  {
+   "at": "2026-10-31T01:18:33+00:00",
+   "change": "M25 (DI-2 box-listing transition / appearance-spell population) appended to registry/DATA_CONTRACT_MISMATCHES.md and re-hashed; adapter sha256 unchanged (8fbca2812e78); files re-hashed: registry/DATA_CONTRACT_MISMATCHES.md"
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+  "entries": [
+    {
+      "utc": "2026-09-26T23:41:57+00:00",
+      "files": {
+        "registry/hypotheses.yaml": "d5685ef4f40ceeef9a9860096c6db02ec989f8832e63bc9320f76603a2e0f024",
+        "registry/baseline_ladder.yaml": "c5d1d4e2a523597ae3bddea48e914e5966bc9adb7b1c04fdfd3872f34c26eabb",
+        "registry/expectations.yaml": "b023eb7fbb0db96a10d3f0eafa7aa3f177822a08862e651f837bab0c5a5d4c65",
+        "src/hoopslab/contract/data_contract.yaml": "8da0c173f73ee42708b8ccb04e92a800def90e1a1ef58379ddfa19017029d5ce",
+        "docs/prereg/01_experimental_blueprint.md": "41927484e5193a97875d2d1133e18641a25df0ed6760248a4d00971b3e3c7208",
+        "docs/prereg/02_hypothesis_registry.md": "9bf97645f5ebe0d4694a918931d0adcd50f9e2bd995a26abb4a2912840561a6e",
+        "docs/prereg/03_baseline_ladder.md": "69f23f6b364302b80a7ee495a3edfbae34f297b2cff255767d7d1df0a74c05f5",
+        "docs/prereg/04_preregistered_expectations.md": "5f5beb696e29cbbad17edfee11e537d8faed14196cbbfb43b101329eb4b420eb",
+        "docs/prereg/05_data_contract.md": "649a3f3c4c70ee2a0cd5d0f419e56795c4d9be4b89f9753a36c1425ac8920408",
+        "docs/prereg/06_leakage_checklist.md": "d332abad34bc5a84fe9eb2c21b21272ff21f58e08bb8ca8e5966a093591becf3",
+        "docs/prereg/07_temporal_backtest_spec.md": "1d0010d65ecaddd5ec36875cec8d526083e36366cac31133b86bcb921ef70cd9",
+        "docs/prereg/08_metric_spec.md": "341db9b90e39ab98f72d2b90fc0c528078600dbbb30f07022a01ab3a91085f25",
+        "docs/prereg/09_synthetic_test_suite.md": "340bef80b1a84a9b6a1f910f2ea7b983b32fe1caaa039376a9728cb770840caf",
+        "docs/prereg/10_cross_league.md": "324ec57c5ebc5150f5048f6fad979ba42820108b5dea3454f6a6e79290921b51",
+        "docs/prereg/11_real_data_checklist.md": "360cccf3a6f309ffc90efa1d7aa9f0a95fd556315991fc331e96bf224c7a2335",
+        "src/hoopslab/metrics/scoring.py": "a054b65c52378931bf9e087b9d06bb4833aedcabe6447b9d6271973bad9a2859",
+        "src/hoopslab/metrics/compare.py": "5273f4d7f1596f3c2a7b7c2c635ca139efb6f0b9cb0b7b55cd1a2731c114b57a",
+        "src/hoopslab/metrics/information.py": "e9ed755dbfc0314b876204305536529bb49e642a344c106335b793aba086579f",
+        "src/hoopslab/targets.py": "9e29fe7dbacbd583a6de84bc06094a9e09868ba1b43b11628995943b52acd9a4",
+        "src/hoopslab/backtest/strata.py": "1263293144e376615c241232b65be8a544cddce73488a4792ef39b3743bd4ea5",
+        "src/hoopslab/backtest/leakage.py": "b6eecd3413a4f58d539ea859865830b4a6b6c6ac04eab3a9a0351c2dfe78b6d6",
+        "src/hoopslab/diagnostics/realism.py": "b7f0100bf3571b72c53c382b76cc37a75bdf6ee57fd47e0248b23eb56d8151e3",
+        "src/hoopslab/diagnostics/changepoint.py": "06f90a524c96bec557587b23a4ec8708319c6490d98928d283710843b33dcfcc",
+        "src/hoopslab/experiments/history.py": "cc2fd31b94f244dc5f436b79c01d56f192538552f635e9c959337a209c187a03",
+        "src/hoopslab/synthetic/scenarios.py": "c8089e62b3f6ceee8c00bdf7c7c2e24a33ab5044fbbfb478d2930edfc82f45bd"
+      },
+      "manifest_hash": "ccb065025fb3d4874b4e9fe12a6b7ead3ad4eb3cab6661214efb2c3a17bd9c40",
+      "amendment": null,
+      "real_data_seen": false
+    }
+  ]
+}

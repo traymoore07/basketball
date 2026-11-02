@@ -1,0 +1,140 @@
+league,source,item,verdict,granularity,vintage_class,ow,no_pit,limitation
+all,(none),odds,NEITHER,UNKNOWN,,False,True,"NEITHER time axis: no betting line series at all, and the spread columns that do exist are"
+all,(none),suspensions,EFFECTIVE_ONLY,GAME,,False,True,"this is not a suspension feed: it is unstructured free text on one game's roster row, with"
+all,(none),transactions,NEITHER,UNKNOWN,,False,True,we have NEITHER effective time NOR known-at time: there is no transaction record of any ki
+nba,espn,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+nba,espn,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+nba,espn,eligibility / player status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"eligibility and status are an UNDATED season value: there is no eligibility-change event, "
+nba,espn,injuries,BOTH,DAILY,DAILY_SNAPSHOT,True,False,THE SERIES IS ONLY 19 DAYS AND HAS NO ARCHIVE. Our single capture holds 2026-09-08..2026-0
+nba,espn,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+nba,espn,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+nba,espn,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+nba,espn,roster moves (depth chart),BOTH,DAILY,DAILY_SNAPSHOT,True,False,exactly one season label (2027) and 19 daily snapshots; the same file is overwritten by a 
+nba,espn,roster moves (draft),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a draft pick is a season-grain fact with no event timestamp, so it cannot be placed at a d"
+nba,espn,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,True,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+nba,espn,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+nba,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,espn,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,espn,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"
+nba,nba_stats,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+nba,nba_stats,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+nba,nba_stats,coaching changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"COACHING CHANGES ARE NOT DATED: a mid-season change is invisible at this grain, and there "
+nba,nba_stats,draft measurement,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a draft pick is a season-grain fact with no event timestamp, so it cannot be placed at a d"
+nba,nba_stats,game logs,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,lineups,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,lineups (game grain),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,matchups,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+nba,nba_stats,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+nba,nba_stats,play-type aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,possession boundaries,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+nba,nba_stats,roster moves (draft),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a draft pick is a season-grain fact with no event timestamp, so it cannot be placed at a d"
+nba,nba_stats,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+nba,nba_stats,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+nba,nba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,nba_stats,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"
+nba,shufinskiy,matchups,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,shufinskiy,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+nba,shufinskiy,"play-by-play (event grain, duplicate release)",EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+nba,shufinskiy,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+nba,sportsdataverse,identity crosswalk,NEITHER,SNAPSHOT,ROLLING_SNAPSHOT,True,True,THE CORPUS'S MOST DANGEROUS TEMPORAL OBJECT. `seasons_seen` and any id mapping read from i
+nba,sportsdataverse,season aggregates (impact metric),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,espn,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_men,espn,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_men,espn,eligibility / player status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"eligibility and status are an UNDATED season value: there is no eligibility-change event, "
+ncaa_men,espn,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+ncaa_men,espn,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+ncaa_men,espn,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+ncaa_men,espn,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,True,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_men,espn,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+ncaa_men,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,espn,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,espn,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"
+ncaa_men,ncaa,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_men,ncaa,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_men,ncaa,identity,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,lineups,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,matchup stints,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+ncaa_men,ncaa,possession boundaries,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,roster moves,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_men,ncaa,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_men,ncaa,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+ncaa_men,ncaa,season aggregates (RAPM),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,season aggregates (RAPM),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,ncaa,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_men,sportsdataverse,identity crosswalk,NEITHER,SNAPSHOT,ROLLING_SNAPSHOT,True,True,THE CORPUS'S MOST DANGEROUS TEMPORAL OBJECT. `seasons_seen` and any id mapping read from i
+ncaa_men,sportsdataverse,rankings,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+ncaa_men,sportsdataverse,season aggregates (value metric),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,espn,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_women,espn,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_women,espn,eligibility / player status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"eligibility and status are an UNDATED season value: there is no eligibility-change event, "
+ncaa_women,espn,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+ncaa_women,espn,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+ncaa_women,espn,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+ncaa_women,espn,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,True,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_women,espn,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+ncaa_women,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,espn,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,espn,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"
+ncaa_women,ncaa,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_women,ncaa,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+ncaa_women,ncaa,identity,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,lineups,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,matchup stints,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+ncaa_women,ncaa,possession boundaries,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,roster moves,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_women,ncaa,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+ncaa_women,ncaa,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+ncaa_women,ncaa,season aggregates (RAPM),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,season aggregates (RAPM),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,ncaa,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+ncaa_women,sportsdataverse,identity crosswalk,NEITHER,SNAPSHOT,ROLLING_SNAPSHOT,True,True,THE CORPUS'S MOST DANGEROUS TEMPORAL OBJECT. `seasons_seen` and any id mapping read from i
+ncaa_women,sportsdataverse,rankings,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+ncaa_women,sportsdataverse,season aggregates (value metric),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,espn,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+wnba,espn,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+wnba,espn,eligibility / player status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"eligibility and status are an UNDATED season value: there is no eligibility-change event, "
+wnba,espn,injuries,BOTH,DAILY,DAILY_SNAPSHOT,True,False,THE SERIES IS ONLY 19 DAYS AND HAS NO ARCHIVE. Our single capture holds 2026-09-08..2026-0
+wnba,espn,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+wnba,espn,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+wnba,espn,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+wnba,espn,roster moves (draft),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a draft pick is a season-grain fact with no event timestamp, so it cannot be placed at a d"
+wnba,espn,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,True,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+wnba,espn,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+wnba,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,espn,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,espn,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,espn,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"
+wnba,shufinskiy,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+wnba,shufinskiy,"play-by-play (event grain, duplicate release)",EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+wnba,shufinskiy,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,sportsdataverse,identity crosswalk,NEITHER,SNAPSHOT,ROLLING_SNAPSHOT,True,True,THE CORPUS'S MOST DANGEROUS TEMPORAL OBJECT. `seasons_seen` and any id mapping read from i
+wnba,sportsdataverse,season aggregates (impact metric),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,box score (player),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+wnba,wnba_stats,box score (team),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,a box score is a POST-GAME fact: it is the label for its game and must not be used as a fe
+wnba,wnba_stats,coaching changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"COACHING CHANGES ARE NOT DATED: a mid-season change is invisible at this grain, and there "
+wnba,wnba_stats,game logs,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,lineups,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,lineups (game grain),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,officials,EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,assignment is knowable before tip-off but only retrievable from a post-game artifact
+wnba,wnba_stats,play-by-play (event grain),EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"supports point-in-time RECONSTRUCTION, not live inference: the whole game is retrievable o"
+wnba,wnba_stats,possession boundaries,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,rankings (standings),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"RANKINGS HERE ARE A SEASON FINAL STATE, not a dated poll. There is no weekly ranking serie"
+wnba,wnba_stats,roster moves (draft),EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a draft pick is a season-grain fact with no event timestamp, so it cannot be placed at a d"
+wnba,wnba_stats,roster moves / eligibility-status,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,ROSTER MOVES ARE NOT DATED: the table is a season-scoped membership list with no transacti
+wnba,wnba_stats,schedule changes,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,SCHEDULE CHANGES ARE NOT HISTORY: a postponed or moved game shows only its CURRENT date. T
+wnba,wnba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,season aggregates,EFFECTIVE_ONLY,SEASON,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,shot events,EFFECTIVE_ONLY,EVENT,SEASON_GRAIN_FROZEN,False,True,"a season aggregate is a FINAL STATE. It is a label or a descriptive summary, never a featu"
+wnba,wnba_stats,starters / game-day roster / suspensions (free text),EFFECTIVE_ONLY,GAME,SEASON_GRAIN_FROZEN,False,True,"starters are knowable by tip-off, but only from a post-game artifact, and the suspension r"

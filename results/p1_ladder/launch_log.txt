@@ -1,0 +1,24 @@
+season 1999 exit 0 in 2375s
+season 1998 exit 0 in 3147s
+season 2000 exit 0 in 4477s
+season 2001 exit 0 in 5236s
+season 2002 exit 0 in 5906s
+season 2003 exit 0 in 6670s
+season 2004 exit 0 in 7125s
+season 2005 exit 0 in 8062s
+season 2006 exit 0 in 8257s
+season 2007 exit 0 in 8739s
+season 2008 exit 0 in 9503s
+season 2009 exit 0 in 10051s
+season 2010 exit 0 in 10670s
+season 2012 exit 0 in 9845s
+season 2011 exit 0 in 11347s
+season 2013 exit 0 in 12885s
+season 2014 exit 0 in 13223s
+season 2015 exit 0 in 13600s
+season 2016 exit 0 in 13798s
+season 2017 exit 0 in 13723s
+season 2020 exit 0 in 13140s
+season 2019 exit 0 in 14220s
+season 2018 exit 0 in 14870s
+ALL DONE codes [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]

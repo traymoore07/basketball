@@ -1,0 +1,7 @@
+S6 1000 {'bits': 2.3274627720074705, 'converged': False, 'seconds': 291}
+S6 2000 {'bits': 2.3275450503402233, 'converged': True, 'seconds': 424}
+S6 4000 {'bits': 2.3275450503402233, 'converged': True, 'seconds': 328}
+S6_H 1000 {'bits': 2.326797185180713, 'converged': False, 'seconds': 246}
+S6_H 2000 {'bits': 2.3267603762884015, 'converged': True, 'seconds': 307}
+S6_H 4000 {'bits': 2.3267603762884015, 'converged': True, 'seconds': 305}
+{1000: 0.6655868267575471, 2000: 0.7846740518218098, 4000: 0.7846740518218098}

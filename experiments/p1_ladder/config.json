@@ -1,0 +1,60 @@
+{
+  "phase": "P1 baseline ladder, development window only (docs/prereg/01 section 2)",
+  "league": "nba",
+  "family": "nba_stats",
+  "data_level": "A",
+  "corpus_package": "BASKETBALL_CORPUS_v1.0.2/researcher_isolated",
+  "windows": {
+    "rule": "docs/prereg/07 section 2: Level-A seasons s1..sN; burn-in s1..s3 never scored; development s4..s(N-2); lockbox s(N-1), sN sealed",
+    "level_a_seasons": "1997-2022 (26, nba_stats; all pass the 95% minutes-coverage rule)",
+    "burn_in": [1997, 1998, 1999],
+    "development": [2000, 2020],
+    "lockbox": [2021, 2022],
+    "corpus_external_holdout": ">= 2023 (physically absent from the package)"
+  },
+  "forecast_protocol": {
+    "lead_minutes": 60,
+    "info_set": "pre",
+    "forecast_points": "every scheduled tip in the window as known at chunk start - 1 day (BacktestSpec semantics, run in 7-day chunks because GAME v1 becomes known at tip - 7 d)",
+    "phases_forecast": ["regular", "postseason", "play_in", "in_season_tournament"],
+    "phases_excluded": ["preseason (docs/prereg/07 section 4: excluded from scoring; remains an input through the as-of history)"],
+    "refit": "every forecast time (07 section 3, L1-L6 refit daily)",
+    "request_population": "as-of ROSTER spells (appearance-based, adapter C9-fixed)"
+  },
+  "models": {
+    "L0": "Climatology()",
+    "L1": "PlayerMean(half_life=None)",
+    "L2_grid": {
+      "half_lives_appearances": [5, 10, 20, 40],
+      "selection_rule": "L2 for season s = the half-life with the lowest core CRPS (mode U, regular season) over the scored seasons strictly before s; for s = 2000 the burn-in seasons 1998-1999 are forecast for selection only and never reported. Rule fixed before any outcome was seen."
+    },
+    "L3": "MinutesRate(shrink=False) with the frozen implementation defaults (half_life=15, prior_strength_min=150); INJURY_REPORT absent (M1) so p_appear falls back to the player's own appearance history",
+    "L4": "MinutesRate(shrink=True, param_uncertainty=True)",
+    "L4_plugin": "MinutesRate(shrink=True, param_uncertainty=False)",
+    "implementation": "frozen hoopslab.models.baselines via experiments/p1_ladder/models.py (shared per-view history cache; bit-identical, see check_shared_equals_vanilla.py)"
+  },
+  "scoring": {
+    "targets": ["MIN", "PTS", "REB", "AST", "FG3M", "TOV", "PRA"],
+    "modes": ["U", "A"],
+    "primary": "CRPS (exact integer form); core aggregate = equal-weight mean of per-target skills, mode U, regular season",
+    "secondary": ["log score (bits, eps 1e-4 uniform mixture)", "RPS on pre-registered bins"],
+    "diagnostic": ["randomised PIT: KS, dispersion ratio, coverage 50/80/95", "MAE of median", "RMSE of mean", "upper-tail twCRPS at PTS 25, PRA 40, REB 10, AST 8"],
+    "pit_seed": 0,
+    "bootstrap": {"B": 2000, "block_days": 7, "seed": 12345, "clusters": "game-day"},
+    "comparisons": "each rung vs the immediately simpler rung and vs the best simpler rung; MPE 0.01 core CRPS skill (baseline_ladder.yaml default); Holm within the ladder family",
+    "strata_reported": [
+      "season",
+      "phase (regular primary; postseason)",
+      "post-rule-change season 2018 (14 s reset)",
+      "interrupted seasons 2012 (lockout) and 2020 (bubble)",
+      "low_sample (< 10 as-of appearances; X-L4-L3 note, P1 coverage gate)",
+      "role_change_alarm (X-L2-L1 note only; NO H6 interaction statistic is computed)"
+    ],
+    "not_computed": ["any H6 stratum interaction", "mode S/L", "joint targets", "team targets", "L5+"]
+  },
+  "gates_P1": [
+    "L1 >> L0 on every core target (expected 35-55%)",
+    "L3 >= L2 on MIN mode U",
+    "L4-plugin coverage80 in low_sample <= L4 coverage80"
+  ]
+}

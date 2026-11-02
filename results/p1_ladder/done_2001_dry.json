@@ -1,0 +1,19 @@
+{
+ "season": 2001,
+ "days": 209,
+ "requests": 52873,
+ "score_parts": 0,
+ "seconds": 25,
+ "accessed_tables": {},
+ "models": [],
+ "excluded_games": [],
+ "game_v1_lag_days": 7,
+ "chunk_days": 6,
+ "coverage": {
+  "expected_games": 1260,
+  "forecast_games": 1260,
+  "missing": [],
+  "extra": []
+ },
+ "dry_run": true
+}

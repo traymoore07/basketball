@@ -1,0 +1,15 @@
+per-class mean bits (A_nn, E_gru, gain mb, share):
+0 2.8433 2.8057 37.6 0.134
+1 4.3551 4.2731 82.0 0.038
+2 3.7593 2.8809 878.4 0.037
+3 3.8294 3.85 -20.7 0.057
+4 1.6353 1.6098 25.5 0.329
+5 1.8316 1.7795 52.1 0.287
+6 3.5922 3.5485 43.6 0.077
+7 4.4952 4.4678 27.5 0.041
+A 2.4158 converged True
+A+PC 2.3513 converged True
+E 2.4114 converged True
+E+PC 2.348 converged True
+
+[exited with code 0]

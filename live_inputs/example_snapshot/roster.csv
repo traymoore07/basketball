@@ -1,0 +1,10 @@
+team_id,player_id,roster_status,assignment,as_of,added_at,removed_at,note
+T:A,P1,standard,nba,2010-01-31T22:40:00Z,,,
+T:A,P2,standard,nba,2010-01-31T22:40:00Z,,,
+T:A,P3,standard,nba,2010-01-31T22:40:00Z,,,
+T:A,P4,standard,nba,2010-01-31T22:40:00Z,,,
+T:A,P5,standard,nba,2010-01-31T22:40:00Z,,,
+T:A,P6,two_way,g_league,2010-01-31T22:40:00Z,2010-01-29T17:00:00Z,,recalled 2 days ago
+T:B,P7,standard,nba,2010-01-31T22:40:00Z,,,
+T:B,P8,standard,nba,2010-01-31T22:40:00Z,,,
+T:B,P9,exhibit_10,unknown,2010-01-31T22:40:00Z,2010-01-30T15:00:00Z,,

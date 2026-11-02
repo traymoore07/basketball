@@ -1,0 +1,30 @@
+{
+ "season": 2005,
+ "days": 210,
+ "requests": 39345,
+ "score_parts": 0,
+ "seconds": 27,
+ "accessed_tables": {},
+ "models": [],
+ "excluded_games": [
+  {
+   "forecast_time": "2005-06-27 11:00:00+00:00",
+   "game_id": "nba:nba_stats:0040401000",
+   "reason": "DI-1 unknown team placeholder"
+  },
+  {
+   "forecast_time": "2005-06-28 11:00:00+00:00",
+   "game_id": "nba:nba_stats:0040401001",
+   "reason": "DI-1 unknown team placeholder"
+  }
+ ],
+ "game_v1_lag_days": 7,
+ "chunk_days": 6,
+ "coverage": {
+  "expected_games": 1314,
+  "forecast_games": 1314,
+  "missing": [],
+  "extra": []
+ },
+ "dry_run": true
+}

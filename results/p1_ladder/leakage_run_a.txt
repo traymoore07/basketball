@@ -1,0 +1,27 @@
+season 2000: T1=PASS T2=PASS T3=PASS T6=PASS T7=PASS (1471s)
+season 2001: T1=PASS T2=PASS T3=PASS T6=PASS T7=PASS (3124s)
+season 2002: T1=PASS T2=PASS T3=PASS T6=PASS T7=PASS (5074s)
+season 2003: T1=PASS T2=PASS T3=PASS T6=PASS T7=PASS (7286s)
+season 2004: T1=PASS T2=PASS T3=PASS T6=PASS T7=PASS (9822s)
+Traceback (most recent call last):
+  File "C:\Users\Tray\Documents\Claude\basketball\experiments\p1_ladder\leakage_tests.py", line 96, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Tray\Documents\Claude\basketball\experiments\p1_ladder\leakage_tests.py", line 71, in main
+    r["T1"] = lk.truncation_invariance(store, fac, times, targets=tuple(CORE_TARGETS))
+              ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Tray\Documents\Claude\basketball\src\hoopslab\backtest\leakage.py", line 65, in truncation_invariance
+    _, f_full = _forecast_at(store, factory, t, games, list(targets))
+                ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Tray\Documents\Claude\basketball\src\hoopslab\backtest\leakage.py", line 41, in _forecast_at
+    return req, m.predict(view, req, targets)
+                ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Tray\Documents\Claude\basketball\experiments\p1_ladder\leakage_tests.py", line 44, in predict
+    fs = [m.predict(view, requests, list(targets)) for m in self.models]
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Tray\Documents\Claude\basketball\src\hoopslab\models\baselines.py", line 283, in predict
+    used = mpmf.max(0) > 1e-7
+           ~~~~~~~~^^^
+  File "C:\Users\Tray\AppData\Local\Programs\Python\Python313\Lib\site-packages\numpy\_core\_methods.py", line 41, in _amax
+    return umr_maximum(a, axis, None, out, keepdims, initial, where)
+ValueError: zero-size array to reduction operation maximum which has no identity

@@ -1,0 +1,20 @@
+{
+ "month": "1999-12",
+ "family": "mnl",
+ "n_train": 435208,
+ "n_test": 46957,
+ "train_from": "1997-12-01",
+ "train_to": "1999-11-30",
+ "n_players_vocab": 569,
+ "n_teams": 29,
+ "converged": {
+  "A": true,
+  "B": true,
+  "C": true,
+  "D": false,
+  "E": false,
+  "F": true,
+  "G": false
+ },
+ "seconds": 527.5
+}

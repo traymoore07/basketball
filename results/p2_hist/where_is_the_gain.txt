@@ -1,0 +1,41 @@
+mnl rows 5668402 dup keys 193 | gru rows 5668402 dup keys 193
+
+== by phase
+                 events  hist_gain_mb  resid_mb  share  contrib_mb
+phase                                                             
+4Q/OT 60-180s    249371         2.725     2.725  0.044       0.120
+4Q/OT >180s      997928         1.580     1.589  0.176       0.278
+4Q/OT last 60s   178377         4.106     4.596  0.031       0.129
+periods 1-3     4243158         3.931     3.759  0.749       2.942
+
+== by absmargin
+            events  hist_gain_mb  resid_mb  share  contrib_mb
+absmargin                                                    
+0-5        4025571         3.881     3.756  0.710       2.756
+6-10        790121         2.875     2.779  0.139       0.401
+11-15       435644         2.433     2.322  0.077       0.187
+16+         417498         1.711     1.690  0.074       0.126
+
+== by start_type
+                      events  hist_gain_mb  resid_mb  share  contrib_mb
+start_type                                                             
+after_dead_ball       829346         3.952     4.013  0.146       0.578
+after_dreb           1531906         2.940     2.815  0.270       0.795
+after_live_turnover   393088         2.157     2.092  0.069       0.150
+after_make           2228753         4.297     4.105  0.393       1.689
+after_oreb            685741         2.132     2.075  0.121       0.258
+
+== by season_type
+                 events  hist_gain_mb  resid_mb  share  contrib_mb
+season_type                                                       
+playoffs         354665         3.458     3.345  0.063       0.216
+regular-season  5314169         3.470     3.359  0.937       3.253
+
+== by late_close
+                        events  hist_gain_mb  resid_mb  share  contrib_mb
+late_close                                                               
+last3min |margin|<=12   355887         3.631     3.875  0.063       0.228
+last3min |margin|>12     71861         1.667     1.672  0.013       0.021
+other                  5241086         3.483     3.346  0.925       3.220
+
+share of total history gain from 4Q/OT last 180s: 0.072

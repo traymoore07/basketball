@@ -1,0 +1,4 @@
+1999-12 gru n_train=435208 n_test=46957 E=2.3615 G=2.3612 95s
+1999-12 gru n_train=435208 n_test=46957 A_nn=2.4290 F_nn=2.4353 E=2.3615 G=2.3612 151s
+1999-12 gru n_train=435208 n_test=46957 A_nn=2.4290 F_nn=2.4353 E=2.3615 G=2.3612 E_shuffled=2.4341 E_noprev=2.4293 178s
+1999-12 gru n_train=422675 n_test=45628 A_nn=2.3812 F_nn=2.3850 E=2.3772 G=2.3792 E_shuffled=2.3822 E_noprev=2.3851 170s

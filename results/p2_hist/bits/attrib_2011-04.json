@@ -1,0 +1,24 @@
+{
+ "month": "2011-04",
+ "n_train": 545974,
+ "n_test": 31454,
+ "converged": {
+  "A": true,
+  "F": true,
+  "G": true,
+  "E_PC": true,
+  "G_PC": true,
+  "F_fouls": true,
+  "G_fouls": true,
+  "F_stint": true,
+  "G_stint": true,
+  "F_lineup": true,
+  "G_lineup": true,
+  "F_gap": true,
+  "G_gap": true,
+  "F_all": true,
+  "G_all": false,
+  "G_all_PC": true
+ },
+ "seconds": 7121.8
+}

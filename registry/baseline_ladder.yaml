@@ -1,0 +1,155 @@
+# Baseline ladder (canonical). FROZEN by registry/FREEZE.json.
+#
+# Purpose: no complex model may take credit for an improvement that a simpler model
+# already provides. Every rung is compared with the best LOWER rung at the SAME
+# information set.
+#
+# Credit rule (pre-registered):
+#   credit(Lk) = skill of Lk vs max_{j<k, same info set} (best Lj on the development window)
+#   A rung that fails to beat that bar by its MPE is marked NON-ADDITIVE. Higher rungs
+#   built on it are then also compared with the best lower rung, not with it.
+#   Oracle rungs (O*) are diagnostic ceilings and never enter the credit chain.
+#
+# info_set: pre = T-60 min, as-of availability reports, no announced lineups
+#           lock = at announced starting lineups (T-5 min); live = in-game
+# implemented: which rungs have a reference implementation in this repository (synthetic-capable)
+
+version: 1
+mpe_default_core_crps_skill: 0.01
+
+rungs:
+  - id: L0
+    name: Climatology
+    description: League (and league-season) pmf per target conditional on appearing; league appearance rate.
+    info_set: pre
+    data_level: A
+    implemented: hoopslab.models.baselines.Climatology
+  - id: L1
+    name: Player historical mean
+    description: All-history per-appearance mean with league-fitted negative-binomial dispersion; player appearance rate.
+    info_set: pre
+    data_level: A
+    implemented: hoopslab.models.baselines.PlayerMean(half_life=None)
+  - id: L2
+    name: Recency-weighted player mean
+    description: Exponentially weighted mean (half-life in appearances, fixed on development window), NB.
+    info_set: pre
+    data_level: A
+    implemented: hoopslab.models.baselines.PlayerMean(half_life=h)
+  - id: L3
+    name: Availability-aware minutes x per-minute rates
+    description: >
+      P(appear) from the injury-report status visible at forecast time, calibrated on
+      statuses as-of the same offset in past games; minutes pmf; per-minute EW rates;
+      compound NB over the minutes grid.
+    info_set: pre
+    data_level: A (+INJURY_REPORT)
+    implemented: hoopslab.models.baselines.MinutesRate(shrink=False)
+  - id: L4
+    name: Hierarchical empirical-Bayes shrinkage
+    description: >
+      L3 with gamma-Poisson partial pooling of every rate toward position-group priors
+      (method-of-moments between-player variance); posterior-predictive by default.
+      L4-plugin = posterior means plugged in (H9 contrast).
+    info_set: pre
+    data_level: A
+    implemented: hoopslab.models.baselines.MinutesRate(shrink=True, param_uncertainty=True|False)
+  - id: L5
+    name: Context-adjusted analytic model
+    description: >
+      L4 plus multiplicative adjustments: opponent defence (as-of, shrunk), pace, home,
+      rest/back-to-back, and teammate-availability usage redistribution ("vacated usage"
+      share-weighted). GLM, no trees.
+    info_set: pre
+    data_level: A
+    implemented: false
+  - id: L6
+    name: Strong direct distributional ML model
+    description: >
+      Gradient-boosted distributional model (NGBoost / GBM with negative-binomial or
+      discrete-softmax head, or quantile GBM + monotone rearrangement) on a broad as-of
+      feature set that includes every L5 feature, L4/L8 skill estimates, teammate
+      availability, schedule context, and league/era indicators. The designated "strong
+      direct" benchmark for H1/H6.
+    info_set: pre
+    data_level: A (+INJURY_REPORT); C features optional
+    implemented: false
+  - id: L7
+    name: Direct marginals + Gaussian copula
+    description: >
+      L6 marginals joined by a Gaussian copula whose correlation matrix (within player
+      across targets; within team across players by role slot) is estimated as-of from
+      PIT residuals. The designated joint benchmark for H8.
+    info_set: pre
+    data_level: A
+    implemented: false
+  - id: L8
+    name: State-space latent-skill filter
+    description: >
+      Multivariate Kalman/EnKF filter over per-player skill vectors (usage, shot mix,
+      make rates, rebound/assist propensities) with aging drift and offseason variance
+      inflation; replaces EW/shrinkage estimates inside L5/L6.
+    info_set: pre
+    data_level: A (B for possession-level likelihoods)
+    implemented: false
+  - id: L9
+    name: Simple possession Markov simulator
+    description: >
+      Team-level homogeneous possession Markov chain (Strumbelj-Vracar style) plus L3
+      minutes; box scores allocated to players by as-of shares. No lineups, no rotation.
+    info_set: pre
+    data_level: B
+    implemented: false
+  - id: L10
+    name: Structural possession simulator (plug-in, no game latents)
+    description: >
+      Player-level competing-risks possession engine with lineup-dependent usage
+      (softmax over the 5 on court), actor models, start-type/home/defence effects,
+      depth-chart rotation with blowout rule, sampled availability.
+    info_set: pre
+    data_level: C
+    implemented: hoopslab.models.structural.PossessionSimulator(game_latent="none")
+  - id: L11
+    name: L10 + game-level latents
+    description: Per-simulated-game shooting/pace/form latents with as-of estimated variances.
+    info_set: pre
+    data_level: C
+    implemented: hoopslab.models.structural.PossessionSimulator(game_latent="estimate")
+  - id: L12
+    name: L11 + posterior parameter sampling (full structural simulator)
+    description: Parameters drawn from approximate posteriors once per simulated game.
+    info_set: pre
+    data_level: C
+    implemented: hoopslab.models.structural.PossessionSimulator(game_latent="estimate", param_uncertainty=True)
+  - id: L13
+    name: Neural sequence components
+    description: >
+      L12 with event-model components replaced by a neural sequence model (GRU or
+      transformer over in-game event history; set encoder over lineups; player
+      embeddings). Tracking variant at level D.
+    info_set: pre
+    data_level: B (D variant)
+    implemented: false
+  - id: L14
+    name: Calibrated blend
+    description: >
+      Stacking of L6/L7 and L12 (per target, per stratum weights learned prequentially),
+      PIT recalibration, player-team reconciliation, copula-preserving remap of joint
+      samples.
+    info_set: pre
+    data_level: C
+    implemented: false
+
+oracles:
+  - id: O1
+    name: Oracle minutes
+    description: L6/L12 given the realised minutes (diagnostic ceiling for H12).
+  - id: O2
+    name: Oracle availability
+    description: Given who actually played.
+  - id: O3
+    name: Oracle lineups (lock)
+    description: Given announced starters; equals info_set lock, reported separately.
+  - id: O4
+    name: Oracle game latent
+    description: Synthetic only. Simulator given the true per-game latent draws.

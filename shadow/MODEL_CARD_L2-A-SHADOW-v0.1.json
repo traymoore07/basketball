@@ -1,0 +1,203 @@
+{
+ "model_version": "L2-A-SHADOW-v0.1",
+ "status": "first prospective candidate; not the final basketball model",
+ "lineage": "P1 ladder rung L2 = hoopslab.models.baselines.PlayerMean(half_life=5.0), selected on prior seasons in every development season (docs/p1/01_ladder_report.md section 3.4); mode A results: core CRPS skill vs L0 +27.15%",
+ "forecast_mode": "A - CONDITIONAL ON APPEARANCE: every distribution is P(stat | the player appears); no appearance probability is produced or implied",
+ "half_life_appearances": 5.0,
+ "forecast_time": "scheduled tip - 60 min (information cutoff); forecast created at or after the cutoff and before the tip",
+ "targets": {
+  "MIN": {
+   "k_max": 70,
+   "definition": "round(seconds / 60), full game incl. overtime",
+   "rps_bins": [
+    10,
+    20,
+    25,
+    30,
+    35,
+    40
+   ]
+  },
+  "PTS": {
+   "k_max": 90,
+   "definition": "points",
+   "rps_bins": [
+    10,
+    15,
+    20,
+    25,
+    30,
+    35
+   ]
+  },
+  "REB": {
+   "k_max": 40,
+   "definition": "oreb + dreb",
+   "rps_bins": [
+    4,
+    7,
+    10,
+    13
+   ]
+  },
+  "AST": {
+   "k_max": 30,
+   "definition": "assists",
+   "rps_bins": [
+    3,
+    5,
+    7,
+    10
+   ]
+  },
+  "FG3M": {
+   "k_max": 16,
+   "definition": "three-point field goals made",
+   "rps_bins": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "TOV": {
+   "k_max": 15,
+   "definition": "turnovers",
+   "rps_bins": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ]
+  },
+  "PRA": {
+   "k_max": 140,
+   "definition": "pts + oreb + dreb + ast",
+   "rps_bins": [
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50
+   ]
+  }
+ },
+ "pmf_construction": {
+  "MIN": "normal(mu = exponentially weighted mean of past minutes over appearances, half-life 5 appearances; sd = 6) discretised to integer minutes 0..70 (bins k-0.5..k+0.5, open ends)",
+  "counts": "negative binomial(mean = exponentially weighted per-appearance mean, half-life 5; dispersion r per target fitted by method of moments on all visible appearances, clipped to [1.5, 500]) over 0..k_max, tail mass folded into the top bin",
+  "unknown_player": "league pmf of the target over all visible appearances (+0.01 smoothing) when the player has no visible appearance",
+  "k_max": {
+   "MIN": 70,
+   "PTS": 90,
+   "REB": 40,
+   "AST": 30,
+   "FG3M": 16,
+   "TOV": 15,
+   "PRA": 140
+  }
+ },
+ "fitting_at_forecast_time": "refit on every forecast from the supplied history: per-player exponentially weighted means over appearances (seconds > 0), league negative-binomial dispersion per target, league pmf fallback",
+ "required_inputs": {
+  "GAME": [
+   "game_id",
+   "league",
+   "season_id",
+   "phase",
+   "scheduled_tip",
+   "home_team_id",
+   "away_team_id",
+   "status",
+   "knowledge_time"
+  ],
+  "PLAYER_GAME": [
+   "game_id",
+   "player_id",
+   "team_id",
+   "seconds",
+   "pts",
+   "fgm",
+   "fga",
+   "fg3m",
+   "fg3a",
+   "ftm",
+   "fta",
+   "oreb",
+   "dreb",
+   "ast",
+   "stl",
+   "blk",
+   "tov",
+   "pf",
+   "knowledge_time"
+  ],
+  "ELIGIBLE": [
+   "game_id",
+   "player_id",
+   "team_id",
+   "availability_state",
+   "status_source",
+   "status_time"
+  ],
+  "availability_states": [
+   "CONFIRMED_ACTIVE",
+   "EXPECTED_ACTIVE",
+   "QUESTIONABLE_UNKNOWN",
+   "OUT"
+  ],
+  "history_policy": "league-wide completed player-games with knowledge_time <= cutoff, from the executor's history start (the P1 reference history starts 1997-10-01; the league pmf fallback and the negative-binomial dispersion are fitted on everything supplied, so the history start is part of data_snapshot_id)",
+  "contract": "docs/shadow/01_input_contract.md"
+ },
+ "output_schema": {
+  "package": "shadow-forecast-package/1",
+  "fields": [
+   "schema",
+   "forecast_id",
+   "forecast_version",
+   "model_version",
+   "forecast_mode",
+   "interpretation",
+   "game{game_id, league, season_id, phase, scheduled_tip, home_team_id, away_team_id, status_at_cutoff}",
+   "forecast_created_at",
+   "scheduled_tip",
+   "information_cutoff",
+   "data_snapshot_id",
+   "input_data_manifest",
+   "model{version, half_life_appearances, mode, targets, implementation_hash, pmf_construction, dispersion_r_fitted, league_appearances_in_history}",
+   "availability_counts",
+   "players[{player_id, team_id, availability_state, status_source, status_time, history_appearances, history_fallback, distributions{target: {pmf, support, mean, median, p10, p25, p50, p75, p90, threshold_probabilities}}}]",
+   "environment",
+   "lock_hash"
+  ],
+  "lock": "SHA-256 of the canonical JSON (sorted keys, no whitespace) of every field except lock_hash"
+ },
+ "implementation_hash": {
+  "files": {
+   "src/hoopslab/models/baselines.py": "4fff216d1791b4e4cc02a08726297be53a5f520ef11f29233d905b1de5bba9b1",
+   "src/hoopslab/features.py": "9049e9210592c8eb0842d27ddf4d3a26d10630a6e7e40e4e418fb90d8161e793",
+   "src/hoopslab/targets.py": "9e29fe7dbacbd583a6de84bc06094a9e09868ba1b43b11628995943b52acd9a4",
+   "src/hoopslab/forecast.py": "653d85711f5f3cf6f086fefef2a09b8e0e7ea400b4ff1e4a95915d8fa94a6d36",
+   "src/hoopslab/asof.py": "d3b10e8541c97cffc62e0bf91c921f27a9c7941c8176eae91ce5426088f16259",
+   "src/hoopslab/shadow/model.py": "f828654fd3ce3ff53351d462d6400f0ada294ea9984648145d569a304a9f5acc"
+  },
+  "combined": "caf0cb4407b109128f3d91f8ef631aacc531cafd72365208e74c3894507c65e8"
+ },
+ "environment_at_card_build": {
+  "python": "3.13.15",
+  "numpy": "2.5.3",
+  "pandas": "3.0.6",
+  "scipy": "1.18.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "hoopslab_commit": "a645ddea36b19de168c3f18b8b54c2ee9697c38a"
+ },
+ "governance": {
+  "research_firewall": "docs/shadow/00_firewall.md",
+  "scoring_policy": "docs/shadow/01_input_contract.md section 4",
+  "executor_instructions": "docs/shadow/02_executor_instructions.md",
+  "no_retuning": "half-life, pmf shapes, dispersion fit and targets are frozen; a change is a new model version"
+ },
+ "card_sha256": "9850040e05a54476fa5196bf2fc6cc68d274c19dc0ddfbf37eeaedc2bcc5aee1"
+}

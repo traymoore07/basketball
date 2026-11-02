@@ -1,0 +1,117 @@
+# E-HIST summary (NBA nba_stats segments, development seasons 2000-2020, prequential by month)
+
+## 1. Frozen multinomial logit (L2 = 1e-4), pooled over all months
+
+events 5,668,402, games 26,937, months 185; mean held-out bits per event: A 2.4533, B 2.4528, C 2.4526, D 2.4526, E 2.4499, F 2.4532, G 2.4499
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| gain_B | +0.545 | [+0.518, +0.574] | 0.0005 | 5,668,402 |
+| gain_C | +0.672 | [+0.637, +0.706] | 0.0005 | 5,668,402 |
+| gain_D | +0.732 | [+0.695, +0.769] | 0.0005 | 5,668,402 |
+| gain_E_vs_D | +2.734 | [+2.659, +2.808] | 0.0005 | 5,668,402 |
+| history_signal | +3.466 | [+3.386, +3.547] | 0.0005 | 5,668,402 |
+| latent_signal | +0.113 | [+0.087, +0.139] | 0.0005 | 5,668,402 |
+| history_residual | +3.354 | [+3.274, +3.429] | 0.0005 | 5,668,402 |
+| gain_G_vs_E | +0.001 | [-0.013, +0.015] | 0.4443 | 5,668,402 |
+| NEGATIVE CONTROL: permuted history (E_perm vs A) | -0.038 | [-0.050, -0.026] | 1.0000 | 5,668,402 |
+| NEGATIVE CONTROL: permuted history beyond latent (G_perm vs F) | -0.157 | [-0.185, -0.130] | 1.0000 | 5,668,402 |
+| POSITIVE CONTROL (canary: next segment class) | +3.179 | [+3.098, +3.261] | 0.0005 | 5,668,402 |
+
+**Frozen diagnosis (MPE 0.5 millibits): GENUINE_HISTORY**
+
+### Per season (mnl)
+
+| season | events | games | history_signal (mb) [CI] | latent_signal (mb) | history_residual (mb) [CI] | gain_B (mb) | diagnosis |
+|---|---|---|---|---|---|---|---|
+| 2000 | 267,977 | 1264 | +4.46 [+4.02, +4.91] | +0.15 | +4.34 [+3.92, +4.76] | +0.54 | GENUINE_HISTORY |
+| 2001 | 260,893 | 1260 | +4.18 [+3.72, +4.63] | +0.21 | +4.01 [+3.56, +4.43] | +0.64 | GENUINE_HISTORY |
+| 2002 | 261,134 | 1260 | +3.60 [+3.15, +4.03] | +0.03 | +3.59 [+3.17, +4.02] | +0.60 | GENUINE_HISTORY |
+| 2003 | 265,633 | 1277 | +4.17 [+3.79, +4.56] | +0.07 | +4.02 [+3.65, +4.42] | +0.51 | GENUINE_HISTORY |
+| 2004 | 261,790 | 1271 | +3.78 [+3.38, +4.18] | +0.05 | +3.71 [+3.32, +4.11] | +0.75 | GENUINE_HISTORY |
+| 2005 | 272,938 | 1314 | +4.36 [+3.96, +4.79] | +0.06 | +4.27 [+3.86, +4.70] | +0.51 | GENUINE_HISTORY |
+| 2006 | 270,600 | 1319 | +4.01 [+3.59, +4.44] | +0.01 | +3.98 [+3.56, +4.40] | +0.62 | GENUINE_HISTORY |
+| 2007 | 271,707 | 1309 | +3.67 [+3.24, +4.11] | +0.10 | +3.58 [+3.16, +4.02] | +0.54 | GENUINE_HISTORY |
+| 2008 | 274,149 | 1316 | +4.02 [+3.63, +4.40] | +0.09 | +3.92 [+3.53, +4.30] | +0.55 | GENUINE_HISTORY |
+| 2009 | 271,624 | 1315 | +3.53 [+3.16, +3.91] | +0.25 | +3.36 [+2.99, +3.73] | +0.71 | GENUINE_HISTORY |
+| 2010 | 272,643 | 1312 | +3.19 [+2.79, +3.61] | +0.18 | +3.05 [+2.67, +3.46] | +0.53 | GENUINE_HISTORY |
+| 2011 | 271,058 | 1311 | +3.50 [+3.12, +3.85] | +0.13 | +3.35 [+2.98, +3.69] | +0.53 | GENUINE_HISTORY |
+| 2012 | 221,785 | 1074 | +3.38 [+2.99, +3.77] | +0.18 | +3.17 [+2.79, +3.54] | +0.60 | GENUINE_HISTORY |
+| 2013 | 272,908 | 1314 | +2.99 [+2.63, +3.35] | +0.28 | +2.74 [+2.40, +3.08] | +0.42 | GENUINE_HISTORY |
+| 2014 | 278,140 | 1319 | +3.24 [+2.87, +3.63] | +0.15 | +3.15 [+2.79, +3.51] | +0.53 | GENUINE_HISTORY |
+| 2015 | 277,286 | 1311 | +2.94 [+2.59, +3.29] | +0.05 | +2.89 [+2.55, +3.23] | +0.52 | GENUINE_HISTORY |
+| 2016 | 281,323 | 1316 | +3.09 [+2.74, +3.43] | +0.05 | +3.04 [+2.70, +3.37] | +0.63 | GENUINE_HISTORY |
+| 2017 | 280,408 | 1309 | +2.74 [+2.40, +3.08] | +0.12 | +2.65 [+2.33, +2.97] | +0.57 | GENUINE_HISTORY |
+| 2018 | 284,369 | 1312 | +2.85 [+2.51, +3.19] | +0.07 | +2.70 [+2.37, +3.03] | +0.39 | GENUINE_HISTORY |
+| 2019 | 294,201 | 1312 | +2.88 [+2.57, +3.21] | +0.05 | +2.81 [+2.50, +3.12] | +0.36 | GENUINE_HISTORY |
+| 2020 | 255,836 | 1142 | +2.30 [+2.00, +2.62] | +0.10 | +2.21 [+1.91, +2.52] | +0.44 | GENUINE_HISTORY |
+
+## 2. GBM replication (fixed parameters), pooled
+
+events 1,891,555, months 62; mean bits: A 2.4443, B 2.4435, C 2.4434, D 2.4432, E 2.4397, F 2.4441, G 2.4397
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| gain_B | +0.871 | [+0.756, +0.987] | 0.0005 | 1,891,555 |
+| gain_D | +1.119 | [+0.983, +1.261] | 0.0005 | 1,891,555 |
+| history_signal | +4.656 | [+4.441, +4.871] | 0.0005 | 1,891,555 |
+| latent_signal | +0.211 | [+0.090, +0.329] | 0.0010 | 1,891,555 |
+| history_residual | +4.428 | [+4.216, +4.624] | 0.0005 | 1,891,555 |
+| canary | +4.491 | [+4.304, +4.672] | 0.0005 | 1,891,555 |
+
+diagnosis: GENUINE_HISTORY
+
+## 3. GRU sequence model (sets E and G) against the frozen logit on identical test events
+
+events 5,668,834, months 185; mean bits: mnl_A 2.4533, mnl_E 2.4498, mnl_F 2.4532, A_nn 2.4680, F_nn 2.4680, E_gru 2.4636, G_gru 2.4632
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| history_signal_nn (A_nn vs E_gru) | +4.380 | [+4.199, +4.572] | 0.0005 | 5,668,834 |
+| latent_signal_nn (A_nn vs F_nn) | -0.026 | [-0.181, +0.131] | 0.6187 | 5,668,834 |
+| history_residual_nn (F_nn vs G_gru) | +4.857 | [+4.669, +5.041] | 0.0005 | 5,668,834 |
+| architecture: A_nn vs mnl A | -14.715 | [-14.996, -14.420] | 1.0000 | 5,668,834 |
+| architecture: E_gru vs mnl E | -13.805 | [-14.106, -13.508] | 1.0000 | 5,668,834 |
+
+neural-family diagnosis: GENUINE_HISTORY
+
+## 5. H3b attribution (frozen multinomial logit; every sixth test month: 31 months, 951,008 events)
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| history_residual_baseline (F vs G) | +3.459 | [+3.260, +3.677] | 0.0005 | 951,008 |
+| history_residual_after_fouls (F_fouls vs G_fouls) | +1.034 | [+0.923, +1.147] | 0.0005 | 951,008 |
+| slow_variable_gain_fouls (F vs F_fouls) | +7.623 | [+7.272, +7.950] | 0.0005 | 951,008 |
+| history_residual_after_stint (F_stint vs G_stint) | +3.404 | [+3.194, +3.614] | 0.0005 | 951,008 |
+| slow_variable_gain_stint (F vs F_stint) | +0.223 | [+0.171, +0.271] | 0.0005 | 951,008 |
+| history_residual_after_lineup (F_lineup vs G_lineup) | +3.476 | [+3.278, +3.684] | 0.0005 | 951,008 |
+| slow_variable_gain_lineup (F vs F_lineup) | +0.082 | [+0.048, +0.116] | 0.0005 | 951,008 |
+| history_residual_after_gap (F_gap vs G_gap) | +9.932 | [+9.598, +10.224] | 0.0005 | 951,008 |
+| slow_variable_gain_gap (F vs F_gap) | +8.867 | [+8.549, +9.198] | 0.0005 | 951,008 |
+| history_residual_after_all (F_all vs G_all) | +5.711 | [+5.483, +5.944] | 0.0005 | 951,008 |
+| slow_variable_gain_all (F vs F_all) | +17.536 | [+17.031, +18.037] | 0.0005 | 951,008 |
+| previous_class_gain (E vs E_PC) | +0.524 | [+0.445, +0.602] | 0.0005 | 951,008 |
+| previous_class_gain_beyond_latent_and_slow (G_all vs G_all_PC) | +0.616 | [+0.541, +0.692] | 0.0005 | 951,008 |
+| previous_class_gain_beyond_latent (G vs G_PC) | +0.516 | [+0.441, +0.597] | 0.0005 | 951,008 |
+
+## 6. Positive control (canary 2: next segment's start type and margin change; 31 months, 951,008 events)
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| A + canary2 vs A | +1345.351 | [+1339.940, +1350.757] | 0.0005 | 951,008 |
+
+## 7. EXPLORATORY (not pre-registered): clock x margin block added to the frozen sets (3 months, 150,907 events)
+
+| contrast | millibits/event | 95% CI | p | n |
+|---|---|---|---|---|
+| TM_gain_on_state (A vs A_TM) | +9.740 | [+8.819, +10.693] | 0.0005 | 150,907 |
+| history_signal_with_TM (A_TM vs G_TM minus latent) | +1.743 | [+1.376, +2.105] | 0.0005 | 150,907 |
+| history_residual_baseline (F vs G) | +3.402 | [+2.924, +3.884] | 0.0005 | 150,907 |
+| history_residual_with_TM (F_TM vs G_TM) | +1.593 | [+1.244, +1.941] | 0.0005 | 150,907 |
+| history_residual_with_TM_and_slow (F_all_TM vs G_all_TM) | +5.701 | [+5.150, +6.253] | 0.0005 | 150,907 |
+| late_only (4Q/OT): history_residual_with_TM (F_TM vs G_TM) | +0.834 | [+0.442, +1.242] | 0.0005 | 37,932 |
+| late_only (4Q/OT): history_residual_baseline (F vs G) | +1.842 | [+1.287, +2.422] | 0.0005 | 37,932 |
+
+## 4. Hot-hand contrast (diagnostic only)
+
+pairs 4,317,194; pooled P(make|prev make) - P(make|prev miss) = -0.0069; within-game (game-weighted mean) = -0.0136. within-game differences carry the Miller-Sanjurjo small-sample bias (negative in expectation under no hot hand); the pooled estimate mixes between-game heterogeneity

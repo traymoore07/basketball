@@ -1,0 +1,6 @@
+game_id,team_id,player_id,lineup_status,source,source_kind,published_at,retrieved_at,note
+G:FIXTURE:1,T:A,P1,CONFIRMED_STARTER,starters feed,starters_feed,2010-01-31T22:35:00Z,2010-01-31T22:40:00Z,
+G:FIXTURE:1,T:A,P2,EXPECTED_STARTER,beat writer,beat_writer,2010-01-31T21:00:00Z,2010-01-31T22:40:00Z,
+G:FIXTURE:1,T:A,P3,BENCH,beat writer,beat_writer,2010-01-31T21:00:00Z,2010-01-31T22:40:00Z,
+G:FIXTURE:1,T:A,P6,UNKNOWN,none,none,2010-01-31T22:40:00Z,2010-01-31T22:40:00Z,
+G:FIXTURE:1,T:B,P7,CONFIRMED_STARTER,starters feed,starters_feed,2010-01-31T22:35:00Z,2010-01-31T22:40:00Z,

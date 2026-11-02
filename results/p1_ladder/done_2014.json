@@ -1,0 +1,78 @@
+{
+ "season": 2014,
+ "days": 207,
+ "requests": 39532,
+ "score_parts": 39,
+ "seconds": 13218,
+ "accessed_tables": {
+  "L0_climatology": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L1_player_mean": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L2_recent_hl5": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L2_recent_hl10": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L2_recent_hl20": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L2_recent_hl40": [
+   "GAME",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L3_minutes_rate": [
+   "GAME",
+   "PLAYER",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L4_hier_shrink": [
+   "GAME",
+   "PLAYER",
+   "PLAYER_GAME",
+   "ROSTER"
+  ],
+  "L4_hier_shrink_plugin": [
+   "GAME",
+   "PLAYER",
+   "PLAYER_GAME",
+   "ROSTER"
+  ]
+ },
+ "models": [
+  "L0_climatology",
+  "L1_player_mean",
+  "L2_recent_hl5",
+  "L2_recent_hl10",
+  "L2_recent_hl20",
+  "L2_recent_hl40",
+  "L3_minutes_rate",
+  "L4_hier_shrink",
+  "L4_hier_shrink_plugin"
+ ],
+ "excluded_games": [],
+ "game_v1_lag_days": 7,
+ "chunk_days": 6,
+ "coverage": {
+  "expected_games": 1319,
+  "forecast_games": 1319,
+  "missing": [],
+  "extra": []
+ },
+ "dry_run": false
+}

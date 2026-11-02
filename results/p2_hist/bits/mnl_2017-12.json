@@ -1,0 +1,20 @@
+{
+ "month": "2017-12",
+ "family": "mnl",
+ "n_train": 573223,
+ "n_test": 48501,
+ "train_from": "2015-12-02",
+ "train_to": "2017-11-30",
+ "n_players_vocab": 660,
+ "n_teams": 30,
+ "converged": {
+  "A": true,
+  "B": true,
+  "C": true,
+  "D": true,
+  "E": true,
+  "F": true,
+  "G": true
+ },
+ "seconds": 3225.8
+}

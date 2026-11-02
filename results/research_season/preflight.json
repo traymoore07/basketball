@@ -1,0 +1,200 @@
+{
+ "at_utc": "2026-11-02T14:45:09+00:00",
+ "checks": {
+  "registry_verify": {
+   "output": "PRE-REGISTRATION INTACT (tier 1, tier 2, archive, logs)",
+   "passed": true
+  },
+  "adapter_attestation": {
+   "attested_at": "2026-10-31T01:18:33+00:00",
+   "mismatches": {},
+   "passed": true
+  },
+  "holdout_sealed": {
+   "rows_season_ge_2023": {
+    "possessions": 0,
+    "play_by_play": 0,
+    "player_game_box": 0
+   },
+   "passed": true
+  },
+  "spec_frozen": {
+   "file": "research_season/01_carryover_spec.md",
+   "sha256": "87a143b04f65caa421d042a271f7db0db94b9ebdc71ff3a7c6fad0bd8f371444",
+   "frozen_marker": true,
+   "draft_absent": true,
+   "passed": true
+  },
+  "hashes": {
+   "frozen_modules": {
+    "src/hoopslab/models/baselines.py": "4fff216d1791b4e4cc02a08726297be53a5f520ef11f29233d905b1de5bba9b1",
+    "src/hoopslab/features.py": "9049e9210592c8eb0842d27ddf4d3a26d10630a6e7e40e4e418fb90d8161e793",
+    "src/hoopslab/targets.py": "9e29fe7dbacbd583a6de84bc06094a9e09868ba1b43b11628995943b52acd9a4",
+    "src/hoopslab/forecast.py": "653d85711f5f3cf6f086fefef2a09b8e0e7ea400b4ff1e4a95915d8fa94a6d36",
+    "src/hoopslab/asof.py": "d3b10e8541c97cffc62e0bf91c921f27a9c7941c8176eae91ce5426088f16259",
+    "src/hoopslab/metrics/scoring.py": "a054b65c52378931bf9e087b9d06bb4833aedcabe6447b9d6271973bad9a2859",
+    "src/hoopslab/metrics/compare.py": "5273f4d7f1596f3c2a7b7c2c635ca139efb6f0b9cb0b7b55cd1a2731c114b57a",
+    "src/hoopslab/backtest/runner.py": "056ad991f97f958a0eb7318a60d708c5afa94a27a0d398e5f6727842cd4bad40",
+    "src/hoopslab/backtest/strata.py": "1263293144e376615c241232b65be8a544cddce73488a4792ef39b3743bd4ea5",
+    "src/hoopslab/diagnostics/changepoint.py": "06f90a524c96bec557587b23a4ec8708319c6490d98928d283710843b33dcfcc"
+   },
+   "r1_code": {
+    "src/hoopslab/models/carryover.py": "12dcbdee44fc0b325356208e56b145e7007471404d6de36f08d02c3c5fe5de3d",
+    "experiments/research_season\\build_started.py": "5b323ef40cdd712403d8660c322a8117be42d4f463b29702fa8c2b3dabeeb3b9",
+    "experiments/research_season\\launch.py": "ffc74e5084212735bff5894e652cf4c7528b454a23ba09f9178b54e28caf806d",
+    "experiments/research_season\\preflight.py": "792f85c132377588e981a8e864c48439aa49c8427783ac902ca80d5d44ff43cf",
+    "experiments/research_season\\run_season.py": "377223bb34351313c290b0308b66ad43968df3c17cc6adca6b3c65db3b433ddc",
+    "experiments/research_season\\summarize.py": "2498cb83f661bf86f1838a6ea46041744110f18416bfdbd0c5218873d4bb7562"
+   },
+   "baseline_model_files_unchanged_since_shadow_card": {
+    "src/hoopslab/models/baselines.py": true,
+    "src/hoopslab/features.py": true,
+    "src/hoopslab/targets.py": true,
+    "src/hoopslab/forecast.py": true,
+    "src/hoopslab/asof.py": true
+   },
+   "passed": true
+  },
+  "store_columns": {
+   "PLAYER_GAME_has": {
+    "started": true,
+    "status": true,
+    "seconds": true,
+    "fga": true,
+    "fta": true,
+    "tov": true,
+    "team_id": true
+   },
+   "GAME_has": {
+    "season_id": true,
+    "scheduled_tip": true,
+    "knowledge_time": true,
+    "record_version": true
+   },
+   "passed": true
+  },
+  "started_table": {
+   "rows": 837661,
+   "seasons": [
+    1997,
+    1998,
+    1999,
+    2000,
+    2001,
+    2002,
+    2003,
+    2004,
+    2005,
+    2006,
+    2007,
+    2008,
+    2009,
+    2010,
+    2011,
+    2012,
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+   ],
+   "share_by_season": {
+    "1997": 0.2922,
+    "1998": 0.3114,
+    "1999": 0.277,
+    "2000": 0.2781,
+    "2001": 0.2744,
+    "2002": 0.2756,
+    "2003": 0.2755,
+    "2004": 0.4066,
+    "2005": 0.4176,
+    "2006": 0.4169,
+    "2007": 0.4171,
+    "2008": 0.4169,
+    "2009": 0.4177,
+    "2010": 0.4167,
+    "2011": 0.4173,
+    "2012": 0.3886,
+    "2013": 0.3916,
+    "2014": 0.3916,
+    "2015": 0.3911,
+    "2016": 0.391,
+    "2017": 0.3895,
+    "2018": 0.3965,
+    "2019": 0.3984,
+    "2020": 0.3982
+   },
+   "passed": true
+  },
+  "grid_identity_tests": {
+   "output": "4 passed in 2.28s",
+   "passed": true
+  },
+  "environment": {
+   "git_head": "3e32c288d180e7c6696860279aa986dccbcba6a0",
+   "git_status_short": "M .gitignore\n M experiments/research_season/preflight.py\n M experiments/research_season/run_season.py\n?? experiments/research_season/build_started.py\n?? results/p2_hist/downstream_form_log.txt\n?? results/p2_hist/slow_vars_log.txt\n?? results/p2_hist/summarize_run1.log\n?? results/p2_state/run_gbm_1999-11_2010-01.log\n?? results/p2_state/run_gbm_1999-12_1999-12.log\n?? results/p2_state/run_gbm_2007-10_2008-10.log\n?? results/p2_state/run_gbm_2009-01_2010-01.log\n?? results/p2_state/run_gbm_2010-04_2015-06.log\n?? results/p2_state/run_gbm_2010-04_2020-09.log\n?? results/p2_state/run_gbm_2015-12_2020-09.log\n?? results/p2_state/run_mnl_1999-11_2000-11.log\n?? results/p2_state/run_mnl_1999-12_1999-12.log\n?? results/p2_state/run_mnl_2001-02_2002-02.log\n?? results/p2_state/run_mnl_2002-05_2003-02.log\n?? results/p2_state/run_mnl_2003-05_2004-05.log\n?? results/p2_state/run_mnl_2004-12_2006-01.log\n?? results/p2_state/run_mnl_2006-04_2007-01.log\n?? results/p2_state/run_mnl_2007-04_2008-04.log\n?? results/p2_state/run_mnl_2008-10_2009-10.log\n?? results/p2_state/run_mnl_2010-01_2010-10.log\n?? results/p2_state/run_mnl_2011-01_2012-03.log\n?? results/p2_state/run_mnl_2012-06_2013-06.log\n?? results/p2_state/run_mnl_2013-12_2014-06.log\n?? results/p2_state/run_mnl_2014-12_2016-03.log\n?? results/p2_state/run_mnl_2014-12_2016-06.log\n?? results/p2_state/run_mnl_2016-06_2017-06.log\n?? results/p2_state/run_mnl_2016-12_2018-06.log\n?? results/p2_state/run_mnl_2017-12_2019-03.log\n?? results/p2_state/run_mnl_2018-12_2020-09.log\n?? results/p2_state/run_mnl_2019-06_2020-09.log\n?? results/p2_state/state_build_stdout.txt\n?? results/p2_state/wnba/run_mnl_2018-05_2020-10.log\n?? results/p2_state/wnba/stdout_mnl_2018-05_2020-10.txt\n?? results/p2_state/wnba_prepare_stdout.txt\n?? results/research_season/started_log.txt",
+   "python": "3.13.15",
+   "platform": "Windows-11-10.0.26200-SP0",
+   "numpy": "2.5.3",
+   "pandas": "3.0.6",
+   "scipy": "1.18.1"
+  }
+ },
+ "design_fixed_before_outcomes": {
+  "spec": "research_season/01_carryover_spec.md",
+  "grid": [
+   "A",
+   "B",
+   "C_c0.1",
+   "C_c0.25",
+   "C_c0.5",
+   "C_c0.75",
+   "D_rho0.5_f0",
+   "D_rho0.5_f0.1",
+   "D_rho0.7_f0",
+   "D_rho0.7_f0.1",
+   "D_rho0.85_f0",
+   "D_rho0.85_f0.1",
+   "E_rho0.5_f0_kt0.25_kr0.25_ku0.5",
+   "E_rho0.5_f0_kt0.25_kr0.25_ku1",
+   "E_rho0.5_f0_kt0.25_kr0.5_ku0.5",
+   "E_rho0.5_f0_kt0.25_kr0.5_ku1",
+   "E_rho0.5_f0_kt0.5_kr0.25_ku0.5",
+   "E_rho0.5_f0_kt0.5_kr0.25_ku1",
+   "E_rho0.5_f0_kt0.5_kr0.5_ku0.5",
+   "E_rho0.5_f0_kt0.5_kr0.5_ku1",
+   "E_rho0.5_f0.1_kt0.25_kr0.25_ku0.5",
+   "E_rho0.5_f0.1_kt0.25_kr0.25_ku1",
+   "E_rho0.5_f0.1_kt0.25_kr0.5_ku0.5",
+   "E_rho0.5_f0.1_kt0.25_kr0.5_ku1",
+   "E_rho0.5_f0.1_kt0.5_kr0.25_ku0.5",
+   "E_rho0.5_f0.1_kt0.5_kr0.25_ku1",
+   "E_rho0.5_f0.1_kt0.5_kr0.5_ku0.5",
+   "E_rho0.5_f0.1_kt0.5_kr0.5_ku1",
+   "E_rho0.85_f0_kt0.25_kr0.25_ku0.5",
+   "E_rho0.85_f0_kt0.25_kr0.25_ku1",
+   "E_rho0.85_f0_kt0.25_kr0.5_ku0.5",
+   "E_rho0.85_f0_kt0.25_kr0.5_ku1",
+   "E_rho0.85_f0_kt0.5_kr0.25_ku0.5",
+   "E_rho0.85_f0_kt0.5_kr0.25_ku1",
+   "E_rho0.85_f0_kt0.5_kr0.5_ku0.5",
+   "E_rho0.85_f0_kt0.5_kr0.5_ku1",
+   "E_rho0.85_f0.1_kt0.25_kr0.25_ku0.5",
+   "E_rho0.85_f0.1_kt0.25_kr0.25_ku1",
+   "E_rho0.85_f0.1_kt0.25_kr0.5_ku0.5",
+   "E_rho0.85_f0.1_kt0.25_kr0.5_ku1",
+   "E_rho0.85_f0.1_kt0.5_kr0.25_ku0.5",
+   "E_rho0.85_f0.1_kt0.5_kr0.25_ku1",
+   "E_rho0.85_f0.1_kt0.5_kr0.5_ku0.5",
+   "E_rho0.85_f0.1_kt0.5_kr0.5_ku1"
+  ],
+  "selection": "per target on seasons <= S-1 (1998-1999 selection only, P1 convention)",
+  "primary_contrast": "selected family vs A, CRPS, team game index <= 20, paired game-day block bootstrap, P1 MPE 0.01",
+  "mode": "A only",
+  "lead_minutes": 60
+ },
+ "all_passed": true
+}
