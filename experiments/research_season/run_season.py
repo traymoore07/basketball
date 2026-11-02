@@ -73,6 +73,13 @@ def main():
     t0 = time.time()
     store, rep = build_store(CorpusV102Adapter(league="nba", family="nba_stats", seasons=None, level="A"), strict=True)
     P(f"season {S}: store built in {time.time()-t0:.0f}s rows={rep['rows']}")
+    # realised starters (build_started.py): level A carries no starter flag; the outcome column of the same box row
+    st = pd.read_parquet(os.path.join(out, "started.parquet"))
+    st_map = dict(zip(st["game_id"].astype(str) + "|" + st["player_id"].astype(str), st["started"].astype(bool)))
+    pg = store._tables["PLAYER_GAME"]
+    key = pg["game_id"].astype(str) + "|" + pg["player_id"].astype(str)
+    pg["started"] = key.map(st_map).fillna(False).astype(bool).to_numpy()
+    P(f"season {S}: started patched from lineup stints: share {pg['started'].mean():.4f} over {len(pg)} box rows")
     seas = store.full_table("SEASON").set_index("season_id")
     gfull = store.full_table("GAME")
     g1 = gfull[gfull["record_version"] == 1]
@@ -94,7 +101,7 @@ def main():
     n_days, parts = 0, 0
     game_season = gfull.drop_duplicates("game_id", keep="last").set_index("game_id")["season_id"]
     # as-of team game index: completed (final, v2) games of the team in this season known before t
-    gv2 = gfull[gfull["record_version"] == 2][["game_id", "home_team_id", "away_team_id", "season_id", "knowledge_time", "scheduled_tip"]]
+    gv2 = gfull[(gfull["record_version"] == 2) & gfull["phase"].isin(PHASES)][["game_id", "home_team_id", "away_team_id", "season_id", "knowledge_time", "scheduled_tip"]]  # P1 phases only: preseason games never count towards the team game index
     c0 = start
     while c0 <= end:
         c1 = min(c0 + pd.Timedelta(days=chunk_days - 1, hours=23, minutes=59), end)

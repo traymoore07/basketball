@@ -60,6 +60,15 @@ g_cols = list(store.full_table("GAME").columns)
 need_pg, need_g = ["started", "status", "seconds", "fga", "fta", "tov", "team_id"], ["season_id", "scheduled_tip", "knowledge_time", "record_version"]
 out["checks"]["store_columns"] = {"PLAYER_GAME_has": {c: c in pg_cols for c in need_pg}, "GAME_has": {c: c in g_cols for c in need_g},
                                   "passed": all(c in pg_cols for c in need_pg) and all(c in g_cols for c in need_g)}
+sp = os.path.join(OUT, "started.parquet")
+if os.path.exists(sp):
+    import pandas as pd
+    st = pd.read_parquet(sp)
+    share = st.groupby("season")["started"].mean()
+    out["checks"]["started_table"] = {"rows": int(len(st)), "seasons": sorted(int(s) for s in share.index), "share_by_season": {int(k): round(float(v), 4) for k, v in share.items()},
+                                      "passed": set(range(1997, 2021)) <= set(int(s) for s in share.index) and bool((share > 0.2).all())}
+else:
+    out["checks"]["started_table"] = {"passed": False, "reason": "results/research_season/started.parquet missing (run build_started.py)"}
 t = run("python -m pytest -q tests/test_carryover.py")
 out["checks"]["grid_identity_tests"] = {"output": t.splitlines()[-1] if t else "", "passed": "passed" in t and "failed" not in t}
 import numpy, pandas, scipy  # noqa: E402

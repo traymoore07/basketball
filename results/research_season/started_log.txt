@@ -1,0 +1,25 @@
+1997 rows=43157 started_share=0.2922 starters_per_game=10.00 seconds=13
+1998 rows=40457 started_share=0.3114 starters_per_game=10.00 seconds=15
+1999 rows=28556 started_share=0.2770 starters_per_game=10.00 seconds=9
+2000 rows=45451 started_share=0.2781 starters_per_game=10.00 seconds=14
+2001 rows=45913 started_share=0.2744 starters_per_game=10.00 seconds=14
+2002 rows=45723 started_share=0.2756 starters_per_game=10.00 seconds=15
+2003 rows=46346 started_share=0.2755 starters_per_game=10.00 seconds=16
+2004 rows=31257 started_share=0.4066 starters_per_game=10.00 seconds=16
+2005 rows=31468 started_share=0.4176 starters_per_game=10.00 seconds=17
+2006 rows=31640 started_share=0.4169 starters_per_game=10.00 seconds=18
+2007 rows=31382 started_share=0.4171 starters_per_game=10.00 seconds=18
+2008 rows=31563 started_share=0.4169 starters_per_game=10.00 seconds=18
+2009 rows=31483 started_share=0.4177 starters_per_game=10.00 seconds=16
+2010 rows=31482 started_share=0.4167 starters_per_game=10.00 seconds=17
+2011 rows=31419 started_share=0.4173 starters_per_game=10.00 seconds=18
+2012 rows=27638 started_share=0.3886 starters_per_game=10.00 seconds=14
+2013 rows=33551 started_share=0.3916 starters_per_game=10.00 seconds=19
+2014 rows=33683 started_share=0.3916 starters_per_game=10.00 seconds=19
+2015 rows=33523 started_share=0.3911 starters_per_game=10.00 seconds=19
+2016 rows=33659 started_share=0.3910 starters_per_game=10.00 seconds=18
+2017 rows=33610 started_share=0.3895 starters_per_game=10.00 seconds=18
+2018 rows=33090 started_share=0.3965 starters_per_game=10.00 seconds=17
+2019 rows=32928 started_share=0.3984 starters_per_game=10.00 seconds=19
+2020 rows=28682 started_share=0.3982 starters_per_game=10.00 seconds=15
+wrote 837661 rows

@@ -30,3 +30,4 @@ results/research_season/context_*.parquet
 results/research_season/strata_*.parquet
 results/research_season/stdout_*.txt
 results/research_season/log_*.txt
+results/research_season/started.parquet
