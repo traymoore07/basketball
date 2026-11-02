@@ -24,3 +24,9 @@ results/p2_state/timing/
 results/p2_state/stdout_*.txt
 results/p2_state/wnba/*.parquet
 results/p2_state/wnba/bits/
+results/research_season/scores_*.parquet
+results/research_season/requests_*.parquet
+results/research_season/context_*.parquet
+results/research_season/strata_*.parquet
+results/research_season/stdout_*.txt
+results/research_season/log_*.txt
